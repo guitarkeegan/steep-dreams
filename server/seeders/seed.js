@@ -1,7 +1,7 @@
 const connection = require('../config/connection');
 const { Product, User } = require('../models');
 const productSeeds = require('./productSeeds');
-const userSeeds = require('/userSeeds');
+const userSeeds = require('./userSeeds');
 
 
 connection.on('error', (err) => err);

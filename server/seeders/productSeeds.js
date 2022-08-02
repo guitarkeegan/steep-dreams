@@ -122,4 +122,4 @@ const products = [
 }
 ]
 
-modules.export = products;
+module.exports = products;
