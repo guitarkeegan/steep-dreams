@@ -1,8 +1,8 @@
 const { Schema, Types } = require('mongoose');
 const dayjs = require('dayjs');
-const {Product} = require('./');
+const Product = require('./Product');
 
-const reactionSchema = new Schema(
+const orderSchema = new Schema(
   {
     orderId: {
       type: Schema.Types.ObjectId,
@@ -12,7 +12,10 @@ const reactionSchema = new Schema(
       type: Number,
       required: true,
     },
-    isComplete: Boolean,
+    isComplete: {
+      type: Boolean,
+      default: false
+    }, 
     orderDetails: [Product],
     createdAt: {
       type: Date,
@@ -30,4 +33,4 @@ const reactionSchema = new Schema(
   }
 );
 
-module.exports = reactionSchema;
+module.exports = orderSchema;
