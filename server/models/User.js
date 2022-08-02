@@ -4,30 +4,26 @@ const { Schema } = mongoose;
 const bcrypt = require('bcrypt');
 const orderSchema = require('./Order');
 
-let validateEmail = function(email) {
-    var re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    return re.test(email)
-};
 
 const userSchema = new Schema({
   email: {
     type: String,
     required: true,
     unique: true,
-    trim: true,
-    max_length: 50,
+    maxLength: 50,
     trim: true,
     lowercase: true, 
-    validate: [validateEmail, 'Please fill a valid email address'],
-    match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/, 'Please fill a valid email address'] // not sure why I had both regexs here...
+    match: [/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,3})$/, 'Please fill a valid email address'] 
   },
   password: {
     type: String,
     required: true,
-    minlength: 6
+    minLength: 6
   },
-  orders: [orderSchema] // Order or Order.schema
+  orders: [orderSchema] 
 });
+
+
 
 // set up pre-save middleware to create password
 userSchema.pre('save', async function(next) {
