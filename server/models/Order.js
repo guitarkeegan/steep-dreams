@@ -16,7 +16,12 @@ const orderSchema = new Schema(
       type: Boolean,
       default: false
     }, 
-    orderDetails: [Product],
+    orderDetails: [
+        {
+          type: Schema.Types.ObjectId,
+          ref: 'Product',
+        },
+      ],
     createdAt: {
       type: Date,
       default: Date.now,
