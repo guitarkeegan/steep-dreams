@@ -1,11 +1,13 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
+import { QUERY_PRODUCTS } from "../utils/queries";
 import Products from "../components/Products";
 // useing query to render products
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
-  const products = data?.products || [];
+  console.log(data);
+  const products = data?.getProducts || [];
 
   return (
     <main>

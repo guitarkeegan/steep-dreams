@@ -1,5 +1,5 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
+// import { useQuery } from "@apollo/client";
 // import About from "../components/About";
 
 const About = () => {
