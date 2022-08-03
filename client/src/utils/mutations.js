@@ -3,28 +3,19 @@ import { gql } from '@apollo/client';
 
 //Create user with email and password and return user data with order and product details
  
-export const CREATE_USER = gql`
- mutation addUser($email: String!, $password: String!) {
+
+  export const CREATE_USER = gql`
+  mutation addUser($email: String!, $password: String!) {
     addUser(email: $email, password: $password) {
-      user {
+      token,
+      user{
+        _id
         email
-        orders {
-          orderId
-          price
-          createdAt
-          orderDetails {
-            _id
-            image
-            description
-            name
-            price
-            stockQuantity
-          }
-          isComplete
-        }
       }
-    }
-  }`
+    } 
+  }
+`;
+
 
   
 
@@ -57,4 +48,41 @@ mutation login($email: String!, $password: String!) {
 
 
   //Mutation for Create Order to be added once the frontend code is completed
+ /*
  
+ export const CREATE_USER = gql`
+ mutation addUser($email: String!, $password: String!) {
+    addUser(email: $email, password: $password) {
+      user {
+        email
+        orders {
+          orderId
+          price
+          createdAt
+          orderDetails {
+            _id
+            image
+            description
+            name
+            price
+            stockQuantity
+          }
+          isComplete
+        }
+      }
+    }
+  }`
+
+
+  export const ADD_USER = gql`
+  mutation addUser($username: String!, $email: String!, $password: String!) {
+    addUser(username: $username, email: $email, password: $password) {
+      token
+      user {
+        _id
+        username
+      }
+    }
+  }
+`;
+ */

@@ -6,11 +6,15 @@ import { CREATE_USER } from "../utils/mutations";
 import Auth from "../utils/auth";
 
 const Signup = () => {
+
   const [formState, setFormState] = useState({
     email: "",
     password: "",
   });
+
   const [addUser, { error, data }] = useMutation(CREATE_USER);
+
+  console.log("AddUser",addUser);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -21,20 +25,31 @@ const Signup = () => {
     });
   };
 
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
+
+    console.log("Sign up Data",formState);
 
     try {
+
+      console.log("Form Data passed ",{...formState});
+      
       const { data } = await addUser({
         variables: { ...formState },
       });
 
+
+      console.log("Returned Data",data);
+
       Auth.login(data.addUser.token);
+
     } catch (e) {
-      console.error(e);
+      console.log(e);
+      console.error("Here is a 404 Error",e);
     }
   };
+
 
   return (
     <main className="flex-row justify-center mb-4">
@@ -51,15 +66,7 @@ const Signup = () => {
               <form onSubmit={handleFormSubmit}>
                 <input
                   className="form-input"
-                  placeholder="Your username"
-                  name="username"
-                  type="text"
-                  value={formState.name}
-                  onChange={handleChange}
-                />
-                <input
-                  className="form-input"
-                  placeholder="Your email"
+                  placeholder="Email"
                   name="email"
                   type="email"
                   value={formState.email}
