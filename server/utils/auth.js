@@ -1,6 +1,8 @@
 const jwt = require('jsonwebtoken');
+const env=require('dotenv');
 
-const secret = process.env.JWT_SECRET;
+// const secret = process.env.JWT_SECRET;
+const secret="mysecretsshhhhh";
 const expiration = '2h';
 
 module.exports = {
@@ -8,6 +10,7 @@ module.exports = {
     // allows token to be sent via req.body, req.query, or headers
     let token = req.body.token || req.query.token || req.headers.authorization;
 
+    console.log(token);
     // We split the token string into an array and return actual token
     if (req.headers.authorization) {
       token = token.split(' ').pop().trim();
@@ -29,7 +32,10 @@ module.exports = {
     return req;
   },
   signToken: function ({ email, _id }) {
+
+   
     const payload = { email, _id };
+
     return jwt.sign({ data: payload }, secret, { expiresIn: expiration });
   },
 };
