@@ -1,22 +1,14 @@
-const { Schema, Types } = require('mongoose');
+const { Schema, model } = require('mongoose');
 const dayjs = require('dayjs');
 const Product = require('./Product');
 
 const orderSchema = new Schema(
   {
-    orderId: {
-      type: Schema.Types.ObjectId,
-      default: () => new Types.ObjectId(),
-    },
-    price: {
+    totalPrice: {
       type: Number,
       required: true,
     },
-    isComplete: {
-      type: Boolean,
-      default: false
-    }, 
-    orderDetails: [
+    productDetails: [
         {
           type: Schema.Types.ObjectId,
           ref: 'Product',
@@ -38,4 +30,6 @@ const orderSchema = new Schema(
   }
 );
 
-module.exports = orderSchema;
+const Order=model('Order',orderSchema);
+
+module.exports = Order;

@@ -3,9 +3,6 @@ const {gql}=require('apollo-server-express');
 
 const typeDefs=gql`
 
-
-scalar Date
-
 type User{
     _id:ID!
     email:String!
@@ -18,10 +15,9 @@ type Auth {
   }
 
 type Order{
-    orderId:ID!
     price:Float
-    createdAt:Date
-    orderDetails:[Product]
+    createdAt:String
+    productDetails:[Product]
     isComplete:Boolean
 }
 
@@ -42,31 +38,28 @@ type Query{
     getProduct(_id:String!):Product  
 }
 
+
+input ProductInput {
+    image:String
+    description:String
+    name:String!
+    price:Float!
+    stockQuantity:Int
+  }
+
 type Mutation{
 
-    login(email: String!, password: String!): Auth
     addUser(email: String!, password: String!): Auth
-    updateOrder(_id:String!):Order
-   
-        
-}
+    login(email: String!, password: String!): Auth
 
+    createOrder(
+        totalPrice:Float!,
+        productDetails:[ProductInput]
+        ):User
+}
 `;
 
-
-/* TO DO
-
-type Mutation{
-
-     createOrder(
-        price:Float ,
-        createdAt:Date,
-        orderDetails:[Product],
-        isComplete:Boolean
-        ):Order
-}
-
-*/
+//Need to fix the productDetails type once the front end code is finalized and make createOrder call 
 
 
 module.exports=typeDefs;
