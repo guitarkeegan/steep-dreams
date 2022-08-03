@@ -1,6 +1,6 @@
 import React from "react";
 // import { useQuery } from "@apollo/client";
-import About from "../components/About";
+// import About from "../components/About";
 
 const About = () => {
   return (
