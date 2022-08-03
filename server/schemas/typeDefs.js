@@ -3,6 +3,9 @@ const {gql}=require('apollo-server-express');
 
 const typeDefs=gql`
 
+
+scalar Date
+
 type User{
     _id:ID!
     email:String!
@@ -24,12 +27,12 @@ type Order{
 
 
 type Product{
-    _id:ID!
+    _id:ID
     image:String
     description:String
-    name:String!
-    price:Float!
-    inStock:Boolean!
+    name:String
+    price:Float
+    stockQuantity:Int
 }
 
 
@@ -44,17 +47,26 @@ type Mutation{
     login(email: String!, password: String!): Auth
     addUser(email: String!, password: String!): Auth
     updateOrder(_id:String!):Order
-    createOrder(
-        price:Float ,
-        createdAt:Date,
-        orderDetails:[Product],
-        isComplete:Boolean):Order
+   
+        
 }
- 
-
 
 `;
 
+
+/* TO DO
+
+type Mutation{
+
+     createOrder(
+        price:Float ,
+        createdAt:Date,
+        orderDetails:[Product],
+        isComplete:Boolean
+        ):Order
+}
+
+*/
 
 
 module.exports=typeDefs;
