@@ -1,7 +1,7 @@
 import {gql} from "@apollo/client";
 
 export const QUERY_ME = gql`
-
+{
   me {
     _id
     email
@@ -19,13 +19,13 @@ export const QUERY_ME = gql`
       isComplete
     }
   }
-}
 
 }
 `
 
 
 export const QUERY_PRODUCTS = gql`
+{
 getProducts {
   _id
   image
@@ -34,9 +34,11 @@ getProducts {
   price
   stockQuantity
 }
+}
 `
 
 export const QUERY_SINGLE_PRODUCT = gql`
+{
 getProduct(_id: $id) {
   _id
   image
@@ -44,6 +46,7 @@ getProduct(_id: $id) {
   name
   price
   stockQuantity
+}
 }
 `
 
