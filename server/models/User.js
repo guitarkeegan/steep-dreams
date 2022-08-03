@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
-
+const dayjs = require('dayjs');
 const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
-const orderSchema = require("./Order");
+const Order = require("./Order");
 
 
 const userSchema = new Schema({
@@ -20,7 +20,17 @@ const userSchema = new Schema({
     required: true,
     minLength: 6
   },
-  orders: [orderSchema] 
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    get: (date) => {
+      if (date) return dayjs(date).format('MM-DD-YYYY h:mma')
+    },
+  },
+  orders:[{
+    type:Schema.Types.ObjectId,
+    ref:'Order'
+  }]
 });
 
 
