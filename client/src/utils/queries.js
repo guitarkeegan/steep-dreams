@@ -1,8 +1,12 @@
 import {gql} from "@apollo/client";
 
-
-
-
+export const QUERY_INBOX=gql`
+{
+  inboxes {
+    totalElements
+  }
+}
+`
 
 export const QUERY_ME = gql`
 {
