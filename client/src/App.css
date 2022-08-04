@@ -1,13 +1,58 @@
+
+
 :root{
 
-  --bg-primary:#876c57 ;
+  --bg-color:#876c57 ;
+  --bg-color:#876c57 ;
+  --text-color:#84b8b4;
+  --form-header-color: #748482;
+  --white-color:#fff;
 }
 
 
-header{
-
-  background-color: var(--bg-primary) !important;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  font-size: 16px;
+  color: #1a1a1a;
 }
 
 
+header,footer{
+
+  background-color: var(--bg-color) !important;
+  color:var(white-color);
+}
+
+
+/*Sign Up Form Styling*/
+
+.card{
+
+  border-radius: 10px !important;
+  outline:none;
+  
+  
+}
+
+.card-header{
+  border-top-left-radius: 8px !important;
+  border-top-right-radius: 8px !important;
+  background-color: var(--form-header-color) !important;
+ 
+}
+
+input{
+  outline:none !important;
+}
+
+button,.btn{
+
+  background-color:var(--bg-color);
+  outline:none;
+  border: none;
+}
 

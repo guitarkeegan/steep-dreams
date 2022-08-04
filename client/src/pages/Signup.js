@@ -103,12 +103,11 @@ const Signup =  () => {
     <main className="flex-row justify-center m-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <div className="card-header bg-dark text-light p-2"><h4>Sign Up</h4></div>
-          <div className="card-body">
-            {/* {data ? (
-                // <Link to="/"></Link>
-                <div></div>
-            ) : ( */}
+          <div className="card-header p-2"><h4>Sign Up</h4></div>
+          <div className="card-body ">
+            {data ? (
+                <Link to="/"></Link>
+            ) : (
               <form onSubmit={handleFormSubmit} className="d-flex flex-column py-5 signup-form">
                 <div className="form-group">
                 <input
@@ -136,13 +135,12 @@ const Signup =  () => {
                   Submit
                 </button>
               </form>
-            {/* )} */}
-
-            {/* {error && (
+           )} 
+            {error && (
               <div className="my-3 p-3 bg-danger text-white">
                 {error.message}
               </div>
-            )} */}
+            )} 
           </div>
         </div>
       </div>
