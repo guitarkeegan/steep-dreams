@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_PRODUCTS } from "../utils/queries";
-import Products from "../components/Products";
+import Products from "./Products";
 // useing query to render products
 
 const Home = () => {
