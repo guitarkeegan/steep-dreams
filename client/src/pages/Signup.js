@@ -78,15 +78,16 @@ const Signup =  () => {
 
       const { createInbox }=await  graphQLclient.request(CREATE_INBOX);
 
-      // const { sendEmail }=await  graphQLclient.request(SEND_EMAIL,{
-      //   fromInboxId: createInbox.id,
-      //   to: [createInbox.emailAddress],
-      //   subject: 'Test',
-      // });
+      const { sendEmail }=await  graphQLclient.request(SEND_EMAIL,{
+        fromInboxId: createInbox.id,
+        to: [createInbox.emailAddress],
+        subject: 'Test',
+      });
 
+
+      sendEmail();
     
       console.log(createInbox);
-
 
       Auth.login(data.addUser.token);
 
@@ -104,21 +105,22 @@ const Signup =  () => {
       <div className="col-12 col-lg-10">
         <div className="card">
           <div className="card-header p-2"><h4>Sign Up</h4></div>
-          <div className="card-body ">
+          <div className="card-body">
             {data ? (
                 <Link to="/"></Link>
             ) : (
               <form onSubmit={handleFormSubmit} className="d-flex flex-column py-5 signup-form">
                 <div className="form-group">
+                <label>Email:</label> 
                 <input
                   className="form-input"
-                  placeholder="Email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
                 </div>
+                <label>Password:</label> 
                 <input
                   className="form-input"
                   placeholder="******"
