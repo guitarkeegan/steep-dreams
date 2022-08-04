@@ -15,6 +15,7 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import Products from "./pages/Products";
 
 
 
@@ -57,6 +58,7 @@ function App() {
               <Route path="/cart" element={<Cart />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="/products" element={<Products />} />
             </Routes>
           </div>
           <Footer />
