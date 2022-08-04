@@ -9,6 +9,7 @@ const Home = () => {
   console.log(data);
   const products = data?.getProducts || [];
 
+
   return (
     <main>
       <div className="col-12 col-md-8 mb-3">
