@@ -1,0 +1,18 @@
+
+
+
+
+
+/*Sign Up Form Styling*/
+
+.card{
+
+    border-radius: 10px !important;
+    
+  }
+  
+  .card-header{
+    border-top-left-radius: 8px !important;
+    border-top-right-radius: 8px !important;
+  
+  }

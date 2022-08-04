@@ -50,8 +50,12 @@ Mutation:{
 
     addUser:async(parent,args)=>{
 
+        console.log(args);
+
         const user = await User.create(args);
         const token = signToken(user);
+
+         console.log("Inside addUser",user);
 
         return {token,user};
 
@@ -120,4 +124,4 @@ Mutation:{
 }
 
 
-module.exports={resolvers};
+module.exports=resolvers;

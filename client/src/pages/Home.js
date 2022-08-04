@@ -6,12 +6,11 @@ import Products from "../components/Products";
 
 const Home = () => {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
-  console.log(data)
+  console.log(data);
   const products = data?.getProducts || [];
 
   return (
     <main>
-      
       <div className="col-12 col-md-8 mb-3">
         {loading ? (
           <div>Loading...</div>
