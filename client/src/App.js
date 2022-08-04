@@ -15,6 +15,9 @@ import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+
+
+
 import "./App.css";
 
 // Construct our main GraphQL API endpoint

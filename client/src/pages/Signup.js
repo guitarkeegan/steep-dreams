@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
-import { CREATE_USER } from "../utils/mutations";
+
+import { CREATE_USER} from '../utils/mutations'
+
+import  '../Signup.css';
 
 import Auth from "../utils/auth";
+
 
 const Signup = () => {
 
@@ -12,11 +16,13 @@ const Signup = () => {
     password: "",
   });
 
+
   const [addUser, { error, data }] = useMutation(CREATE_USER);
 
-  console.log("AddUser",addUser);
+  
 
   const handleChange = (event) => {
+  
     const { name, value } = event.target;
 
     setFormState({
@@ -26,44 +32,40 @@ const Signup = () => {
   };
 
 
+
+
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("Sign up Data",formState);
-
     try {
-
-      console.log("Form Data passed ",{...formState});
       
       const { data } = await addUser({
         variables: { ...formState },
       });
 
 
-      console.log("Returned Data",data);
-
       Auth.login(data.addUser.token);
 
+    
+
     } catch (e) {
-      console.log(e);
-      console.error("Here is a 404 Error",e);
+      console.error(e);
     }
   };
 
+ 
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <main className="flex-row justify-center m-4">
       <div className="col-12 col-lg-10">
         <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Sign Up</h4>
+          <div className="card-header bg-dark text-light p-2"><h4>Sign Up</h4></div>
           <div className="card-body">
             {data ? (
-              <p>
-                Success! You may now head{" "}
-                <Link to="/">back to the homepage.</Link>
-              </p>
+                <Link to="/"></Link>
             ) : (
-              <form onSubmit={handleFormSubmit}>
+              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-5 signup-form">
+                <div className="form-group">
                 <input
                   className="form-input"
                   placeholder="Email"
@@ -72,6 +74,7 @@ const Signup = () => {
                   value={formState.email}
                   onChange={handleChange}
                 />
+                </div>
                 <input
                   className="form-input"
                   placeholder="******"
@@ -98,6 +101,7 @@ const Signup = () => {
           </div>
         </div>
       </div>
+    
     </main>
   );
 };
