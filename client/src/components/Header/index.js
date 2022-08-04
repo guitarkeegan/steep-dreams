@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Icon } from '@iconify/react';
+import Button from 'react-bootstrap/Button'
+import Cart from '../Cart'
 
 import Auth from "../../utils/auth";
 
@@ -10,7 +12,7 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className=" bg-primary text-light mb-5 py-1 flex-row align-center">
+    <header className="text-light mb-5 py-1 flex-row align-center">
       <div className="container flex-row justify-space-between-lg justify-center align-center">
         <div>
           <Link className="text-light" to="/">
@@ -23,9 +25,7 @@ const Header = () => {
               <Link className="btn btn-lg btn-info m-2" to="/me">
                 {Auth.getProfile().data.email}
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/cart">
-                <Icon icon="entypo:shopping-cart"></Icon>
-              </Link>
+              <Cart />
               <button className="btn btn-lg btn-light m-2" onClick={logout}>
                 Logout
               </button>
