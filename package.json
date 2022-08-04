@@ -14,9 +14,13 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@sendgrid/mail": "^7.7.0",
+    "bootstrap": "^5.2.0",
     "concurrently": "^7.3.0",
     "graphql-iso-date": "^3.6.1",
     "jwt-decode": "^3.1.2",
+    "node-polyfill-webpack-plugin": "^2.0.1",
+    "react-bootstrap": "^2.4.0",
     "react-router-dom": "^6.3.0"
   }
 }
