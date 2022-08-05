@@ -18,6 +18,12 @@ const Header = () => {
           </Link>
         </div>
         <div>
+        <Link className="btn btn-lg btn-info m-2" to="/about">
+          About
+        </Link>
+        <Link className="btn btn-lg btn-info m-2" to="/products">
+          Our Products
+        </Link>
           {Auth.loggedIn() ? (
             <>
               <Link className="btn btn-lg btn-info m-2" to="/me">

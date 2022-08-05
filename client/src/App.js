@@ -18,7 +18,6 @@ import Footer from "./components/Footer";
 import Products from "./pages/Products";
 
 
-
 import "./App.css";
 
 // Construct our main GraphQL API endpoint
