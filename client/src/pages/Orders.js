@@ -8,7 +8,7 @@ const Orders = () => {
   const {loading,data} = useQuery(QUERY_ME);
   console.log("Orders Page");
 
-  console.log(data);
+  console.log(data?.me);
 
   const orders=data?.me || []
 

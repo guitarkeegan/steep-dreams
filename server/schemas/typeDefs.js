@@ -19,7 +19,6 @@ type Order{
     totalPrice:Float
     createdAt:String
     productDetails:[Product]
-    isComplete:Boolean
 }
 
 

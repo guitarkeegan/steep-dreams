@@ -2,8 +2,6 @@ import { gql } from '@apollo/client';
 
 
 
-
-
 //Create user with email and password and return user data with order and product details
  
   export const CREATE_USER = gql`
@@ -16,7 +14,7 @@ import { gql } from '@apollo/client';
       }
     } 
   }
-`;
+`
 
   
 
@@ -37,12 +35,14 @@ mutation login($email: String!, $password: String!) {
 // Create the Order with totalPrice and product Id passed to it and return updated User with Order is pushed to teh array
 
 export const CREATE_ORDER= gql`
-mutation createOrder(totalPrice: $totalPrice, productDetails: $productDetails) {
-  _id
-  email
-  orders {
-    productDetails {
-      _id
+mutation createOrder($totalPrice: Float!, $productDetails: [ID]) {
+  createOrder(totalPrice: $totalPrice, productDetails: $productDetails) {
+    _id
+    email
+    orders {
+      productDetails {
+        _id
+      }
     }
   }
 }`

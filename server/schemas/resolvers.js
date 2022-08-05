@@ -19,7 +19,11 @@ Query:{
             // });
 
             const userData=User.findOne({ _id: context.user._id })
-            .select('-__v -password');  
+            .select('-__v -password')
+             .populate('orders').populate({
+              path:'orders',
+              populate:'productDetails'
+             })
 
         console.log(userData);
             return userData;
@@ -112,6 +116,7 @@ Mutation:{
 
             const order=await Order.create({totalPrice,productDetails});
 
+            console.log(order._id);
             const updatedUser = await User.findByIdAndUpdate(
               { _id: context.user._id },
               { $push: { orders: order }},
