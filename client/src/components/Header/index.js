@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Icon } from '@iconify/react';
-import Button from 'react-bootstrap/Button'
 import Cart from '../Cart'
 
 import Auth from "../../utils/auth";
