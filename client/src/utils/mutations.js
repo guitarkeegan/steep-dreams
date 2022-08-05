@@ -1,26 +1,8 @@
 import { gql } from '@apollo/client';
 
 
-export const CREATE_INBOX=gql`
-mutation {
-  createInbox {
-    id
-    emailAddress
-  }
-}
-`
 
-export const SEND_EMAIL=gql`
-mutation SendEmail(
-  $fromInboxId: String!
-  $to: [String!]!
-  $subject: String!
-) {
-  sendEmail(fromInboxId: $fromInboxId, to: $to, subject: $subject) {
-    id
-  }
-}
-`
+
 
 //Create user with email and password and return user data with order and product details
  

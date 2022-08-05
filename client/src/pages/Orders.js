@@ -1,19 +1,17 @@
 import React from "react";
-// import { useQuery } from "@apollo/client";
-// import { QUERY_ORDERS } from "../utils/queries";
+import { useQuery } from "@apollo/client";
+import { QUERY_ME } from "../utils/queries";
 // useing query to render products
 
 const Orders = () => {
-  
+
+  const {loading,orderData} =useQuery(QUERY_ME);
+
+  console.log(orderData);
 
   return (
     <main>
       <div className="col-12 col-md-8 mb-3">
-        {/* {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <Products products={products} title="Steeping some teas for you..." />
-        )} */}
         My Order Summary
       </div>
     </main>
