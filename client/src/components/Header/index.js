@@ -10,42 +10,44 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    <header className="mb-5 py-1 flex-row align-center">
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
+    <header className="mb-5 align-center py-3" >
+      <div className="container justify-space-between-lg">
+        <div className="d-flex  justify-content-between align-items-center">
+          <div className="d-flex justify-content-center align-items-center">
           <Link className="text-light" to="/">
-            <h1 className="m-0">Steep Dreams</h1>
+            <h1 className="">Steep Dreams <Icon icon="icon-park-solid:tea-drink"></Icon></h1>
           </Link>
         </div>
-        <div>
-        <Link className="btn btn-lg btn-info m-2" to="/about">
-          About
+        <div className="d-flex justify-content-start align-items-center p-4">
+        <Link className="" to="/about">
+          Our Story
         </Link>
-        <Link className="btn btn-lg btn-info m-2" to="/products">
-          Our Products
+        <Link className="" to="/products">
+          Products
         </Link>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
+              <Link className="" to="/me">
                 {Auth.getProfile().data.email}
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/cart">
+              <Link className="" to="/cart">
                 <Icon icon="entypo:shopping-cart"></Icon>
               </Link>
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
+              <button className="" onClick={logout}>
                 Logout
               </button>
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="" to="/signup">
                 Signup
               </Link>
             </>
           )}
+          </div>
         </div>
       </div>
     </header>

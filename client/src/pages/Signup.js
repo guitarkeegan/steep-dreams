@@ -101,17 +101,17 @@ const Signup =  () => {
  
 
   return (
-    <main className="flex-row justify-center m-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <div className="card-header p-2"><h4>Sign Up</h4></div>
+    <main className="flex-row justify-center signup-main">
+      <div className="col-12 col-lg-7">
+        <div className="card p-4 form-card">
+          <div className="card-header p-2"><h4>SIGN UP</h4></div>
           <div className="card-body">
             {data ? (
                 <Link to="/"></Link>
             ) : (
-              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-5 signup-form">
-                <div className="form-group">
-                <label>Email:</label> 
+              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-2 px-3 signup-form">
+                <div className="form-group d-flex justify-content-between align-items-center">
+                <label>Email</label> 
                 <input
                   className="form-input"
                   name="email"
@@ -120,7 +120,8 @@ const Signup =  () => {
                   onChange={handleChange}
                 />
                 </div>
-                <label>Password:</label> 
+                <div className="d-flex justify-content-between align-items-center">
+                <label className="px-1">Password</label> 
                 <input
                   className="form-input"
                   placeholder="******"
@@ -129,8 +130,9 @@ const Signup =  () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                </div>
                 <button
-                  className="btn btn-block btn-primary"
+                  className="btn btn-primary my-3"
                   style={{ cursor: "pointer" }}
                   type="submit"
                 >
