@@ -6,6 +6,7 @@ import { useQuery } from "@apollo/client";
 import { Icon } from '@iconify/react';
 import {getSavedOrderIds, removeOrderId} from '../../utils/localStorage'
 
+
 function Cart() {
   const [show, setShow] = useState(false);
   const [savedOrderIds, setSavedOrderIds] = useState(getSavedOrderIds());
@@ -13,16 +14,28 @@ function Cart() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { loading, data } = useQuery(QUERY_ME);
-  
-  const products = data?.me || [];
+  const handleDeleteOrder = async (orderId) => {
+    // get token
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  // if (!products.length) {
-  //   return <h3>No item available</h3>;
-  // }
+    if (!token) {
+      return false;
+    }
 
-  // console.log("Products: " + JSON.parse(products))
-console.log("Products" + products);
+    try {
+      const { data } = await removeOrder({
+        variables: { orderId },
+      });
+
+      // upon success, remove order's id from localStorage
+      removeOrderId(orderId);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+
+
   return (
     <>
       <Button
@@ -37,21 +50,18 @@ console.log("Products" + products);
           <Offcanvas.Title>My Cart</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          {loading ? (
-            <div>Loading...</div>
-          ) : (
-            <p>Order</p>
-          )}
-          {products ?
-          products.map(product=>{
+
+          {/* {savedOrderIds ?
+          savedOrderIds[0].map(product=>{
             <div key={product.id}>
               <h3><img src={require(`../../images/${product.image}`)}></img>  {product.name}</h3>
               <p>Price: {product.price}</p>
-              <Button className="btn btn-danger">Delete</Button>
+              <Button onClick={() => handleDeleteOrder} className="btn btn-danger">Delete</Button>
             </div>
-          }) :
+          }): */}
+            
            <p>No Items in Cart.</p>
-          }
+          {/* } */}
           
         </Offcanvas.Body>
       </Offcanvas>
