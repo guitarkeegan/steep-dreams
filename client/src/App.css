@@ -2,12 +2,12 @@
 
 :root{
 
-  --bg-color:  #84B8B4 ;
-  --text-color:rgb(7, 8, 5);
+  --bg-color:  #c1d29e ;
+  --text-color:rgb(36, 22, 4);
   --form-header-color: #717c7a;
   --white-color:#fff;
   --black-color:#000;
-  --btn-color:#c8b7a6;
+  --btn-color:rgb(36, 22, 4);
 }
 
 
@@ -29,7 +29,7 @@ body {
   font-family: "Dancing Script" !important;
 
 }
-header,footer{
+header{
 
   background-color: var(--bg-color) !important;
   color:var(white-color);
@@ -68,7 +68,7 @@ h1{
 .card-header{
   border-top-left-radius: 8px !important;
   border-top-right-radius: 8px !important;
-  background-color: var(--form-header-color) !important;
+  background-color: #717c7a !important;
   color:var(--black-color) !important;
 }
 
@@ -82,7 +82,7 @@ button,.btn,.btn:focus,.btn:active{
   background-color:var(--btn-color) !important;
   outline:none;
   border: none;
-  color:var(--black-color) !important;
+  color:var(--white-color) !important;
 
 }
 
@@ -109,3 +109,14 @@ label{
   font-size: 1.1rem;
 }
 
+footer{
+
+  background-color:  rgba(0,0,0,0.0);
+  opacity: 1;
+  padding:0.8rem !important;
+  border-top:1px solid rgba(0,0,0,0.1);
+}
+.footer-icon{
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
+}
