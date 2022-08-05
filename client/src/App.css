@@ -82,6 +82,7 @@ ul{
 
 .cardImage{
   max-width: 99%;
+  border-radius: 5px;
   cursor: pointer; 
   -webkit-transition-property: all; 
   -webkit-transition-duration: 0.3s; 
