@@ -16,6 +16,7 @@ import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
+import Orders from "./pages/Orders";
 
 
 import "./App.css";
@@ -60,6 +61,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/products" element={<Products />} />
+              <Route path="/orders" element={<Orders />} />
             </Routes>
           </div>
           <Footer />

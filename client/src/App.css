@@ -2,27 +2,33 @@
 
 :root{
 
-  --bg-color:#93745f ;
-  --text-color:#beb961;
-  --form-header-color: #beb961;
+  --bg-color:  #84B8B4 ;
+  --text-color:rgb(7, 8, 5);
+  --form-header-color: #717c7a;
   --white-color:#fff;
   --black-color:#000;
+  --btn-color:#c8b7a6;
 }
 
 
 body {
+
   margin: 0;
   padding: 0;
   font-size: 1rem;
-  font-family: "Dancing Script"!important;
-  font-family: "Dancing Script","Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family: "Uchen" !important;
+  font-family: "Roboto","Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
   font-size: 16px;
   color: #1a1a1a;
 }
 
+.logo{
 
+  font-family: "Dancing Script" !important;
+
+}
 header,footer{
 
   background-color: var(--bg-color) !important;
@@ -32,7 +38,7 @@ header,footer{
 }
 
 h1,h2,h3,h4{
-  font-family: "Dancing Script"!important;
+  font-family: "Uchen"!important;
  
 }
 
@@ -54,11 +60,9 @@ h1{
 
   border-radius: 10px !important;
   outline:none;
-
-  
 }
 .form-card{
-  background-color: var(--form-header-color) !important;
+  /* background-color: var(--form-header-color) !important; */
 
 }
 .card-header{
@@ -73,18 +77,20 @@ input{
   padding:0.3rem !important;
 }
 
-button,.btn{
+button,.btn,.btn:focus,.btn:active{
 
-  background-color:var(--bg-color);
+  background-color:var(--btn-color) !important;
   outline:none;
   border: none;
+  color:var(--black-color) !important;
+
 }
 
 a{
   color:var(--text-color)!important;
   text-decoration: none!important;
-  font-size: 1.5rem;
-  padding-right:2rem; 
+  font-size: 1.2rem;
+  padding-right:1.5rem; 
 }
 
 label{
@@ -94,7 +100,8 @@ label{
 
 .nav-icon{
 
-  font-size: 2rem;
+  font-size: 2rem !important;
+  font-weight: 500 !important;
   color:var(--text-color)!important;
 }
 .profile-name,.search-bar{
@@ -102,8 +109,3 @@ label{
   font-size: 1.1rem;
 }
 
-.email-template{
-
-  background-image: url('./images/tea-image.jpg');
-  color:#000;
-}

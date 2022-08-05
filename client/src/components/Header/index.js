@@ -15,9 +15,9 @@ const Header = () => {
         <div className="d-flex  justify-content-between align-items-center">
           <div className="d-flex justify-content-center align-items-center">
           <Link className="text-light" to="/">
-            <h1 className="">Steep Dreams <Icon icon="icon-park-solid:tea-drink"></Icon></h1>
+            <h1 className="logo">Steep Dreams <Icon icon="icon-park-solid:tea-drink"></Icon></h1>
           </Link>
-          <span className="px-3 search-bar">Search Bar</span>  
+          <span className="px-3 search-bar">Search Bar Placeholder</span>  
         </div>
         <div className="d-flex justify-content-start align-items-center p-4">
        
@@ -29,6 +29,9 @@ const Header = () => {
         </Link>
           {Auth.loggedIn() ? (
             <>
+            <Link className="" to="/orders">
+                My Orders
+              </Link>
               <Link className="" to="/cart">
                 <Icon icon="entypo:shopping-cart" className=" nav-icon"></Icon>
               </Link>
