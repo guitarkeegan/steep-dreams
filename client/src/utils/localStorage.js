@@ -1,6 +1,6 @@
 export const getSavedOrderIds = () => {
-  const savedOrderIds = localStorage.getItem("saved_orders")
-    ? JSON.parse(localStorage.getItem("saved_orders"))
+  const savedOrderIds = localStorage.getItem("saved_products")
+    ? JSON.parse(localStorage.getItem("saved_products"))
     : [];
 
   return savedOrderIds;
@@ -24,9 +24,9 @@ export const removeOrderId = (orderId) => {
   return true;
 };
 
-export const saveOrderIds = (orderIdArr) => {
-    if (orderIdArr.length) {
-      localStorage.setItem('saved_orders', JSON.stringify(orderIdArr));
+export const saveProductIds = (productIdArr) => {
+    if (productIdArr.length) {
+      localStorage.setItem('saved_orders', JSON.stringify(productIdArr));
     } else {
       localStorage.removeItem('saved_orders');
     }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { QUERY_ME } from "../../utils/queries";
+import { QUERY_SINGLE_PRODUCT } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Icon } from '@iconify/react';
 import {getSavedOrderIds, removeOrderId} from '../../utils/localStorage'
@@ -13,6 +13,13 @@ function Cart() {
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+
+  const { loading, data } = useQuery(QUERY_SINGLE_PRODUCT, {
+    variables: { _id: savedOrderIds[0]  }
+  });
+  const userData = data?.getProduct || {};
+  console.log(userData);
 
   const handleDeleteOrder = async (orderId) => {
     // get token
@@ -35,7 +42,6 @@ function Cart() {
   };
 
 
-
   return (
     <>
       <Button
@@ -52,7 +58,7 @@ function Cart() {
         <Offcanvas.Body>
 
           {/* {savedOrderIds ?
-          savedOrderIds[0].map(product=>{
+          savedOrderIds.map(product=>{
             <div key={product.id}>
               <h3><img src={require(`../../images/${product.image}`)}></img>  {product.name}</h3>
               <p>Price: {product.price}</p>
