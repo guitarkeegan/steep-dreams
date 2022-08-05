@@ -1,5 +1,5 @@
 
-
+/*Overriden the default Styling for the application*/
 :root{
 
   --bg-color:  #c1d29e ;
@@ -188,4 +188,18 @@ footer{
 .footer-icon{
   font-size: 1.5rem;
   margin-right: 0.8rem;
+  background-color: #fff;
+}
+.logout-icon{
+
+  color:#fff;
+  
+}
+
+button > .logout-icon{
+
+  
+  outline:none;
+  border: none;
+
 }

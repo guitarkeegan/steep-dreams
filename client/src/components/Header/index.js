@@ -4,6 +4,7 @@ import Cart from '../Cart'
 import { Icon } from '@iconify/react';
 import Auth from "../../utils/auth";
 
+
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
@@ -35,9 +36,9 @@ const Header = () => {
                 My Orders
               </Link>
               <Cart />
-              <button className="" onClick={logout}>
-              <Icon icon="clarity:logout-solid" className=" nav-icon"></Icon>
-              </button>
+              <Link to="" onClick={logout}>
+              <Icon icon="clarity:logout-solid" className="nav-icon"></Icon>
+              </Link>
               {/* <Link className="" to="/me"> */}
               <span className="px-3 profile-name">
                 Welcome {Auth.getProfile().data.email.split('@')[0] }  !!
