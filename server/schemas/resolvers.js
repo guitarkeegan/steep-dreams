@@ -108,7 +108,7 @@ Mutation:{
 
         // if (context.user) {
 
-            const order=await Order.create({price,productDetails});
+            const order=await Order.create({totalPrice,productDetails});
 
             const updatedUser = await User.findByIdAndUpdate(
               { _id: context.user._id },

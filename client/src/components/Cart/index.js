@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { QUERY_ME } from "../../utils/queries";
-import Products from "../../pages/Products";
 import { useQuery } from "@apollo/client";
 import { Icon } from '@iconify/react';
 
@@ -16,8 +15,12 @@ function Cart() {
   
   const products = data?.me || [];
 
-  console.log(products);
+  // if (!products.length) {
+  //   return <h3>No item available</h3>;
+  // }
 
+  // console.log("Products: " + JSON.parse(products))
+console.log("Products" + products);
   return (
     <>
       <Button
@@ -35,13 +38,10 @@ function Cart() {
           {loading ? (
             <div>Loading...</div>
           ) : (
-            
-            <div>
-              <h3>{products}</h3>
-            </div>
-
+            <p>hello</p>
+                 
           )}
-          Items
+          
         </Offcanvas.Body>
       </Offcanvas>
     </>
