@@ -1,10 +1,9 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
-import { QUERY_PRODUCTS } from "../utils/queries";
-import Products from "./Products";
+// import { useQuery } from "@apollo/client";
+// import { QUERY_ORDERS } from "../utils/queries";
 // useing query to render products
 
-const Home = () => {
+const Orders = () => {
   
 
   return (
@@ -15,10 +14,10 @@ const Home = () => {
         ) : (
           <Products products={products} title="Steeping some teas for you..." />
         )} */}
-        Home
+        My Order Summary
       </div>
     </main>
   );
 };
 
-export default Home;
+export default Orders;

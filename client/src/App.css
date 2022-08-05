@@ -2,61 +2,121 @@
 
 :root{
 
-  --bg-color:#876c57 ;
-  --bg-color:#876c57 ;
-  --text-color:#84b8b4;
-  --form-header-color: #748482;
+  --bg-color:  #c1d29e ;
+  --text-color:rgb(36, 22, 4);
+  --form-header-color: #717c7a;
   --white-color:#fff;
+  --black-color:#000;
+  --btn-color:rgb(36, 22, 4);
 }
 
 
 body {
+
   margin: 0;
   padding: 0;
-  font-family: "Dancing Script","Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-size: 1rem;
+  font-family: "Uchen" !important;
+  font-family: "Roboto","Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI",
     Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
     "Segoe UI Symbol";
   font-size: 16px;
   color: #1a1a1a;
 }
 
+.logo{
 
-header,footer{
+  font-family: "Dancing Script" !important;
+
+}
+header{
 
   background-color: var(--bg-color) !important;
   color:var(white-color);
+  
+  
+}
+
+h1,h2,h3,h4{
+  font-family: "Uchen"!important;
+ 
 }
 
 
+
+h1{
+  font-weight:bold !important;
+  font-size: 2.8rem !important;
+  color:var(--text-color) !important;
+}
 /*Sign Up Form Styling*/
+
+/* .card{
+
+  background-image: url('./images/tea-image.jpg');
+} */
 
 .card{
 
   border-radius: 10px !important;
   outline:none;
-  
-  
 }
+.form-card{
+  /* background-color: var(--form-header-color) !important; */
 
+}
 .card-header{
   border-top-left-radius: 8px !important;
   border-top-right-radius: 8px !important;
-  background-color: var(--form-header-color) !important;
- 
+  background-color: #717c7a !important;
+  color:var(--black-color) !important;
 }
 
 input{
   outline:none !important;
+  padding:0.3rem !important;
 }
 
-button,.btn{
+button,.btn,.btn:focus,.btn:active{
 
-  background-color:var(--bg-color);
+  background-color:var(--btn-color) !important;
   outline:none;
   border: none;
+  color:var(--white-color) !important;
+
 }
 
 a{
-
+  color:var(--text-color)!important;
   text-decoration: none!important;
+  font-size: 1.2rem;
+  padding-right:1.5rem; 
+}
+
+label{
+
+  padding: 1rem !important;
+}
+
+.nav-icon{
+
+  font-size: 2rem !important;
+  font-weight: 500 !important;
+  color:var(--text-color)!important;
+}
+.profile-name,.search-bar{
+  color:var(--text-color)!important;
+  font-size: 1.1rem;
+}
+
+footer{
+
+  background-color:  rgba(0,0,0,0.0);
+  opacity: 1;
+  padding:0.8rem !important;
+  border-top:1px solid rgba(0,0,0,0.1);
+}
+.footer-icon{
+  font-size: 1.5rem;
+  margin-right: 0.8rem;
 }
