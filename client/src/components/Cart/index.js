@@ -4,9 +4,11 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Icon } from '@iconify/react';
+import {getSavedOrderIds, removeOrderId} from '../../utils/localStorage'
 
 function Cart() {
   const [show, setShow] = useState(false);
+  const [savedOrderIds, setSavedOrderIds] = useState(getSavedOrderIds());
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -38,9 +40,18 @@ console.log("Products" + products);
           {loading ? (
             <div>Loading...</div>
           ) : (
-            <p>hello</p>
-                 
+            <p>Order</p>
           )}
+          {products ?
+          products.map(product=>{
+            <div key={product.id}>
+              <h3><img src={require(`../../images/${product.image}`)}></img>  {product.name}</h3>
+              <p>Price: {product.price}</p>
+              <Button className="btn btn-danger">Delete</Button>
+            </div>
+          }) :
+           <p>No Items in Cart.</p>
+          }
           
         </Offcanvas.Body>
       </Offcanvas>
