@@ -10,42 +10,51 @@ const Header = () => {
     Auth.logout();
   };
   return (
-    
-    <header className="text-light mb-5 py-1 flex-row align-center">
 
-      <div className="container flex-row justify-space-between-lg justify-center align-center">
-        <div>
+    <header className="mb-5 align-center py-3" >
+      <div className="container justify-space-between-lg">
+        <div className="d-flex  justify-content-between align-items-center">
+          <div className="d-flex justify-content-center align-items-center">
+
           <Link className="text-light" to="/">
-            <h1 className="m-0">Steep Dreams</h1>
+            <h1 className="logo">Steep Dreams <Icon icon="icon-park-solid:tea-drink"></Icon></h1>
           </Link>
+          <span className="px-3 search-bar">Search Bar Placeholder</span>  
         </div>
-        <div>
-        <Link className="btn btn-lg btn-info m-2" to="/about">
-          About
+        <div className="d-flex justify-content-start align-items-center p-4">
+       
+        <Link className="" to="/about">
+          Our Story
         </Link>
-        <Link className="btn btn-lg btn-info m-2" to="/products">
-          Our Products
+        <Link className="" to="/products">
+          Products
         </Link>
           {Auth.loggedIn() ? (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/me">
-                {Auth.getProfile().data.email}
+            <Link className="" to="/orders">
+                My Orders
               </Link>
               <Cart />
-              <button className="btn btn-lg btn-light m-2" onClick={logout}>
-                Logout
+              <button className="" onClick={logout}>
+              <Icon icon="clarity:logout-solid" className=" nav-icon"></Icon>
               </button>
+              {/* <Link className="" to="/me"> */}
+              <span className="px-3 profile-name">
+                Welcome {Auth.getProfile().data.email.split('@')[0] }  !!
+              </span>  
+              {/* </Link> */}
             </>
           ) : (
             <>
-              <Link className="btn btn-lg btn-info m-2" to="/login">
+              <Link className="" to="/login">
                 Login
               </Link>
-              <Link className="btn btn-lg btn-light m-2" to="/signup">
+              <Link className="" to="/signup">
                 Signup
               </Link>
             </>
           )}
+          </div>
         </div>
       </div>
     </header>

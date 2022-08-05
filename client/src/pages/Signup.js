@@ -3,21 +3,11 @@ import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { QUERY_INBOX} from '../utils/queries'
 
-import { CREATE_USER,CREATE_INBOX,SEND_EMAIL} from '../utils/mutations'
+import { CREATE_USER} from '../utils/mutations'
 
-//For Email Notification Service
-import { gql, GraphQLClient } from 'graphql-request'
-import  '../Signup.css';
 
 import Auth from "../utils/auth";
 
-
-//For Email Notification Service
-const graphQLclient = new GraphQLClient('https://graphql.mailslurp.com', {
-  headers: {
-    'x-api-key': "e5c40a7a2ae4ac37608a68526123626d3a9b36e5f9279f59ea0bf0dd0a317241"
-  },
-});
 
 
 const Signup =  () => {
@@ -31,24 +21,6 @@ const Signup =  () => {
   const [addUser, { error, data }] = useMutation(CREATE_USER);
 
 
-
-//For Email Notification Service
-
-  // var  inboxes;
-  // graphQLclient.request(QUERY_INBOX)
-  //                     .then(res=> {
-  //                       inboxes=res;
-  //                       console.log(res);
-  //                     }
-  //                       )
-  //                     .catch(err=>console.log(err))  
-  //                     console.log("Inboxes here");
-  //                     console.log(inboxes);
-
-
-
-
-  
   const handleChange = (event) => {
   
     const { name, value } = event.target;
@@ -59,6 +31,12 @@ const Signup =  () => {
     });
   };
 
+ 
+
+    
+    
+  
+  
 
 
 
@@ -67,31 +45,46 @@ const Signup =  () => {
     event.preventDefault();
 
 
-
     try {
       
       const { data } = await addUser({
         variables: { ...formState },
       });
 
-      //Email notification
+    /********Commenting the below code due to the limited quota of emails**** */
 
-      const { createInbox }=await  graphQLclient.request(CREATE_INBOX);
-
-      const { sendEmail }=await  graphQLclient.request(SEND_EMAIL,{
-        fromInboxId: createInbox.id,
-        to: [createInbox.emailAddress],
-        subject: 'Test',
-      });
-
-
-      // sendEmail();
+    //Send email using Elastic Email API and SMTP js Library
+    //Below code rely on the /public/smtp.js file
     
-      console.log(createInbox);
+    // if(data){
+    //   window.Email.send({
 
+    //     Host:"smtp.elasticemail.com", 
+    //     Username:"simmyvarghese5@gmail.com",
+    //     Password:"12F322DE9F3F58C7B02254666F8AE442F4DA",
+    //     To:formState.email,
+    //     From:"simmyvarghese5@gmail.com",
+    //     Subject:"Test Email with mailtrap",
+    //     Body:`
+    //     <div">
+    //     Hello ${formState.email.split('@')[0]},
+    //     <br>
+    //     <br>
+    //     Thanks for signing up with Steep Dreams.
+    //     <br>
+    //     Continue Shopping our<a href="http://localhost:3000/products"> Products</a>
+    //     <br>
+    //     <br>
+    //     Have a Steep  Dreams  !!
+    //     <br>
+    //     From Steep Dreams Team
+    //     </div>`
+    //   })
+    //   .then((res)=>console.log("Email Sent Successfully",res))
+    //   .catch(err=>console.log(err));
+    // }
+    
       Auth.login(data.addUser.token);
-
-    
 
     } catch (e) {
       console.error(e);
@@ -101,17 +94,17 @@ const Signup =  () => {
  
 
   return (
-    <main className="flex-row justify-center m-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <div className="card-header p-2"><h4>Sign Up</h4></div>
+    <main className="flex-row justify-center signup-main">
+      <div className="col-12 col-lg-7">
+        <div className="card p-4 form-card">
+          <div className="card-header p-2"><h4>SIGN UP</h4></div>
           <div className="card-body">
             {data ? (
                 <Link to="/"></Link>
             ) : (
-              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-5 signup-form">
-                <div className="form-group">
-                <label>Email:</label> 
+              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-2 px-3 signup-form">
+                <div className="form-group d-flex justify-content-between align-items-center">
+                <label>Email</label> 
                 <input
                   className="form-input"
                   name="email"
@@ -120,7 +113,8 @@ const Signup =  () => {
                   onChange={handleChange}
                 />
                 </div>
-                <label>Password:</label> 
+                <div className="d-flex justify-content-between align-items-center">
+                <label className="px-1">Password</label> 
                 <input
                   className="form-input"
                   placeholder="******"
@@ -129,8 +123,9 @@ const Signup =  () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                </div>
                 <button
-                  className="btn btn-block btn-primary"
+                  className="btn btn-primary my-3"
                   style={{ cursor: "pointer" }}
                   type="submit"
                 >
@@ -147,6 +142,8 @@ const Signup =  () => {
         </div>
       </div>
     
+
+      
     </main>
   );
 };
