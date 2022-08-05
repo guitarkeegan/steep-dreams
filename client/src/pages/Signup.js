@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
+import { QUERY_INBOX} from '../utils/queries'
 
 import { CREATE_USER} from '../utils/mutations'
 
-import  '../Signup.css';
 
 import Auth from "../utils/auth";
 
 
-const Signup = () => {
+
+const Signup =  () => {
 
   const [formState, setFormState] = useState({
     email: "",
@@ -19,7 +20,6 @@ const Signup = () => {
 
   const [addUser, { error, data }] = useMutation(CREATE_USER);
 
-  
 
   const handleChange = (event) => {
   
@@ -31,11 +31,19 @@ const Signup = () => {
     });
   };
 
+ 
+
+    
+    
+  
+  
 
 
 
   const handleFormSubmit = async (event) => {
+    
     event.preventDefault();
+
 
     try {
       
@@ -43,10 +51,40 @@ const Signup = () => {
         variables: { ...formState },
       });
 
+    /********Commenting the below code due to the limited quota of emails**** */
 
-      Auth.login(data.addUser.token);
-
+    //Send email using Elastic Email API and SMTP js Library
+    //Below code rely on the /public/smtp.js file
     
+    // if(data){
+    //   window.Email.send({
+
+    //     Host:"smtp.elasticemail.com", 
+    //     Username:"simmyvarghese5@gmail.com",
+    //     Password:"12F322DE9F3F58C7B02254666F8AE442F4DA",
+    //     To:formState.email,
+    //     From:"simmyvarghese5@gmail.com",
+    //     Subject:"Test Email with mailtrap",
+    //     Body:`
+    //     <div">
+    //     Hello ${formState.email.split('@')[0]},
+    //     <br>
+    //     <br>
+    //     Thanks for signing up with Steep Dreams.
+    //     <br>
+    //     Continue Shopping our<a href="http://localhost:3000/products"> Products</a>
+    //     <br>
+    //     <br>
+    //     Have a Steep  Dreams  !!
+    //     <br>
+    //     From Steep Dreams Team
+    //     </div>`
+    //   })
+    //   .then((res)=>console.log("Email Sent Successfully",res))
+    //   .catch(err=>console.log(err));
+    // }
+    
+      Auth.login(data.addUser.token);
 
     } catch (e) {
       console.error(e);
@@ -56,25 +94,27 @@ const Signup = () => {
  
 
   return (
-    <main className="flex-row justify-center m-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <div className="card-header bg-dark text-light p-2"><h4>Sign Up</h4></div>
+    <main className="flex-row justify-center signup-main">
+      <div className="col-12 col-lg-7">
+        <div className="card p-4 form-card">
+          <div className="card-header p-2"><h4>SIGN UP</h4></div>
           <div className="card-body">
             {data ? (
                 <Link to="/"></Link>
             ) : (
-              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-5 signup-form">
-                <div className="form-group">
+              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-2 px-3 signup-form">
+                <div className="form-group d-flex justify-content-between align-items-center">
+                <label>Email</label> 
                 <input
                   className="form-input"
-                  placeholder="Email"
                   name="email"
                   type="email"
                   value={formState.email}
                   onChange={handleChange}
                 />
                 </div>
+                <div className="d-flex justify-content-between align-items-center">
+                <label className="px-1">Password</label> 
                 <input
                   className="form-input"
                   placeholder="******"
@@ -83,25 +123,27 @@ const Signup = () => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                </div>
                 <button
-                  className="btn btn-block btn-primary"
+                  className="btn btn-primary my-3"
                   style={{ cursor: "pointer" }}
                   type="submit"
                 >
                   Submit
                 </button>
               </form>
-            )}
-
+           )} 
             {error && (
               <div className="my-3 p-3 bg-danger text-white">
                 {error.message}
               </div>
-            )}
+            )} 
           </div>
         </div>
       </div>
     
+
+      
     </main>
   );
 };

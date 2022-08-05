@@ -5,7 +5,9 @@ import { USER_LOGIN } from '../utils/mutations';
 
 import Auth from '../utils/auth';
 
-const Login = (props) => {
+
+const Login = () => {
+
   const [formState, setFormState] = useState({ email: '', password: '' });
   const [login, { error, data }] = useMutation(USER_LOGIN);
 
@@ -22,13 +24,24 @@ const Login = (props) => {
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    console.log("formState");
     console.log(formState);
+
     try {
       const { data } = await login({
         variables: { ...formState },
       });
 
+      console.log("from login page");
+      console.log(data);
+      // console.log("Data after submit");
+      // console.log("email",data.login.user);
+      // console.log("email",data.login.token);
+
       Auth.login(data.login.token);
+
+      
+
     } catch (e) {
       console.error(e);
     }
@@ -42,17 +55,16 @@ const Login = (props) => {
 
   return (
     <main className="flex-row justify-center mb-4">
-      <div className="col-12 col-lg-10">
-        <div className="card">
-          <h4 className="card-header bg-dark text-light p-2">Login</h4>
+      <div className="col-12 col-lg-7">
+        <div className="card p-4 form-card">
+          <h4 className="card-header p-2">LOGIN</h4>
           <div className="card-body">
             {data ? (
-              <p>
-                Success! You may now head{' '}
-                <Link to="/">back to the homepage.</Link>
-              </p>
+                <Link to="/"></Link>
             ) : (
               <form onSubmit={handleFormSubmit}>
+                <div className="form-group d-flex justify-content-between align-items-center">
+                <label>Email</label>
                 <input
                   className="form-input"
                   placeholder="Your email"
@@ -61,6 +73,9 @@ const Login = (props) => {
                   value={formState.email}
                   onChange={handleChange}
                 />
+                </div>
+                <div className="d-flex justify-content-between align-items-center">
+                <label className="px-2">Password</label> 
                 <input
                   className="form-input"
                   placeholder="******"
@@ -69,13 +84,16 @@ const Login = (props) => {
                   value={formState.password}
                   onChange={handleChange}
                 />
+                </div>
+                <div className="d-flex justify-content-end align-items-center">
                 <button
-                  className="btn btn-block btn-primary"
+                  className="btn btn-block btn-primary my-3 "
                   style={{ cursor: 'pointer' }}
                   type="submit"
                 >
                   Submit
                 </button>
+                </div>
               </form>
             )}
 

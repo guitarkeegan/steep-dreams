@@ -66,7 +66,8 @@ Mutation:{
     login:async(parent,{email,password})=>{
 
         const user=await User.findOne({email});
-
+        console.log("user");
+        console.log(user);
 
         if(!user){
 
@@ -75,7 +76,12 @@ Mutation:{
 
         //User method defined in the model
 
-        const correctPassword=user.isCorrectPassword(password)
+        const correctPassword=user.isCorrectPassword(password);
+        console.log("--------");
+        console.log("Password passed from form",password);
+
+        console.log("Password match check");
+        console.log(!correctPassword);
 
         if(!correctPassword){
 
@@ -83,6 +89,9 @@ Mutation:{
         }
 
         const token=signToken(user);
+
+        console.log("token",token);
+
         return {token,user}
 
     },
@@ -99,7 +108,7 @@ Mutation:{
 
         // if (context.user) {
 
-            const order=await Order.create({price,productDetails});
+            const order=await Order.create({totalPrice,productDetails});
 
             const updatedUser = await User.findByIdAndUpdate(
               { _id: context.user._id },

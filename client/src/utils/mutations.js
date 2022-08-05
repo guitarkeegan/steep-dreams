@@ -1,6 +1,27 @@
 import { gql } from '@apollo/client';
 
 
+export const CREATE_INBOX=gql`
+mutation {
+  createInbox {
+    id
+    emailAddress
+  }
+}
+`
+
+export const SEND_EMAIL=gql`
+mutation SendEmail(
+  $fromInboxId: String!
+  $to: [String!]!
+  $subject: String!
+) {
+  sendEmail(fromInboxId: $fromInboxId, to: $to, subject: $subject) {
+    id
+  }
+}
+`
+
 //Create user with email and password and return user data with order and product details
  
 
@@ -24,26 +45,15 @@ import { gql } from '@apollo/client';
 export const USER_LOGIN = gql`
 mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
+      token
       user {
         _id
-        email
-        orders {
-          orderId
-          price
-          createdAt
-          orderDetails {
-            _id
-            description
-            name
-            image
-            price
-            stockQuantity
-          }
-          isComplete
-        }
+        email     
       }
     }
   }`
+
+  
 
 
 
@@ -84,5 +94,32 @@ mutation login($email: String!, $password: String!) {
       }
     }
   }
+
+
+  export const USER_LOGIN = gql`
+mutation login($email: String!, $password: String!) {
+    login(email: $email, password: $password) {
+      user {
+        _id
+        email
+        orders {
+          orderId
+          price
+          createdAt
+          orderDetails {
+            _id
+            description
+            name
+            image
+            price
+            stockQuantity
+          }
+          isComplete
+        }
+      }
+    }
+  }`
+
+
 `;
  */

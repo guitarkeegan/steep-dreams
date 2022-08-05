@@ -39,3 +39,27 @@
   This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/) - click the link to read the license.
   
  
+ # References
+
+ * Email Notification : USing Elastic Email-Mail Trap and SMTP JS library 
+  
+  <br>
+
+   https://help.elasticemail.com/en/articles/4803409-smtp-settings
+
+   https://www.youtube.com/watch?v=lZrDcjyoecY
+
+ Sample Email Template
+  ```    
+      
+       Host:"smtp.elasticemail.com ",
+        Username:<ElasticEmail SMTP Credential Username>,
+        Password:<ElasticEmail SMTP Credential Password>,
+        To:<Valid Email Address>,
+        From:<Valid Email Address>,
+        Subject:"Test Email with mailtrap",
+        Body:"Test Email with mailtrap"
+        ````
+    
+ 
+ 
