@@ -5,7 +5,7 @@ import { QUERY_ME } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Icon } from '@iconify/react';
 import {getSavedOrderIds, removeOrderId} from '../../utils/localStorage'
-
+import Auth from '../../utils/auth';
 
 function Cart() {
   const [show, setShow] = useState(false);
@@ -23,7 +23,7 @@ function Cart() {
     }
 
     try {
-      const { data } = await removeOrder({
+      const { data } = await removeOrderId({
         variables: { orderId },
       });
 
