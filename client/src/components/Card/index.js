@@ -3,7 +3,7 @@
 function Card(props){
    
   return(
-    <div className="card">
+    <div className="card" >
       <div className="cardBody">
         <img className="cardImage" src={require ( `../../images/${props.product.image}`)} alt=""/>
         <h2 className="cardTitle">{props.product.name}</h2>

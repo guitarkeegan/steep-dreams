@@ -22,7 +22,7 @@ const Products = ({
       {products.map(product => {
          
         return(
-          <li >
+          <li className="cardList" >
             
                  <Card product={product}/>
                 </li>
