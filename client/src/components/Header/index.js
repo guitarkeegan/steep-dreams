@@ -4,6 +4,7 @@ import Cart from '../Cart'
 import { Icon } from '@iconify/react';
 import Auth from "../../utils/auth";
 
+
 const Header = () => {
   const logout = (event) => {
     event.preventDefault();
@@ -34,9 +35,7 @@ const Header = () => {
             <Link className="" to="/orders">
                 My Orders
               </Link>
-              <Link className="" to="/cart">
-                <Icon icon="entypo:shopping-cart" className="nav-icon"></Icon>
-              </Link>
+              <Cart />
               <Link to="" onClick={logout}>
               <Icon icon="clarity:logout-solid" className="nav-icon"></Icon>
               </Link>
