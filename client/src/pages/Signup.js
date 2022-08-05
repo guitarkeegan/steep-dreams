@@ -85,7 +85,7 @@ const Signup =  () => {
       });
 
 
-      sendEmail();
+      // sendEmail();
     
       console.log(createInbox);
 

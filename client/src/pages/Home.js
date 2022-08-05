@@ -13,11 +13,12 @@ const Home = () => {
   return (
     <main>
       <div className="col-12 col-md-8 mb-3">
-        {loading ? (
+        {/* {loading ? (
           <div>Loading...</div>
         ) : (
           <Products products={products} title="Steeping some teas for you..." />
-        )}
+        )} */}
+        Home
       </div>
     </main>
   );
