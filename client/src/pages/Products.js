@@ -5,6 +5,7 @@ import { useQuery } from "@apollo/client";
 import {QUERY_PRODUCTS} from "../utils/queries";
 import Card from "../components/Card"
 // import "bootstrap/dist/css/bootstrap.min.css";
+import { saveOrderIds } from "../utils/localStorage";
 
 const Products = () => {
   console.log()

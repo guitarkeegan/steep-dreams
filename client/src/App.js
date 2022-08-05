@@ -11,8 +11,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Signup from "./pages/Signup";
+// import Cart from "./pages/Cart";
 import Login from "./pages/Login";
-import Cart from "./pages/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
@@ -57,7 +57,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/cart" element={<Cart />} />
+              {/* <Route path="/cart" element={<Cart />} /> */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/products" element={<Products />} />
