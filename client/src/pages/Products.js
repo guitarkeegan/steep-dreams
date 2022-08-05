@@ -8,12 +8,11 @@ import Card from "../components/Card"
 import { saveOrderIds } from "../utils/localStorage";
 
 const Products = () => {
-  console.log()
+
   const { loading, data } = useQuery(QUERY_PRODUCTS);
-  console.log(data);
+
   const products = data?.getProducts || [];
-  console.log("Data from products");
-  console.log(data);
+
 
   if (!products.length) {
     return <h3>No item available</h3>;

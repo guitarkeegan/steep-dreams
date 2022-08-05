@@ -11,15 +11,17 @@ Query:{
     me:async(parent,args,context)=>{
         if(context.user){
 
+            // const userData=User.findOne({ _id: context.user._id })
+            // .select('-__v -password')
+            // .populate('orders').populate({
+            //     path:'orders',
+            //     populate:'productDetails'
+            // });
+
             const userData=User.findOne({ _id: context.user._id })
-            .select('-__v -password')
-            .populate('orders').populate({
-                
-                path:'orders',
-                populate:'productDetails'
-            });
+            .select('-__v -password');  
 
-
+        console.log(userData);
             return userData;
         }
 
@@ -106,7 +108,7 @@ Mutation:{
     createOrder:async(parent,{totalPrice,productDetails},context)=>{
 
 
-        // if (context.user) {
+        if (context.user) {
 
             const order=await Order.create({totalPrice,productDetails});
 
@@ -124,12 +126,13 @@ Mutation:{
 
             return updatedUser;
 
+        }
+
     }
 
     },
 
 
-// }
 }
 
 
