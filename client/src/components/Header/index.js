@@ -17,8 +17,10 @@ const Header = () => {
           <Link className="text-light" to="/">
             <h1 className="">Steep Dreams <Icon icon="icon-park-solid:tea-drink"></Icon></h1>
           </Link>
+          <span className="px-3 search-bar">Search Bar</span>  
         </div>
         <div className="d-flex justify-content-start align-items-center p-4">
+       
         <Link className="" to="/about">
           Our Story
         </Link>
@@ -27,15 +29,17 @@ const Header = () => {
         </Link>
           {Auth.loggedIn() ? (
             <>
-              <Link className="" to="/me">
-                {Auth.getProfile().data.email}
-              </Link>
               <Link className="" to="/cart">
-                <Icon icon="entypo:shopping-cart"></Icon>
+                <Icon icon="entypo:shopping-cart" className=" nav-icon"></Icon>
               </Link>
               <button className="" onClick={logout}>
-                Logout
+              <Icon icon="clarity:logout-solid" className=" nav-icon"></Icon>
               </button>
+              {/* <Link className="" to="/me"> */}
+              <span className="px-3 profile-name">
+                Welcome {Auth.getProfile().data.email.split('@')[0] }  !!
+              </span>  
+              {/* </Link> */}
             </>
           ) : (
             <>

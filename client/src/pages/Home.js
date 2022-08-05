@@ -5,9 +5,7 @@ import Products from "./Products";
 // useing query to render products
 
 const Home = () => {
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
-  console.log(data);
-  const products = data?.getProducts || [];
+  
 
   return (
     <main>

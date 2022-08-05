@@ -91,3 +91,19 @@ label{
 
   padding: 1rem !important;
 }
+
+.nav-icon{
+
+  font-size: 2rem;
+  color:var(--text-color)!important;
+}
+.profile-name,.search-bar{
+  color:var(--text-color)!important;
+  font-size: 1.1rem;
+}
+
+.email-template{
+
+  background-image: url('./images/tea-image.jpg');
+  color:#000;
+}
