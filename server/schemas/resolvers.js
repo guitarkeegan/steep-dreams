@@ -11,12 +11,6 @@ Query:{
     me:async(parent,args,context)=>{
         if(context.user){
 
-            // const userData=User.findOne({ _id: context.user._id })
-            // .select('-__v -password')
-            // .populate('orders').populate({
-            //     path:'orders',
-            //     populate:'productDetails'
-            // });
 
             const userData=User.findOne({ _id: context.user._id })
             .select('-__v -password')

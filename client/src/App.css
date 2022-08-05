@@ -187,3 +187,9 @@ button > .logout-icon{
   border: none;
 
 }
+
+.order-productlist img{
+
+  width:80px;
+  border-radius: 100px;
+}
