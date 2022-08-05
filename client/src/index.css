@@ -940,7 +940,7 @@ a:hover {
 }
 
 .bg-white {
-  background-color: #fff0df!important;
+  background-color: #fff0df !important;
 }
 
 .bg-black {
@@ -1017,7 +1017,7 @@ a:hover {
 }
 
 .btn.btn-primary:hover {
-  background-color: #b5a28d ;
+  background-color: #b5a28d;
 }
 
 .btn.btn-danger {
@@ -1073,7 +1073,7 @@ a:hover {
 .btn.btn-black:hover {
   background-color: #666666;
 }
-
+/* 
 .btn.btn-link {
   background-color: #1b89bc;
   color: #ffffff;
@@ -1081,7 +1081,7 @@ a:hover {
 
 .btn.btn-link:hover {
   background-color: #31a9e1;
-}
+} */
 
 .card {
   border: 1px solid #1a1a1a;
