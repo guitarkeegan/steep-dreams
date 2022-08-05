@@ -34,10 +34,12 @@ const Header = () => {
             <Link className="" to="/orders">
                 My Orders
               </Link>
-              <Cart />
-              <button className="" onClick={logout}>
-              <Icon icon="clarity:logout-solid" className=" nav-icon"></Icon>
-              </button>
+              <Link className="" to="/cart">
+                <Icon icon="entypo:shopping-cart" className="nav-icon"></Icon>
+              </Link>
+              <Link to="" onClick={logout}>
+              <Icon icon="clarity:logout-solid" className="nav-icon"></Icon>
+              </Link>
               {/* <Link className="" to="/me"> */}
               <span className="px-3 profile-name">
                 Welcome {Auth.getProfile().data.email.split('@')[0] }  !!
