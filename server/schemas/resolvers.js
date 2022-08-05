@@ -43,12 +43,12 @@ const resolvers = {
       console.log(args);
 
       const user = await User.create(args);
-      const token = signToken(user);
 
-      if (args) {
+      const token = signToken(user);
+      if ((user = null)) {
         throw new AuthenticationError("Please type valid email and password");
       }
-
+     
       return { token, user };
     },
 
