@@ -5,15 +5,14 @@ import { useQuery } from "@apollo/client";
 import {QUERY_PRODUCTS} from "../utils/queries";
 import Card from "../components/Card"
 // import "bootstrap/dist/css/bootstrap.min.css";
-import { saveOrderIds } from "../utils/localStorage";
+// import { saveOrderIds } from "../utils/localStorage";
 
 const Products = () => {
-  console.log()
+
   const { loading, data } = useQuery(QUERY_PRODUCTS);
-  console.log(data);
+
   const products = data?.getProducts || [];
-  console.log("Data from products");
-  console.log(data);
+
 
   if (!products.length) {
     return <h3>No item available</h3>;

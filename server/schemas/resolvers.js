@@ -1,24 +1,30 @@
-const { User, Product, Order } = require("../models");
-const { AuthenticationError } = require("apollo-server-express");
-const { signToken } = require("../utils/auth");
+const {User,Product,Order}=require('../models');
+const { AuthenticationError } = require('apollo-server-express');
+const { signToken } = require('../utils/auth');
 
-const resolvers = {
-  Query: {
-    //Get user data
-    me: async (parent, args, context) => {
-      if (context.user) {
-        const userData = User.findOne({ _id: context.user._id })
-          .select("-__v -password")
-          .populate("orders")
-          .populate({
-            path: "orders",
-            populate: "productDetails",
-          });
 
-        return userData;
-      }
+const resolvers={
 
-      throw new AuthenticationError("User not logged in");
+Query:{    
+    
+//Get user data
+    me:async(parent,args,context)=>{
+        if(context.user){
+
+
+            const userData=User.findOne({ _id: context.user._id })
+            .select('-__v -password')
+             .populate('orders').populate({
+              path:'orders',
+              populate:'productDetails'
+             })
+
+        console.log(userData);
+            return userData;
+        }
+
+        throw new AuthenticationError('User not logged in');
+
     },
 
     //Get all Product data
@@ -94,19 +100,36 @@ const resolvers = {
 
       const order = await Order.create({ totalPrice, productDetails });
 
-      const updatedUser = await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { $push: { orders: order } },
-        { new: true }
-      )
-        .populate("orders")
-        .populate({ path: "orders", populate: "productDetails" });
+        if (context.user) {
 
-      return updatedUser;
+            const order=await Order.create({totalPrice,productDetails});
+
+            console.log(order._id);
+            const updatedUser = await User.findByIdAndUpdate(
+              { _id: context.user._id },
+              { $push: { orders: order }},
+              { new: true }
+            )
+            .populate('orders'). 
+            populate(
+                {path:'orders',
+                populate:'productDetails'
+                }
+                );
+
+            return updatedUser;
+
+        }
+
+    }
+
+
     },
-  },
+  }
 
-  // }
-};
 
-module.exports = resolvers;
+
+
+
+
+module.exports=resolvers;

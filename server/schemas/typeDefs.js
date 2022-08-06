@@ -15,10 +15,10 @@ type Auth {
   }
 
 type Order{
-    price:Float
+    _id:ID
+    totalPrice:Float
     createdAt:String
     productDetails:[Product]
-    isComplete:Boolean
 }
 
 
@@ -39,14 +39,6 @@ type Query{
 }
 
 
-input ProductInput {
-    image:String
-    description:String
-    name:String!
-    price:Float!
-    stockQuantity:Int
-  }
-
 type Mutation{
 
     addUser(email: String!, password: String!): Auth
@@ -54,7 +46,7 @@ type Mutation{
 
     createOrder(
         totalPrice:Float!,
-        productDetails:[ProductInput]
+        productDetails:[ID]
         ):User
 }
 `;
