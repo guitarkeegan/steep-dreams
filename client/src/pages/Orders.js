@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME, QUERY_PRODUCTS } from "../utils/queries";
 // useing query to render products
@@ -6,19 +6,44 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const Orders = () => {
 
   const {loading,data} = useQuery(QUERY_ME);
+  
+  const count={};
+
   console.log("Orders Page");
 
-  console.log(data?.me);
+  // console.log(data?.me);
 
   const orders=data?.me.orders || []
 
-  console.log(orders);
+  const products=orders.productDetails
+  // console.log(orders);
 
   if (!orders.length) {
     return <h3>No Order Available</h3>;
   }
 
-  console.log(...orders);
+  //Calculate the Quantity of a product in every order
+ for(const eachOrder of orders){
+    for(const product of eachOrder.productDetails){
+
+      if(count[product._id]){
+
+        count[product._id]+=1;
+      }
+      else{
+        count[product._id]=1;
+      }
+
+
+    }
+
+
+ }
+
+
+  console.log("Count",{...count});
+
+  // console.log(...orders);
 
   return (
     <main>
@@ -35,8 +60,12 @@ const Orders = () => {
           <ul className="list-group list-group-flush">
 
            {
-           order.productDetails.map(product=>
+
+           order.productDetails.map((product,index)=>
              
+      
+            
+
             //To Do To display the quantity for repeated entries
             //Test by adding multiple products into the page
             <li className="list-group-item order-productlist d-flex justify-content-between">
