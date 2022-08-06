@@ -3,26 +3,26 @@ export const getSavedOrderIds = () => {
     ? JSON.parse(localStorage.getItem("saved_products"))
     : [];
 
-  return savedOrderIds;
-};
+//   return savedOrderIds;
+// };
 
 
-export const removeOrderId = (orderId) => {
-  const savedOrderIds = localStorage.getItem("saved_orders")
-    ? JSON.parse(localStorage.getItem("saved_orders"))
-    : null;
+// export const removeOrderId = (orderId) => {
+//   const savedOrderIds = localStorage.getItem("saved_orders")
+//     ? JSON.parse(localStorage.getItem("saved_orders"))
+//     : null;
 
-  if (!savedOrderIds) {
-    return false;
-  }
+//   if (!savedOrderIds) {
+//     return false;
+//   }
 
-  const updatedSavedOrderIds = savedOrderIds?.filter(
-    (savedOrderId) => savedOrderId !== orderId
-  );
-  localStorage.setItem("saved_orders", JSON.stringify(updatedSavedOrderIds));
+//   const updatedSavedOrderIds = savedOrderIds?.filter(
+//     (savedOrderId) => savedOrderId !== orderId
+//   );
+//   localStorage.setItem("saved_orders", JSON.stringify(updatedSavedOrderIds));
 
-  return true;
-};
+//   return true;
+// };
 
 export const saveProductIds = (productIdArr) => {
     if (productIdArr.length) {

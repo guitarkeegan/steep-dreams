@@ -7,7 +7,7 @@ export const QUERY_ME = gql`
     email
     orders {
       createdAt
-      price
+      totalPrice
       productDetails {
         _id
         image
@@ -16,7 +16,6 @@ export const QUERY_ME = gql`
         price
         stockQuantity
       }
-      isComplete
     }
   }
 }

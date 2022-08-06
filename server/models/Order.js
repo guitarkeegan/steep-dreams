@@ -24,12 +24,19 @@ const orderSchema = new Schema(
   },
   {
     toJSON: {
-      getters: true,
+      getters: true
     },
     id: false,
   }
 );
 
+
+
+
+
 const Order=model('Order',orderSchema);
+
+
+
 
 module.exports = Order;

@@ -43,7 +43,7 @@ const Login = () => {
       
 
     } catch (e) {
-      console.error(e);
+      console.error("Invalid Credentials");
     }
 
     // clear form values

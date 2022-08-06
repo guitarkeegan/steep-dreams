@@ -4,12 +4,12 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { QUERY_SINGLE_PRODUCT } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Icon } from '@iconify/react';
-import {getSavedOrderIds, removeOrderId} from '../../utils/localStorage'
+// import {getSavedOrderIds, removeOrderId} from '../../utils/localStorage'
 import Auth from '../../utils/auth';
 
-function Cart() {
+export default function Cart() {
   const [show, setShow] = useState(false);
-  const [savedOrderIds, setSavedOrderIds] = useState(getSavedOrderIds());
+  // const [savedOrderIds, setSavedOrderIds] = useState(getSavedOrderIds());
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -28,18 +28,19 @@ function Cart() {
     if (!token) {
       return false;
     }
+  }
 
-    try {
-      const { data } = await removeOrderId({
-        variables: { orderId },
-      });
+    // try {
+    //   const { data } = await removeOrderId({
+    //     variables: { orderId },
+    //   });
 
-      // upon success, remove order's id from localStorage
-      removeOrderId(orderId);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+  //     // upon success, remove order's id from localStorage
+  //     removeOrderId(orderId);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
 
   return (
@@ -73,6 +74,4 @@ function Cart() {
       </Offcanvas>
     </>
   );
-}
-
-export default Cart;
+        }
