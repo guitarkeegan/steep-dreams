@@ -27,84 +27,78 @@ Query:{
 
     },
 
-//Get all Product data
-    getProducts:async(parent,args)=>{
-        const productData= await Product.find({});
-        return productData;
+    //Get all Product data
+    getProducts: async (parent, args) => {
+      const productData = await Product.find({});
+      return productData;
     },
 
-//Get a specific Product Data using product id
+    //Get a specific Product Data using product id
 
-    getProduct:async(parent,{_id})=>{
-    const params=_id ? {_id} :{};
-    const product= await Product.findOne(params);
-    return product;
+    getProduct: async (parent, { _id }) => {
+      const params = _id ? { _id } : {};
+      const product = await Product.findOne(params);
+      return product;
+    },
+  },
 
-    }
-
-},
-
-Mutation:{
-
+  Mutation: {
     //Create a user and tokenize the userdata
 
-    addUser:async(parent,args)=>{
+    addUser: async (parent, args) => {
+      console.log(args);
 
-        console.log(args);
+      const user = await User.create(args);
 
-        const user = await User.create(args);
-        const token = signToken(user);
-
-         console.log("Inside addUser",user);
-
-        return {token,user};
-
+      const token = signToken(user);
+      if ((user = null)) {
+        throw new AuthenticationError("Please type valid email and password");
+      }
+     
+      return { token, user };
     },
-    
+
     //Validate the user credentials and if valid tokenize the data
 
-    login:async(parent,{email,password})=>{
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+      console.log("user");
+      console.log(user);
 
-        const user=await User.findOne({email});
-        console.log("user");
-        console.log(user);
+      if (!user) {
+        throw new AuthenticationError("Incorrect Credentials");
+      }
 
-        if(!user){
+      //User method defined in the model
 
-            throw new AuthenticationError("Incorrect Credentials");
-        }
+      const correctPassword = user.isCorrectPassword(password);
+      console.log("--------");
+      console.log("Password passed from form", password);
 
-        //User method defined in the model
+      console.log("Password match check");
+      console.log(!correctPassword);
 
-        const correctPassword=user.isCorrectPassword(password);
-        console.log("--------");
-        console.log("Password passed from form",password);
+      if (!correctPassword) {
+        throw new AuthenticationError("Incorrect Credentials");
+      }
 
-        console.log("Password match check");
-        console.log(!correctPassword);
+      const token = signToken(user);
 
-        if(!correctPassword){
+      console.log("token", token);
 
-            throw new AuthenticationError("Incorrect Credentials");
-        }
-
-        const token=signToken(user);
-
-        console.log("token",token);
-
-        return {token,user}
-
+      return { token, user };
     },
 
     //Create Order
 
-    //Add to local storage an Order:{totalPrice,productDetails} where productDetails 
-    //will be [productId1...,productId2...] 
+    //Add to local storage an Order:{totalPrice,productDetails} where productDetails
+    //will be [productId1...,productId2...]
     //Once payment is completed,on submit order make createOrder mutation query with local storage value and clear the storage
 
+    createOrder: async (parent, { totalPrice, productDetails }, context) => {
+      // if (context.user) {
 
-    createOrder:async(parent,{totalPrice,productDetails},context)=>{
-
+      const order = await Order.create({ totalPrice, productDetails });
 
         if (context.user) {
 
@@ -129,10 +123,13 @@ Mutation:{
 
     }
 
+
     },
+  }
 
 
-}
+
+
 
 
 module.exports=resolvers;
