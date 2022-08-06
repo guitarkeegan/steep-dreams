@@ -19,10 +19,8 @@ export const QUERY_ME = gql`
       isComplete
     }
   }
-
 }
 `
-
 
 export const QUERY_PRODUCTS = gql`
 {

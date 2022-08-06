@@ -16,7 +16,7 @@ function Cart() {
 
 
   const { loading, data } = useQuery(QUERY_SINGLE_PRODUCT, {
-    variables: { _id: savedOrderIds[0]  }
+    variables: { _id: savedOrderIds[0] }
   });
   const userData = data?.getProduct || {};
   console.log(userData);
