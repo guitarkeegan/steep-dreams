@@ -1,10 +1,10 @@
-export const getSavedOrderIds = () => {
-  const savedOrderIds = localStorage.getItem("saved_products")
+export const getSavedProductIds = () => {
+  const savedProductIds = localStorage.getItem("saved_products")
     ? JSON.parse(localStorage.getItem("saved_products"))
     : [];
 
-//   return savedOrderIds;
-// };
+  return savedProductIds;
+};
 
 
 // export const removeOrderId = (orderId) => {
@@ -24,10 +24,10 @@ export const getSavedOrderIds = () => {
 //   return true;
 // };
 
-export const saveProductIds = (productIdArr) => {
-    if (productIdArr.length) {
-      localStorage.setItem('saved_orders', JSON.stringify(productIdArr));
-    } else {
-      localStorage.removeItem('saved_orders');
-    }
-  };
+// export const saveProductIds = (productIdArr) => {
+//     if (productIdArr.length) {
+//       localStorage.setItem('saved_orders', JSON.stringify(productIdArr));
+//     } else {
+//       localStorage.removeItem('saved_orders');
+//     }
+//   };

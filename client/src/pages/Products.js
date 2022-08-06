@@ -4,28 +4,34 @@ import { Link } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import {QUERY_PRODUCTS} from "../utils/queries";
 import Card from "../components/Card"
+import calculateCount from "../utils/helpers";
+
 // import "bootstrap/dist/css/bootstrap.min.css";
-// import { saveOrderIds } from "../utils/localStorage";
+import {getSavedProductIds} from "../utils/localStorage";
 
 const Products = () => {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
   const products = data?.getProducts || [];
  
 
-  const [savedProducts, setSavedProducts] = useState([])
+  const [savedProducts, setSavedProducts] = useState(getSavedProductIds());
+  console.log("savedProducts", savedProducts)
+  // const [count, setCount] = useState({});
 
   useEffect(() => {
-    console.log(savedProducts)
     localStorage.setItem('saved_products', JSON.stringify(savedProducts));
+    console.log("savedProducts", savedProducts)
   }, [savedProducts])
   
 
   const addToCart = (id) => {
     console.log(id)
-    // setSavedProduct()
     setSavedProducts([...savedProducts, id]);
-    
-    
+    // if (savedProducts.length !== 0){
+    //   console.log(savedProducts);
+    //   const quantity = calculateCount(savedProducts, count)
+    //   console.log("quantity", quantity)
+    // }
   }
 
   if (!products.length) {
