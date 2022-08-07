@@ -4,14 +4,12 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { QUERY_PRODUCTS } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Icon } from '@iconify/react';
-import {getSavedProductIds} from '../../utils/localStorage'
+import {getSavedProductIds, removeProductId} from '../../utils/localStorage'
 import Auth from '../../utils/auth';
 import calculateCount from "../../utils/helpers";
 
 export default function Cart() {
   const [show, setShow] = useState(false);
-
- 
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);  
@@ -32,36 +30,35 @@ export default function Cart() {
 
   //Hold uniqueset of productid to display only unique products in cart
   const uniqueProductIds = new Set(savedProductIds) 
-  
-  const handleDeleteOrder = () => {
-    return;
-  }
 
   const createOrder = () => {
     return;
   }
 
+  const handleDeleteProduct = async (productId) => {
+    // get token
+    
+    const token = Auth.loggedIn() ? Auth.getToken() : null;
+    
+    if (!token) {
+      return false;
+    }
+    
+    if (quantity[productId] > 1){
+      quantity[productId]--;
+      console.log(quantity[productId]);
+      return;
+    } else {
+      try {
+        // upon success, remove order's id from localStorage
+        removeProductId(productId);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+    }
 
-  // const handleDeleteOrder = async (orderId) => {
-  //   // get token
-  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
 
-  //   if (!token) {
-  //     return false;
-  //   }
-  // }
-
-  //   try {
-  //     const { data } = await removeOrderId({
-  //       variables: { orderId },
-  //     });
-
-  //     // upon success, remove order's id from localStorage
-  //     removeOrderId(orderId);
-  //   } catch (err) {
-  //     console.error(err);
-  //   }
-  // };
 
 
   return (
@@ -80,7 +77,7 @@ export default function Cart() {
         <Offcanvas.Body>
        
          {
-         uniqueProductIds.length!=0 
+         uniqueProductIds.length!==0 
          ?
          (
           <>
@@ -92,7 +89,7 @@ export default function Cart() {
               <h3><img src={require(`../../images/${product.image}`)} className="product-cart-image" /> {product.name}</h3>
               <p>Price: {product.price}</p>
               <p>Count: {quantity[product._id]}</p>
-              <Button onClick={() => handleDeleteOrder} className="btn btn-danger">Delete</Button>
+              <Button onClick={() => handleDeleteProduct(product._id)} className="btn btn-danger">Delete</Button>
             </div>)
           }
           })

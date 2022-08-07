@@ -8,22 +8,22 @@ export const getSavedProductIds = () => {
 };
 
 
-// export const removeOrderId = (orderId) => {
-//   const savedOrderIds = localStorage.getItem("saved_orders")
-//     ? JSON.parse(localStorage.getItem("saved_orders"))
-//     : null;
+export const removeProductId = (productId) => {
+  const savedProductIds = localStorage.getItem("saved_products")
+    ? JSON.parse(localStorage.getItem("saved_products"))
+    : null;
 
-//   if (!savedOrderIds) {
-//     return false;
-//   }
+  if (!savedProductIds) {
+    return false;
+  }
 
-//   const updatedSavedOrderIds = savedOrderIds?.filter(
-//     (savedOrderId) => savedOrderId !== orderId
-//   );
-//   localStorage.setItem("saved_orders", JSON.stringify(updatedSavedOrderIds));
+  const updatedSavedProductIds = savedProductIds?.filter(
+    (savedProductId) => savedProductId !== productId
+  );
+  localStorage.setItem("saved_products", JSON.stringify(updatedSavedProductIds));
 
-//   return true;
-// };
+  return true;
+};
 
 // export const saveProductIds = (productIdArr) => {
 //     if (productIdArr.length) {
