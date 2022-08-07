@@ -195,7 +195,7 @@ label {
 .profile-name,
 .search-bar {
   color: var(--text-color) !important;
-  font-size: 1.1rem;
+  font-size: 0.8rem;
 }
 
 footer {
@@ -232,4 +232,9 @@ button > .logout-icon {
   position: relative;
   height: 500px;
   width: 100%;
+}
+.searchbar{
+
+  font-size: 1rem!important;
+  padding:1px 20px !important;
 }

@@ -2,10 +2,20 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Cart from '../Cart'
 import { Icon } from '@iconify/react';
+import Products from '../../pages/Products'
 import Auth from "../../utils/auth";
 import SearchBar from "../SearchBar";
 
+
+
+
+
+
+
 const Header = () => {
+
+
+
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -15,12 +25,13 @@ const Header = () => {
     <header className="mb-5 align-center py-3" >
       <div className="container justify-space-between-lg">
         <div className="d-flex  justify-content-between align-items-center">
-          <div className="d-flex justify-content-center align-items-center">
-
+          <div className="d-flex align-items-center px-3 mx-3">
           <Link className="text-light" to="/">
             <h1 className="logo">Steep Dreams <Icon icon="icon-park-solid:tea-drink"></Icon></h1>
           </Link>
-          <SearchBar/> 
+        </div>
+        <div className="ml-2">
+        <SearchBar/>
         </div>
         <div className="d-flex justify-content-start align-items-center p-4">
        

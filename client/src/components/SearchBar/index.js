@@ -1,15 +1,25 @@
 
-const SearchBar=()=>{
+import {QUERY_PRODUCT_BY_NAME} from "../../utils/queries"
+import { useQuery } from "@apollo/client";  
 
+//Semantic UI Component
+import { Search } from 'semantic-ui-react'
+
+
+//Search Handler
+function searchProduct(){
+
+     
+      console.log("Searching");
+     
+    }
+
+
+const SearchBar=()=>{
+      const { loading, data }=useQuery(QUERY_PRODUCT_BY_NAME);
+      const products = data?.getProducts || [];
     
-      //       <div class="container h-100">
-      //       <div class="d-flex justify-content-center h-100">
-      //       <div class="searchbar">
-      //     <input class="search_input" type="text" name="" placeholder="Search...">
-      //     <a href="#" class="search_icon"><i class="fas fa-search"></i></a>
-      //   </div>
-      // </div>
-      //   </div>
+     return (<Search placeholder="Search Products" className="searchbar" onSearchChange={searchProduct}/> )
     
 
 

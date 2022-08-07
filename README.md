@@ -38,7 +38,14 @@
   ## License
   This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/) - click the link to read the license.
   
+ # Technologies/Packages Used
+
+ - Semantic UI for Searchbar
  
+ *  semantic-ui-react 
+ *  semantic-ui-css
+
+
  # References
 
  * Email Notification : USing Elastic Email-Mail Trap and SMTP JS library 
