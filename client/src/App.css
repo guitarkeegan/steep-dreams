@@ -83,6 +83,17 @@ ul {
   border-radius: 4px;
 }
 
+.disabledButton{
+
+  position: absolute;
+  background-color: gray !important;
+  margin-right: 15px;
+  bottom: 0%;
+  right: 0%;
+  border-radius: 4px;
+  cursor:not-allowed;
+  
+}
 
 .cardImage{
   max-width: 99%;
@@ -209,7 +220,7 @@ button > .logout-icon {
 
 
 
-.order-productlist img{
+.order-productlist img,.product-cart-image{
 
   width:80px;
   border-radius: 100px;

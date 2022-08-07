@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Cart from '../Cart'
 import { Icon } from '@iconify/react';
 import Auth from "../../utils/auth";
-
+import SearchBar from "../SearchBar";
 
 const Header = () => {
   const logout = (event) => {

@@ -5,33 +5,32 @@ import { useQuery } from "@apollo/client";
 import {QUERY_PRODUCTS} from "../utils/queries";
 import Card from "../components/Card"
 import calculateCount from "../utils/helpers";
-
-// import "bootstrap/dist/css/bootstrap.min.css";
 import {getSavedProductIds} from "../utils/localStorage";
 
 const Products = () => {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
   const products = data?.getProducts || [];
  
+  //Fetches the saveProducts from localstorage if any everytime page gets refreshed and set it as state variable 
+  const productIds=getSavedProductIds();
+  const [savedProducts, setSavedProducts] = useState(productIds);
 
-  const [savedProducts, setSavedProducts] = useState(getSavedProductIds());
-  console.log("savedProducts", savedProducts)
-  // const [count, setCount] = useState({});
 
+  //Everytime the state variable changes localstorage gets updated with the value
   useEffect(() => {
+   
     localStorage.setItem('saved_products', JSON.stringify(savedProducts));
-    console.log("savedProducts", savedProducts)
+
   }, [savedProducts])
   
-
+//Adds the product id to the state array variable and to localstorage
   const addToCart = (id) => {
-    console.log(id)
+  
     setSavedProducts([...savedProducts, id]);
-    // if (savedProducts.length !== 0){
-    //   console.log(savedProducts);
-    //   const quantity = calculateCount(savedProducts, count)
-    //   console.log("quantity", quantity)
-    // }
+    localStorage.setItem('saved_products', JSON.stringify(savedProducts));
+
+    //Need to Change the alert to a better option
+    alert("Product Added to the cart");
   }
 
   if (!products.length) {
