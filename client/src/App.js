@@ -62,6 +62,8 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/products" element={<Products />} />
               <Route path="/orders" element={<Orders />} />
+              <Route path="/products/" element={<Orders />} />
+              <Route path="/products/:name" element={<Products />} />
             </Routes>
           </div>
           <Footer />

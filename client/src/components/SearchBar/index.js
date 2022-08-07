@@ -4,22 +4,37 @@ import { useQuery } from "@apollo/client";
 
 //Semantic UI Component
 import { Search } from 'semantic-ui-react'
+import { Button } from "bootstrap";
 
 
 //Search Handler
 function searchProduct(){
 
+      const searchElement=document.querySelector('.searchbar input');
+      console.log(searchElement.value);
      
-      console.log("Searching");
-     
+      console.log("Search Element",searchElement);
+      localStorage.setItem("search_value",JSON.stringify(searchElement.value));
+      window.location.assign(`/products/${searchElement.value}`);
+      
+
     }
 
 
-const SearchBar=()=>{
+const SearchBar=function(){
       const { loading, data }=useQuery(QUERY_PRODUCT_BY_NAME);
-      const products = data?.getProducts || [];
+
+      const products = data?.getProductByName(this.value) || [];
+
+     console.log(products);
     
-     return (<Search placeholder="Search Products" className="searchbar" onSearchChange={searchProduct}/> )
+     return (
+     <div className="d-flex justify-content-start align-items-start">
+     <Search placeholder="Search Products" className="searchbar"/> 
+     <button className="searchBtn" onClick={searchProduct}>Search</button>
+     </div> 
+     )
+
     
 
 

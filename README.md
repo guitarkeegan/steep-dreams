@@ -46,6 +46,7 @@
  *  semantic-ui-css
 
 
+
  # References
 
  * Email Notification : USing Elastic Email-Mail Trap and SMTP JS library 
@@ -68,5 +69,7 @@
         Body:"Test Email with mailtrap"
         ````
     
- 
+ * Semantic UI Reference
+
+ https://www.geeksforgeeks.org/reactjs-semantic-ui-search-module/
  
