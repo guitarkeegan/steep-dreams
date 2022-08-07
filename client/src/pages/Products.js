@@ -6,10 +6,21 @@ import {QUERY_PRODUCTS} from "../utils/queries";
 import Card from "../components/Card"
 import calculateCount from "../utils/helpers";
 import {getSavedProductIds} from "../utils/localStorage";
+import { useParams } from "react-router-dom";
 
 const Products = ({savedProducts, setSavedProducts}) => {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
   const products = data?.getProducts || [];
+
+  //To Fetch the searchText
+  // const { searchValue } = props.match.params();
+  // console.log("Search Value",searchValue);
+
+   //Alternative to Params
+  //  const searchValue=JSON.parse(localStorage.getItem("search_value"));
+  //  console.log(searchValue);
+
+ 
  
   //Fetches the saveProducts from localstorage if any everytime page gets refreshed and set it as state variable 
   // const productIds=getSavedProductIds();

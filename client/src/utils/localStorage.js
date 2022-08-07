@@ -2,7 +2,7 @@ export const getSavedProductIds = () => {
   const savedProductIds = localStorage.getItem("saved_products")
     ? JSON.parse(localStorage.getItem("saved_products"))
     : [];
-    console.log(savedProductIds);
+ 
   return savedProductIds;
 };
 

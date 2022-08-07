@@ -47,5 +47,19 @@ getProduct(_id: $id) {
 }
 `
 
+export const QUERY_PRODUCT_BY_NAME= gql`
+{
+  getProductByName(name:$name){
+      _id
+    image
+    description
+    name
+    price
+    stockQuantity
+
+  }
+}
+`
+
 
 

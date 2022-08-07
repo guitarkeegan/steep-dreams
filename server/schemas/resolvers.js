@@ -40,7 +40,20 @@ Query:{
       const product = await Product.findOne(params);
       return product;
     },
-  },
+  
+  
+  //Get a Product with productName
+
+  getProductByName: async (parent, { name }) => {
+    const params = name ? { name } : {};
+    const product = await Product.findOne({params});
+    return product;
+  }
+
+  
+}
+  
+  ,
 
   Mutation: {
     //Create a user and tokenize the userdata
