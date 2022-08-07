@@ -2,22 +2,23 @@ import React,{useState} from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_ME} from "../utils/queries";
 import 'bootstrap/dist/css/bootstrap.min.css';
+import calculateCount from '../utils/helpers'
 
 //Calculate count for products in each order
-function calculateCount(productArray,count){
+// function calculateCount(productArray,count){
   
- for(let product of productArray){
-  if(count[product._id])
-{count[product._id]+=1;}
-else{
-  count[product._id]=1;
-}
+//  for(let product of productArray){
+//   if(count[product._id])
+// {count[product._id]+=1;}
+// else{
+//   count[product._id]=1;
+// }
 
- }
+//  }
   
 
 
-}
+// }
 
 const Orders = () => {
 
