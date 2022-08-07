@@ -1,32 +1,82 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Offcanvas from "react-bootstrap/Offcanvas";
-import { QUERY_ME } from "../../utils/queries";
+import { QUERY_PRODUCTS } from "../../utils/queries";
 import { useQuery } from "@apollo/client";
 import { Icon } from '@iconify/react';
-// import {getSavedOrderIds, removeOrderId} from '../../utils/localStorage'
+import {getSavedProductIds} from '../../utils/localStorage'
 import Auth from '../../utils/auth';
+import calculateCount from "../../utils/helpers";
 
 export default function Cart() {
   const [show, setShow] = useState(false);
-  // const [savedOrderIds, setSavedOrderIds] = useState(getSavedOrderIds());
+  const [savedProductIds, setSavedProductIds] = useState(getSavedProductIds());
+  const [count, setCount] = useState({});
+  // const savedProductIds = JSON.parse(localStorage.getItem("saved_products"));
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  // console.log(typeof savedProductIds);
+  // console.log(savedProductIds);
 
-  const handleDeleteOrder = async (orderId) => {
-    // get token
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
+  // if (savedProductIds.length !== 0){
+  //   const quantity = calculateCount(savedProductIds, {})
+  //   console.log("quantity", quantity)
+  // }
+  
+  // console.log("calculateCount", count)
+  console.log("spid", savedProductIds)
+  
 
-    if (!token) {
-      return false;
-    }
+
+  const { loading, data } = useQuery(QUERY_PRODUCTS);
+
+  const productData = data?.getProducts || [];
+  console.log("projectData", productData);
+
+  let quantity;
+  if (savedProductIds.length !== 0){
+    console.log(savedProductIds);
+    quantity = calculateCount(savedProductIds, count)
+    // setCount(...count, calculateCount(savedProductIds, count))
+    console.log("quantity", quantity)
   }
 
-    // try {
-    //   const { data } = await removeOrderId({
-    //     variables: { orderId },
-    //   });
+  
+  const uniqueProductIds = new Set(savedProductIds) 
+  
+  const handleDeleteOrder = () => {
+    return;
+  }
+
+  const createOrder = () => {
+    return;
+  }
+
+
+  // productData.map(product=>{
+  //   if (uniqueProductIds.has(product._id)){
+  //     console.log(product.name)
+  //     console.log(product.description)
+  //     console.log(product.image)
+  //     console.log(product.price)
+  //     console.log(count[product._id])
+  //   }
+  // })
+
+  // const handleDeleteOrder = async (orderId) => {
+  //   // get token
+  //   const token = Auth.loggedIn() ? Auth.getToken() : null;
+
+  //   if (!token) {
+  //     return false;
+  //   }
+  // }
+
+  //   try {
+  //     const { data } = await removeOrderId({
+  //       variables: { orderId },
+  //     });
 
   //     // upon success, remove order's id from localStorage
   //     removeOrderId(orderId);
@@ -34,7 +84,6 @@ export default function Cart() {
   //     console.error(err);
   //   }
   // };
-
 
 
   return (
@@ -52,17 +101,16 @@ export default function Cart() {
         </Offcanvas.Header>
         <Offcanvas.Body>
 
-          {/* {savedOrderIds ?
-          savedOrderIds[0].map(product=>{
-            <div key={product.id}>
-              <h3><img src={require(`../../images/${product.image}`)}></img>  {product.name}</h3>
+         {productData.map(product=>{
+          if (uniqueProductIds.has(product._id)){
+            return(<div key={product.id}>
+              <h3><img src={require(`../../images/${product.image}`)} />  {product.name}</h3>
               <p>Price: {product.price}</p>
+              <p>Count: {quantity[product._id]}</p>
               <Button onClick={() => handleDeleteOrder} className="btn btn-danger">Delete</Button>
-            </div>
-          }): */}
-            
-           <p>No Items in Cart.</p>
-          {/* } */}
+            </div>)}
+          })}
+          <Button onClick={() => createOrder}>Submit Order</Button>
           
         </Offcanvas.Body>
       </Offcanvas>
