@@ -5,7 +5,7 @@ import { Icon } from '@iconify/react';
 import Auth from "../../utils/auth";
 import SearchBar from "../SearchBar";
 
-const Header = () => {
+const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
   const logout = (event) => {
     event.preventDefault();
     Auth.logout();
@@ -35,7 +35,7 @@ const Header = () => {
             <Link className="" to="/orders">
                 My Orders
               </Link>
-              <Cart />
+              <Cart savedProductIds={savedProductIds} savedProducts={savedProducts} setSavedProducts={setSavedProducts}/>
               <Link to="" onClick={logout}>
               <Icon icon="clarity:logout-solid" className="nav-icon"></Icon>
               </Link>
