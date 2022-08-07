@@ -8,9 +8,7 @@ import calculateCount from "../utils/helpers";
 import {getSavedProductIds} from "../utils/localStorage";
 import { useParams } from "react-router-dom";
 
-const Products = () => {
-
-
+const Products = ({savedProducts, setSavedProducts}) => {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
   const products = data?.getProducts || [];
 
@@ -25,16 +23,15 @@ const Products = () => {
  
  
   //Fetches the saveProducts from localstorage if any everytime page gets refreshed and set it as state variable 
-  const productIds=getSavedProductIds();
-  const [savedProducts, setSavedProducts] = useState(productIds);
-
+  // const productIds=getSavedProductIds();
+  // const [savedProducts, setSavedProducts] = useState(productIds);
 
   //Everytime the state variable changes localstorage gets updated with the value
-  useEffect(() => {
+  // useEffect(() => {
    
-    localStorage.setItem('saved_products', JSON.stringify(savedProducts));
+  //   localStorage.setItem('saved_products', JSON.stringify(savedProducts));
 
-  }, [savedProducts])
+  // }, [savedProducts])
   
 //Adds the product id to the state array variable and to localstorage
   const addToCart = (id) => {

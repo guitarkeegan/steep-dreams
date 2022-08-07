@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   ApolloClient,
   InMemoryCache,
@@ -17,7 +17,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
-
+import {getSavedProductIds} from "./utils/localStorage";
 
 import "./App.css";
 
@@ -48,11 +48,21 @@ const client = new ApolloClient({
 
 
 function App() {
+
+  const savedProductIds=getSavedProductIds();
+  const [savedProducts, setSavedProducts] = useState(savedProductIds)
+
+  useEffect(() => {
+   
+    localStorage.setItem('saved_products', JSON.stringify(savedProducts));
+
+  }, [savedProducts])
+
   return (
     <ApolloProvider client={client}>
       <Router>
         <div className="flex-column justify-flex-start min-100-vh">
-          <Header />
+          <Header savedProductIds={savedProductIds} savedProducts={savedProducts} setSavedProducts={setSavedProducts}/>
           <div className="container">
             <Routes>
               <Route path="/" element={<Home />} />
@@ -60,7 +70,7 @@ function App() {
               {/* <Route path="/cart" element={<Cart />} /> */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/products" element={<Products />} />
+              <Route path="/products" element={<Products savedProducts={savedProducts} setSavedProducts={setSavedProducts} />} />
               <Route path="/orders" element={<Orders />} />
               <Route path="/products/" element={<Orders />} />
               <Route path="/products/:name" element={<Products />} />
