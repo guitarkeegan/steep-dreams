@@ -97,7 +97,7 @@ export default function Cart() {
           }
           })
         }
-          <Button className="my-4 w-100" onClick={()=>{createOrder}}>Place Order</Button>
+          <Button className="my-4 w-100" onClick={()=>createOrder}>Place Order</Button>
           </>
           )
           :(<p className="bg-primary">Cart is Empty</p>)
