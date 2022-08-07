@@ -67,13 +67,12 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              {/* <Route path="/cart" element={<Cart />} /> */}
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
               <Route path="/products" element={<Products savedProducts={savedProducts} setSavedProducts={setSavedProducts} />} />
               <Route path="/orders" element={<Orders />} />
-              <Route path="/products/" element={<Orders />} />
-              <Route path="/products/:name" element={<Products />} />
+              {/* <Route path="/products/" element={<Orders />} /> */}
+              {/* <Route path="/products/:name" element={<Products />} /> */}
             </Routes>
           </div>
           <Footer />
