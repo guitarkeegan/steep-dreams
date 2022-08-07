@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Cart from '../Cart'
 import { Icon } from '@iconify/react';
 import Auth from "../../utils/auth";
-
+import SearchBar from "../SearchBar";
 
 const Header = () => {
   const logout = (event) => {
@@ -20,7 +20,7 @@ const Header = () => {
           <Link className="text-light" to="/">
             <h1 className="logo">Steep Dreams <Icon icon="icon-park-solid:tea-drink"></Icon></h1>
           </Link>
-          <span className="px-3 search-bar">Search Bar Placeholder</span>  
+          <SearchBar/> 
         </div>
         <div className="d-flex justify-content-start align-items-center p-4">
        
