@@ -17,9 +17,20 @@ export const removeProductId = (productId) => {
     return false;
   }
 
-  const updatedSavedProductIds = savedProductIds?.filter(
-    (savedProductId) => savedProductId !== productId
-  );
+  let deleteCount = 0;
+  const updatedSavedProductIds = [];
+  savedProductIds.forEach(savedProductId => {
+    if (productId === savedProductId && deleteCount === 0){
+      deleteCount++
+    } else {
+      updatedSavedProductIds.push(savedProductId);
+    }
+  });
+  
+  // const updatedSavedProductIds = savedProductIds?.filter(
+  //   (savedProductId) => savedProductId !== productId
+  // );
+
   localStorage.setItem("saved_products", JSON.stringify(updatedSavedProductIds));
 
   return true;

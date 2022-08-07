@@ -10,6 +10,7 @@ import calculateCount from "../../utils/helpers";
 
 export default function Cart() {
   const [show, setShow] = useState(false);
+  // const [count, setCount] =  useState({});
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);  
@@ -47,11 +48,13 @@ export default function Cart() {
     if (quantity[productId] > 1){
       quantity[productId]--;
       console.log(quantity[productId]);
+      removeProductId(productId);
       return;
     } else {
       try {
         // upon success, remove order's id from localStorage
         removeProductId(productId);
+        console.log("removed from local storage")
       } catch (err) {
         console.error(err);
       }
@@ -85,7 +88,7 @@ export default function Cart() {
           productData.map(product=>{
           if (uniqueProductIds.has(product._id)){
 
-            return(<div key={product.id}>
+            return(<div key={product._id}>
               <h3><img src={require(`../../images/${product.image}`)} className="product-cart-image" /> {product.name}</h3>
               <p>Price: {product.price}</p>
               <p>Count: {quantity[product._id]}</p>
