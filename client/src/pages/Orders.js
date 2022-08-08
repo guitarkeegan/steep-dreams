@@ -80,7 +80,7 @@ const Orders = () => {
             <div className="card">
                 <div className=" d-flex justify-content-between align-items-center p-2">
                   <div>Order No {index+1}</div>
-                  <div>Total Price {order.totalPrice}</div>
+                  <div>Total Price {order.totalPrice.toFixed(2)}</div>
                   <div>{order.createdAt}</div>
                 </div>
 
@@ -101,7 +101,7 @@ const Orders = () => {
 
                     calculateCount(array,count);
                     productIds.push(product._id);
-                    
+
                     console.log(count[product._id],product._id);
                     return( <li key={product._id} className="list-group-item order-productlist d-flex justify-content-between  align-items-center">
                             <img src={require( `../images/${product.image}`)}/>

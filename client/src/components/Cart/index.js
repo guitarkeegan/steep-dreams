@@ -44,10 +44,10 @@ export default function Cart({
   Send Out Email Notification on Order
   */
   const placeOrderHandler = async () => {
-    console.log("Place Order Handler");
+   
     //Get Total Price and Array of ProductIDs
     
-    console.log(totalPrice,uniqueProductIds);
+   
 try{
     const  {data}  = await addOrder({
       variables: { totalPrice:totalPrice ,productDetails:[...savedProducts]},
@@ -64,33 +64,34 @@ try{
 
       //Send email using Elastic Email API and SMTP js Library
       //Below code rely on the /public/smtp.js file
+      //Commenting the email notification 
 
       
-        window.Email.send({
+        // window.Email.send({
 
-          Host:"smtp.elasticemail.com",
-          Username:"simmyvarghese5@gmail.com",
-          Password:"12F322DE9F3F58C7B02254666F8AE442F4DA",
-          To:userData.email,
-          From:"simmyvarghese5@gmail.com",
-          Subject:"Order Notifcation from SteepDreams",
-          Body:`
-          <div">
-          Hello ${userData.email.split('@')[0]},
-          <br>
-          <br>
-          Thanks for shopping with us.
-          <br>
-          Please login to see Your <a href="http://localhost:3000/orders">Order Details </a>
-          <br>
-          <br>
-          Have a Steep  Dreams  !!
-          <br>
-          From Steep Dreams Team
-          </div>`
-        })
-        .then((res)=>console.log("Email Sent Successfully",res))
-        .catch(err=>console.log(err));
+        //   Host:"smtp.elasticemail.com",
+        //   Username:"simmyvarghese5@gmail.com",
+        //   Password:"12F322DE9F3F58C7B02254666F8AE442F4DA",
+        //   To:userData.email,
+        //   From:"simmyvarghese5@gmail.com",
+        //   Subject:"Order Notifcation from SteepDreams",
+        //   Body:`
+        //   <div">
+        //   Hello ${userData.email.split('@')[0]},
+        //   <br>
+        //   <br>
+        //   Thanks for shopping with us.
+        //   <br>
+        //   Please login to see Your <a href="http://localhost:3000/orders">Order Details </a>
+        //   <br>
+        //   <br>
+        //   Have a Steep  Dreams  !!
+        //   <br>
+        //   From Steep Dreams Team
+        //   </div>`
+        // })
+        // .then((res)=>console.log("Email Sent Successfully",res))
+        // .catch(err=>console.log(err));
       
         //Remove from Local Storage
         localStorage.removeItem("saved_products");
@@ -98,10 +99,7 @@ try{
       //Navigate To payment page
 
       window.location.assign('/payment');
-      // const orders=userData.orders;
-      // console.log(userData);
-  
-      // console.log(orders);
+      
     }
 
     
@@ -195,6 +193,8 @@ try{
             );
           }
         })}
+        <hr/>
+        <p>Total Price: {totalPrice.toFixed(2)}</p>
         <Button className="my-4 w-100" onClick={() => placeOrderHandler()}>
           Place Order
         </Button>
