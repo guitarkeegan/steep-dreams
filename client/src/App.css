@@ -1,11 +1,11 @@
 /*Overriden the default Styling for the application*/
 :root {
   --bg-color: #c1d29e;
-  --text-color: rgb(36, 22, 4);
+  --text-color: #3d0c02;
   --form-header-color: #717c7a;
   --white-color: #fff;
   --black-color: #000;
-  --btn-color: rgb(36, 22, 4);
+  --btn-color: #3d0c02;
 }
 
 body {
@@ -50,6 +50,20 @@ ul {
   /* background-color: var(--bg-primary) !important; */
   background-color: white;
 }
+.home-card {
+  height: 500px;
+  width: 500px;
+
+}
+
+.home-card-text{
+
+  list-style: none;
+
+}
+.click{
+  cursor:pointer
+}
 
 .cardList {
   list-style: none;
@@ -74,6 +88,16 @@ ul {
   bottom: 0%;
   right: 0%;
   border-radius: 4px;
+}
+
+.disabledButton {
+  position: absolute;
+  background-color: gray !important;
+  margin-right: 15px;
+  bottom: 0%;
+  right: 0%;
+  border-radius: 4px;
+  cursor: not-allowed;
 }
 
 .cardImage {
@@ -177,7 +201,9 @@ label {
 .profile-name,
 .search-bar {
   color: var(--text-color) !important;
-  font-size: 1.1rem;
+  font-size: 1rem;
+  font-style: italic;
+  margin-left: 10px;
 }
 
 footer {
@@ -200,6 +226,11 @@ button > .logout-icon {
   border: none;
 }
 
+.order-productlist img,
+.product-cart-image {
+  width: 80px;
+  border-radius: 100px;
+}
 .hero {
   background-position: center;
   background-repeat: no-repeat;
@@ -208,7 +239,25 @@ button > .logout-icon {
   height: 500px;
   width: 100%;
 }
-.home-card {
-  height: 500px;
-  width: 500px;
+.searchbar {
+  font-size: 1rem !important;
+  padding: 1px 20px !important;
+}
+
+.searchBtn {
+  border-radius: 50px !important;
+  padding: 1px 7px;
+}
+
+.ordersummary {
+  box-shadow: 0 1px 0px 1px var(--form-header-color);
+  background-color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  padding: 0.8rem !important;
+}
+
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  body {
+    font-size: 0.8rem;
+  }
 }

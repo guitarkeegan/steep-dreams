@@ -12,7 +12,7 @@ const orderSchema = new Schema(
         {
           type: Schema.Types.ObjectId,
           ref: 'Product',
-        },
+        },``
       ],
     createdAt: {
       type: Date,
@@ -24,12 +24,19 @@ const orderSchema = new Schema(
   },
   {
     toJSON: {
-      getters: true,
+      getters: true
     },
     id: false,
   }
 );
 
+
+
+
+
 const Order=model('Order',orderSchema);
+
+
+
 
 module.exports = Order;

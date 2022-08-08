@@ -1,4 +1,8 @@
 
+import Auth from "../../utils/auth"
+
+
+
 function Card(props){
    
   return(
@@ -9,8 +13,12 @@ function Card(props){
         <p className="cardDescription">{props.product.description}</p>
         <h3 className="cardPrice">${props.product.price}</h3>
       </div>
-      <button className="cardButton">Add to Cart</button>
-    </div>
+      {Auth.loggedIn()?
+      <button onClick={() => props.addToCart(props.product._id)} className="cardButton">Add to Cart</button>
+      :
+      <button  className="disabledButton" disabled>Add to Cart</button>
+    }
+      </div>
   )
 }
 

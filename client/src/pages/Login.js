@@ -43,7 +43,7 @@ const Login = () => {
       
 
     } catch (e) {
-      console.error(e);
+      console.error("Invalid Credentials");
     }
 
     // clear form values
@@ -62,7 +62,7 @@ const Login = () => {
             {data ? (
                 <Link to="/"></Link>
             ) : (
-              <form onSubmit={handleFormSubmit}                className="d-flex flex-column py-2 px-3 signup-form">
+              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-2 px-3 signup-form">
                 <div className="form-group d-flex justify-content-between align-items-center">
                 <label>Email</label>
                 <input

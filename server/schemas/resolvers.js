@@ -1,24 +1,30 @@
-const { User, Product, Order } = require("../models");
-const { AuthenticationError } = require("apollo-server-express");
-const { signToken } = require("../utils/auth");
+const {User,Product,Order}=require('../models');
+const { AuthenticationError } = require('apollo-server-express');
+const { signToken } = require('../utils/auth');
 
-const resolvers = {
-  Query: {
-    //Get user data
-    me: async (parent, args, context) => {
-      if (context.user) {
-        const userData = User.findOne({ _id: context.user._id })
-          .select("-__v -password")
-          .populate("orders")
-          .populate({
-            path: "orders",
-            populate: "productDetails",
-          });
 
-        return userData;
-      }
+const resolvers={
 
-      throw new AuthenticationError("User not logged in");
+Query:{    
+    
+//Get user data
+    me:async(parent,args,context)=>{
+        if(context.user){
+
+
+            const userData=User.findOne({ _id: context.user._id })
+            .select('-__v -password')
+             .populate('orders').populate({
+              path:'orders',
+              populate:'productDetails'
+             })
+
+        console.log(userData);
+            return userData;
+        }
+
+        throw new AuthenticationError('User not logged in');
+
     },
 
     //Get all Product data
@@ -34,7 +40,20 @@ const resolvers = {
       const product = await Product.findOne(params);
       return product;
     },
-  },
+  
+  
+  //Get a Product with productName
+
+  getProductByName: async (parent, { name }) => {
+    const params = name ? { name } : {};
+    const product = await Product.findOne({params});
+    return product;
+  }
+
+  
+}
+  
+  ,
 
   Mutation: {
     //Create a user and tokenize the userdata
@@ -45,7 +64,7 @@ const resolvers = {
       const user = await User.create(args);
 
       const token = signToken(user);
-      if ((user = null)) {
+      if ((user === null)) {
         throw new AuthenticationError("Please type valid email and password");
       }
      
@@ -90,23 +109,39 @@ const resolvers = {
     //Once payment is completed,on submit order make createOrder mutation query with local storage value and clear the storage
 
     createOrder: async (parent, { totalPrice, productDetails }, context) => {
-      // if (context.user) {
+      
+      
+        if (context.user) {
 
-      const order = await Order.create({ totalPrice, productDetails });
+            const order=await Order.create({totalPrice,productDetails});
+            console.log(order);
+            console.log(order._id);
+            const updatedUser = await User.findByIdAndUpdate(
+              { _id: context.user._id },
+              { $push: { orders: order }},
+              { new: true }
+            )
+            .populate('orders'). 
+            populate(
+                {path:'orders',
+                populate:'productDetails'
+                }
+                );
 
-      const updatedUser = await User.findByIdAndUpdate(
-        { _id: context.user._id },
-        { $push: { orders: order } },
-        { new: true }
-      )
-        .populate("orders")
-        .populate({ path: "orders", populate: "productDetails" });
+                console.log(updatedUser);
+            return updatedUser;
 
-      return updatedUser;
+        }
+
+    }
+
+
     },
-  },
+  }
 
-  // }
-};
 
-module.exports = resolvers;
+
+
+
+
+module.exports=resolvers;

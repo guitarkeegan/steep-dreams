@@ -7,7 +7,7 @@ export const QUERY_ME = gql`
     email
     orders {
       createdAt
-      price
+      totalPrice
       productDetails {
         _id
         image
@@ -16,13 +16,10 @@ export const QUERY_ME = gql`
         price
         stockQuantity
       }
-      isComplete
     }
   }
-
 }
 `
-
 
 export const QUERY_PRODUCTS = gql`
 {
@@ -47,6 +44,20 @@ getProduct(_id: $id) {
   price
   stockQuantity
 }
+}
+`
+
+export const QUERY_PRODUCT_BY_NAME= gql`
+{
+  getProductByName(name:$name){
+      _id
+    image
+    description
+    name
+    price
+    stockQuantity
+
+  }
 }
 `
 
