@@ -64,7 +64,7 @@ Query:{
       const user = await User.create(args);
 
       const token = signToken(user);
-      if ((user = null)) {
+      if ((user === null)) {
         throw new AuthenticationError("Please type valid email and password");
       }
      
