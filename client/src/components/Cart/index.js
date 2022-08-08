@@ -191,12 +191,13 @@ try{
                 >
                   Delete
                 </Button>
+                <hr />
               </div>
             );
           }
         })}
-        <hr/>
-        <p>Total Price: {totalPrice.toFixed(2)}</p>
+       
+        <p>Total Price: ${totalPrice.toFixed(2)}</p>
         <Button className="my-4 w-100" onClick={() => placeOrderHandler()}>
           Place Order
         </Button>
