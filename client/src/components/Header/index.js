@@ -24,15 +24,15 @@ const Header = () => {
         </div>
         <div className="d-flex justify-content-start align-items-center p-4">
        
-        <Link className="" to="/about">
+        <Link className="nav" to="/about">
           Our Story
         </Link>
-        <Link className="" to="/products">
+        <Link className="nav" to="/products">
           Products
         </Link>
           {Auth.loggedIn() ? (
             <>
-            <Link className="" to="/orders">
+            <Link className="nav" to="/orders">
                 My Orders
               </Link>
               <Cart />
@@ -47,10 +47,10 @@ const Header = () => {
             </>
           ) : (
             <>
-              <Link className="" to="/login">
+              <Link className="nav" to="/login">
                 Login
               </Link>
-              <Link className="" to="/signup">
+              <Link className="nav" to="/signup">
                 Signup
               </Link>
             </>
