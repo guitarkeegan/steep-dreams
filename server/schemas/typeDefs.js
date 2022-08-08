@@ -1,6 +1,7 @@
 const {gql}=require('apollo-server-express');
+// import gql to define typedefs.
 
-
+// define the shape of returned data.
 const typeDefs=gql`
 
 type User{
@@ -52,7 +53,7 @@ type Mutation{
 }
 `;
 
-//Need to fix the productDetails type once the front end code is finalized and make createOrder call 
+// Mutations to create a new user or login, then return an Auth token. Create order will return a User type updated Orders array.
 
 
 module.exports=typeDefs;

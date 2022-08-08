@@ -89,11 +89,7 @@ Query:{
     },
 
     //Create Order
-
-    //Add to local storage an Order:{totalPrice,productDetails} where productDetails
-    //will be [productId1...,productId2...]
-    //Once payment is completed,on submit order make createOrder mutation query with local storage value and clear the storage
-
+    // pass total price and product details, if user is signed in, create a new order and add it to the user's orders array. Returnt he updated user along with order and product details.
     createOrder: async (parent, { totalPrice, productDetails }, context) => {
       
       
