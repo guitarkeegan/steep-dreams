@@ -220,8 +220,8 @@ try{
           <Offcanvas.Title>My Cart</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          {uniqueProductIds.length !== 0 ? renderCartBody(): (
-            <p className="bg-primary">Cart is Empty</p>
+          {savedProducts.length !== 0 ? renderCartBody(): (
+            <p className="">Cart is Empty</p>
           )}
         </Offcanvas.Body>
       </Offcanvas>
