@@ -1,3 +1,4 @@
+// array of user objects to seed database. Variations in usernames were used to test validation.
 const users = [
     {
         "email":"john_123@gmail.com",
