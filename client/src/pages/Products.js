@@ -41,6 +41,7 @@ const Products = ({ savedProducts, setSavedProducts }) => {
       borderRadius: "4px",
       color: "#fff",
       fontFamily: "Robato 'Open Sans'",
+      
     }
   };
 
