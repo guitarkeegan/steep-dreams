@@ -75,7 +75,9 @@ const Products = ({ savedProducts, setSavedProducts }) => {
   }
 
   return (
-    <div className="wrapper my-4">
+
+    <div className="wrapper ">
+
 
     {addNotification ? renderProductsAdded() : <></>}
 

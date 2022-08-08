@@ -13,7 +13,9 @@ const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
   };
   return (
 
-    <header className="mb-5 d-flex justify-content-around align-items-center py-5" >
+
+    <header className=" d-flex justify-content-around align-items-center py-5" >
+
       <div className="container">
         <div className="d-flex justify-content-around align-items-center flex-wrap">
           <div className="d-flex justify-content-start align-items-center px-3 mx-1 my-2">
@@ -26,15 +28,15 @@ const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
         </div>
         <div className="d-flex justify-content-start align-items-center px-3 my-2">
        
-        <Link className="" to="/about">
+        <Link className="nav" to="/about">
           Our Story
         </Link>
-        <Link className="" to="/products">
+        <Link className="nav" to="/products">
           Products
         </Link>
           {Auth.loggedIn() ? (
             <>
-            <Link className="" to="/orders">
+            <Link className="nav" to="/orders">
                 My Orders
               </Link>
               <Cart savedProductIds={savedProductIds} savedProducts={savedProducts} setSavedProducts={setSavedProducts}/>
@@ -49,10 +51,10 @@ const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
             </>
           ) : (
             <>
-              <Link className="" to="/login">
+              <Link className="nav" to="/login">
                 Login
               </Link>
-              <Link className="" to="/signup">
+              <Link className="nav" to="/signup">
                 Signup
               </Link>
             </>
