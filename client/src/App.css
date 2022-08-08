@@ -90,14 +90,21 @@ ul {
   border-radius: 4px;
 }
 
+
 .disabledButton {
+
+
   position: absolute;
   background-color: gray !important;
   margin-right: 15px;
   bottom: 0%;
   right: 0%;
   border-radius: 4px;
+
   cursor: not-allowed;
+
+  
+
 }
 
 .cardImage {
@@ -113,7 +120,8 @@ ul {
   transform: scale(1.3);
 }
 
-.cardBody {
+
+.cardBody{
   height: 400px;
   width: 500px;
   text-align: center;
@@ -204,7 +212,9 @@ label {
   font-size: 1rem;
   font-style: italic;
   margin-left: 10px;
+
 }
+
 
 footer {
   background-color: rgba(0, 0, 0, 0);
@@ -226,6 +236,7 @@ button > .logout-icon {
   border: none;
 }
 
+
 .order-productlist img,
 .product-cart-image {
   width: 80px;
@@ -239,25 +250,35 @@ button > .logout-icon {
   height: 500px;
   width: 100%;
 }
+
 .searchbar {
   font-size: 1rem !important;
   padding: 1px 20px !important;
 }
 
-.searchBtn {
+
+.searchBtn{
+
+
   border-radius: 50px !important;
   padding: 1px 7px;
 }
 
-.ordersummary {
+
+.ordersummary{
+
   box-shadow: 0 1px 0px 1px var(--form-header-color);
-  background-color: rgba(0, 0, 0, 0);
+   background-color: rgba(0, 0, 0, 0);
   opacity: 1;
   padding: 0.8rem !important;
+
 }
 
-@media screen and (min-width: 360px) and (max-width: 768px) {
-  body {
-    font-size: 0.8rem;
+@media screen  and (min-width: 360px) and (max-width: 768px){
+  
+  body{
+    font-size:0.8rem;
   }
+  
 }
+

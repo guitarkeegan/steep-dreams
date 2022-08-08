@@ -13,7 +13,9 @@ const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
   };
   return (
 
+
     <header className=" d-flex justify-content-around align-items-center py-5" >
+
       <div className="container">
         <div className="d-flex justify-content-around align-items-center flex-wrap">
           <div className="d-flex justify-content-start align-items-center px-3 mx-1 my-2">

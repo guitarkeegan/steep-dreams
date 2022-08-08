@@ -4,6 +4,7 @@ import React from "react";
 
 const About = () => {
   return (
+
     <div className="container mt-5">
       <main className="row ">
         <div className="row justify-content-start text-left">
@@ -22,6 +23,7 @@ const About = () => {
         </div>
       </main>
     </div>
+
   );
 };
 

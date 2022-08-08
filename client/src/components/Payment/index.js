@@ -1,3 +1,4 @@
+
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
@@ -6,6 +7,7 @@ import states from "./states";
 
 export function PaymentForm({ populateShipping }) {
   console.log(states);
+
   return (
     <Form>
       <Row className="mb-3">
@@ -31,7 +33,9 @@ export function PaymentForm({ populateShipping }) {
       </Form.Group>
 
       <Row className="mb-3">
+
         <Form.Group as={Col} controlId="formGridCard" className="col-8">
+
           <Form.Label>Credit/Debit</Form.Label>
           <Form.Control type="text" placeholder="Card Number" />
         </Form.Group>
@@ -40,7 +44,9 @@ export function PaymentForm({ populateShipping }) {
           <Form.Label>CVC</Form.Label>
           <Form.Control type="text" placeholder="# on back" />
         </Form.Group>
+
       </Row>
+
 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
@@ -52,9 +58,11 @@ export function PaymentForm({ populateShipping }) {
           <Form.Label>State</Form.Label>
           <Form.Select defaultValue="Choose...">
             <option>Choose...</option>
+
             {states.map((state, index) => (
               <option key={index}>{state}</option>
             ))}
+
           </Form.Select>
         </Form.Group>
 
@@ -64,6 +72,7 @@ export function PaymentForm({ populateShipping }) {
         </Form.Group>
       </Row>
 
+
       <Button
         onSubmit={(e) => populateShipping(e)}
         className="mb-4"
@@ -72,18 +81,23 @@ export function PaymentForm({ populateShipping }) {
       >
         Shipping to same address
       </Button>
+
     </Form>
   );
 }
 
-export function ShippingForm({ handleSubmit }) {
-  return (
-    <Form>
+
+export function ShippingForm({handleSubmit}) {
+
+    return (
+        <Form>
+
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail" className="col-8">
           <Form.Label>Email</Form.Label>
           <Form.Control type="email" placeholder="For confirmation" />
         </Form.Group>
+
       </Row>
 
       <Row className="mb-3">
@@ -119,9 +133,13 @@ export function ShippingForm({ handleSubmit }) {
           <Form.Select defaultValue="Choose...">
             <option>Choose...</option>
             <option>Choose...</option>
-            {states.map((state, index) => (
-              <option key={index}>{state}</option>
-            ))}
+
+           { states.map((state, index)=>
+                 (
+                    <option key={index}>{state}</option>
+                )
+            )}
+
           </Form.Select>
         </Form.Group>
 
@@ -135,6 +153,7 @@ export function ShippingForm({ handleSubmit }) {
         <Form.Check type="checkbox" label="Click to recieve order updates" />
       </Form.Group>
 
+
       <Button
         className="mb-4"
         onSubmit={(e) => handleSubmit(e)}
@@ -147,3 +166,4 @@ export function ShippingForm({ handleSubmit }) {
     </Form>
   );
 }
+
