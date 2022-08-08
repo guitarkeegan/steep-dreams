@@ -64,7 +64,8 @@ function App() {
       <Router>
         <div className="flex-column  justify-flex-start min-100-vh">
           <Header savedProductIds={savedProductIds} savedProducts={savedProducts} setSavedProducts={setSavedProducts}/>
-          <div className="container">
+          <div className="container-fluid mx-0 px-0 ">
+
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

@@ -8,6 +8,7 @@ import { Icon } from "@iconify/react";
 import Auth from "../../utils/auth";
 import calculateCount from "../../utils/helpers";
 
+
 export default function Cart({
   savedProducts,
   setSavedProducts,

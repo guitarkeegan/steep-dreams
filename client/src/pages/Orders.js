@@ -39,11 +39,13 @@ const Orders = () => {
 
   //If Order array is empty return h3 element
   if (!orders.length) {
-    return <h3>No Order Available</h3>;
+
+    return <h3 className="container mt-5">No Order Available</h3>;
   }
 
   return (
-    <main className="my-4 container mw-100">
+    <main className=" container mt-5">
+
       <h3>Order Summary</h3>
       <div className="row my-4 align-items-center justify-content-center">
         {orders.map((order, index) => {
@@ -60,11 +62,17 @@ const Orders = () => {
             return (
               <div className="card ordersummary">
                 <div className="row d-flex justify-content-between align-items-center p-2">
-                  <p className="col-lg-4 col-md-4 col-sm-4 col-4">Order No {index + 1}</p>
+
+                  <p className="col-lg-4 col-md-4 col-sm-4 col-4">
+                    Order No {index + 1}
+                  </p>
                   <p className="col-lg-4 col-md-4 col-sm-4 col-4">
                     Total Price {order.totalPrice.toFixed(2)}
                   </p>
-                  <p className="col-lg-4 col-md-4 col-sm-4 col-4">Created Date {order.createdAt}</p>
+                  <p className="col-lg-4 col-md-4 col-sm-4 col-4">
+                    Created Date {order.createdAt}
+                  </p>
+
                 </div>
 
                 <ul className="list-group list-group-flush">
@@ -90,8 +98,14 @@ const Orders = () => {
                             src={require(`../images/${product.image}`)}
                             className="col-lg-3 col-md-3 col-sm-3 col-12"
                           />
-                          <p className="product-name col-lg-3 col-md-3 col-sm-3 col-12">{product.name}</p>
-                          <p className="product-price col-lg-3 col-md-3 col-sm-3 col-12">{product.price}</p>
+
+                          <p className="product-name col-lg-3 col-md-3 col-sm-3 col-12">
+                            {product.name}
+                          </p>
+                          <p className="product-price col-lg-3 col-md-3 col-sm-3 col-12">
+                            {product.price}
+                          </p>
+
                           <p className="product-quantity col-lg-3 col-md-3 col-sm-3 col-12">
                             {quantity[product._id]}
                           </p>
