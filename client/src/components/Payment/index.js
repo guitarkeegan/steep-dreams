@@ -1,11 +1,13 @@
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
-import Form from 'react-bootstrap/Form';
-import Row from 'react-bootstrap/Row';
-import states from './states'
 
-export function PaymentForm({populateShipping}) {
-    console.log(states);
+import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
+import Form from "react-bootstrap/Form";
+import Row from "react-bootstrap/Row";
+import states from "./states";
+
+export function PaymentForm({ populateShipping }) {
+  console.log(states);
+
   return (
     <Form>
       <Row className="mb-3">
@@ -31,7 +33,9 @@ export function PaymentForm({populateShipping}) {
       </Form.Group>
 
       <Row className="mb-3">
-      <Form.Group as={Col} controlId="formGridCard" className="col-8">
+
+        <Form.Group as={Col} controlId="formGridCard" className="col-8">
+
           <Form.Label>Credit/Debit</Form.Label>
           <Form.Control type="text" placeholder="Card Number" />
         </Form.Group>
@@ -40,7 +44,9 @@ export function PaymentForm({populateShipping}) {
           <Form.Label>CVC</Form.Label>
           <Form.Control type="text" placeholder="# on back" />
         </Form.Group>
-        </Row>
+
+      </Row>
+
 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
@@ -52,13 +58,11 @@ export function PaymentForm({populateShipping}) {
           <Form.Label>State</Form.Label>
           <Form.Select defaultValue="Choose...">
             <option>Choose...</option>
-           { states.map((state, index)=>
-                 (
-                    <option key={index}>{state}</option>
-                )
-            )}
-            
-                
+
+            {states.map((state, index) => (
+              <option key={index}>{state}</option>
+            ))}
+
           </Form.Select>
         </Form.Group>
 
@@ -68,7 +72,13 @@ export function PaymentForm({populateShipping}) {
         </Form.Group>
       </Row>
 
-      <Button onSubmit={(e) => populateShipping(e)} className="mb-4" variant="primary" type="submit">
+
+      <Button
+        onSubmit={(e) => populateShipping(e)}
+        className="mb-4"
+        variant="primary"
+        type="submit"
+      >
         Shipping to same address
       </Button>
 
@@ -76,10 +86,12 @@ export function PaymentForm({populateShipping}) {
   );
 }
 
+
 export function ShippingForm({handleSubmit}) {
 
     return (
         <Form>
+
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail" className="col-8">
           <Form.Label>Email</Form.Label>
@@ -121,11 +133,13 @@ export function ShippingForm({handleSubmit}) {
           <Form.Select defaultValue="Choose...">
             <option>Choose...</option>
             <option>Choose...</option>
+
            { states.map((state, index)=>
                  (
                     <option key={index}>{state}</option>
                 )
             )}
+
           </Form.Select>
         </Form.Group>
 
@@ -139,9 +153,17 @@ export function ShippingForm({handleSubmit}) {
         <Form.Check type="checkbox" label="Click to recieve order updates" />
       </Form.Group>
 
-      <Button className="mb-4" onSubmit={(e) => handleSubmit(e)} variant="primary" type="submit">
+
+      <Button
+        className="mb-4"
+        onSubmit={(e) => handleSubmit(e)}
+        variant="primary"
+        type="submit"
+        href="/orders"
+      >
         Submit
       </Button>
     </Form>
-    )
+  );
 }
+
