@@ -132,8 +132,8 @@ try{
     });
   };
 
-  // varify that the user is logged in and that the quantity is greater than 1. If it is, remove from state and local storage, then decrement the quantity[productId] by one. Otherwise, remove from state and local storage. Either way, we will then update the UI with renderCartBody().
-
+  // verify that the user is logged in and that the quantity is greater than 1. If it is, remove from state and local storage, then decrement the quantity[productId] by one. Otherwise, remove from state and local storage. Either way, we will then update the UI with renderCartBody().
+ 
 
   //Delete Product Handler
   const handleDeleteProduct = async (productId) => {
@@ -176,13 +176,11 @@ try{
             totalPrice+=(product.price*quantity[product._id]);
             return (
               <div key={product._id}>
-                <h3>
                   <img
                     src={require(`../../images/${product.image}`)}
                     className="product-cart-image"
-                  />{" "}
-                  {product.name}
-                </h3>
+                  /> 
+                <p>{product.name}</p>
                 <p>Price: {product.price}</p>
                 <p>Count: {quantity[product._id]}</p>
                 <Button
@@ -212,7 +210,7 @@ try{
     <>
       <Button
         onClick={handleShow}
-        className="btn btn-lg btn-light m-2"
+        className="btn  btn-light mx-3"
         to="/cart"
       >
         <Icon icon="entypo:shopping-cart"></Icon>

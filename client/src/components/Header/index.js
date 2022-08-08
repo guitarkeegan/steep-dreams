@@ -13,18 +13,18 @@ const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
   };
   return (
 
-    <header className="mb-5 align-center py-3" >
-      <div className="container justify-space-between-lg">
-        <div className="d-flex  justify-content-between align-items-center">
-          <div className="d-flex align-items-center px-3 mx-3">
+    <header className="mb-5 d-flex justify-content-around align-items-center py-5" >
+      <div className="container">
+        <div className="d-flex justify-content-around align-items-center flex-wrap">
+          <div className="d-flex justify-content-start align-items-center px-3 mx-1 my-2">
           <Link className="text-light" to="/">
             <h1 className="logo">Steep Dreams <Icon icon="icon-park-solid:tea-drink"></Icon></h1>
           </Link>
         </div>
-        <div className="ml-2">
+        <div className="d-flex justify-content-start align-items-center ml-2 my-2">
         <SearchBar/>
         </div>
-        <div className="d-flex justify-content-start align-items-center p-4">
+        <div className="d-flex justify-content-start align-items-center px-3 my-2">
        
         <Link className="" to="/about">
           Our Story
@@ -42,7 +42,7 @@ const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
               <Icon icon="clarity:logout-solid" className="nav-icon"></Icon>
               </Link>
               {/* <Link className="" to="/me"> */}
-              <span className="px-3 profile-name">
+              <span className="px-2 profile-name">
                 Welcome {Auth.getProfile().data.email.split('@')[0] }  !!
               </span>  
               {/* </Link> */}

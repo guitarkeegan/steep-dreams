@@ -11,7 +11,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Signup from "./pages/Signup";
-// import Cart from "./pages/Cart";
+
 import Login from "./pages/Login";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -62,7 +62,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className="flex-column  justify-flex-start min-100-vh">
           <Header savedProductIds={savedProductIds} savedProducts={savedProducts} setSavedProducts={setSavedProducts}/>
           <div className="container">
             <Routes>

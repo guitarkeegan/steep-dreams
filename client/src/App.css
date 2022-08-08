@@ -1,11 +1,11 @@
 /*Overriden the default Styling for the application*/
 :root {
   --bg-color: #c1d29e;
-  --text-color: rgb(36, 22, 4);
+  --text-color: #3d0c02;
   --form-header-color: #717c7a;
   --white-color: #fff;
   --black-color: #000;
-  --btn-color: rgb(36, 22, 4);
+  --btn-color: #3d0c02;
 }
 
 body {
@@ -195,8 +195,11 @@ label {
 .profile-name,
 .search-bar {
   color: var(--text-color) !important;
-  font-size: 0.8rem;
+  font-size: 1rem;
+  font-style: italic;
+  margin-left:10px;
 }
+
 
 footer {
   background-color: rgba(0, 0, 0, 0);
@@ -243,4 +246,21 @@ button > .logout-icon {
 
   border-radius: 50px !important;
   padding: 1px 7px;
+}
+
+.ordersummary{
+
+  box-shadow: 0 1px 0px 1px var(--form-header-color);
+   background-color: rgba(0, 0, 0, 0);
+  opacity: 1;
+  padding: 0.8rem !important;
+
+}
+
+@media screen  and (min-width: 360px) and (max-width: 768px){
+  
+  body{
+    font-size:0.8rem;
+  }
+  
 }
