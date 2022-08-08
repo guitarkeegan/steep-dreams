@@ -132,13 +132,8 @@ try{
     });
   };
 
-  // varify that the user is logged in and that the quantity is greater than 1. If it is, remove from state and local storage, then decrement the quantity[productId] by one. Otherwise, remove from state and local storage. Either way, we will then update the UI with renderCartBody().
-<<<<<<< HEAD
+  // verify that the user is logged in and that the quantity is greater than 1. If it is, remove from state and local storage, then decrement the quantity[productId] by one. Otherwise, remove from state and local storage. Either way, we will then update the UI with renderCartBody().
  
-
-=======
->>>>>>> 57bb92beba5bf4106a8f6e64acd6711d5d372c17
-
 
   //Delete Product Handler
   const handleDeleteProduct = async (productId) => {
