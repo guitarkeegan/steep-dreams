@@ -11,12 +11,12 @@ export function PaymentForm({populateShipping}) {
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>First</Form.Label>
-          <Form.Control type="text" placeholder="Enter name" />
+          <Form.Control type="text" placeholder="Mad" />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridPassword">
           <Form.Label>Last</Form.Label>
-          <Form.Control type="text" placeholder="Enter name" />
+          <Form.Control type="text" placeholder="Hatter" />
         </Form.Group>
       </Row>
 
@@ -33,19 +33,19 @@ export function PaymentForm({populateShipping}) {
       <Row className="mb-3">
       <Form.Group as={Col} controlId="formGridCard" className="col-8">
           <Form.Label>Credit/Debit</Form.Label>
-          <Form.Control type="text" placeholder="Card Number" />
+          <Form.Control type="text" placeholder="0000-0000-0000-0000" />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridCode">
           <Form.Label>CVC</Form.Label>
-          <Form.Control type="text" placeholder="# on back" />
+          <Form.Control type="text" placeholder="123" />
         </Form.Group>
         </Row>
 
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
           <Form.Label>City</Form.Label>
-          <Form.Control />
+          <Form.Control type="text" placeholder="Charleston" />
         </Form.Group>
 
         <Form.Group as={Col} controlId="formGridState">
@@ -64,7 +64,7 @@ export function PaymentForm({populateShipping}) {
 
         <Form.Group as={Col} controlId="formGridZip">
           <Form.Label>Zip</Form.Label>
-          <Form.Control />
+          <Form.Control type="text" placeholder="12345"/>
         </Form.Group>
       </Row>
 
