@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const dayjs = require('dayjs');
 const Product = require('./Product');
-
+// Order is a schema that will be stored as a field in the user model. We store the total price and product details array. We use Dayjs for formatting. 
 const orderSchema = new Schema(
   {
     totalPrice: {
