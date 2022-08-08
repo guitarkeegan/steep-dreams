@@ -5,30 +5,26 @@ import { QUERY_PRODUCTS } from "../../utils/queries";
 import { CREATE_ORDER } from "../../utils/mutations";
 import { useQuery,useMutation } from "@apollo/client";
 import { Icon } from "@iconify/react";
-import { getSavedProductIds, removeProductId } from "../../utils/localStorage";
 import Auth from "../../utils/auth";
 import calculateCount from "../../utils/helpers";
 
 export default function Cart({
-  savedProductIds,
   savedProducts,
   setSavedProducts,
 }) {
   const [show, setShow] = useState(false);
-  const [count, setCount] = useState({});
-
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
   const productData = data?.getProducts || [];
 
-
   const [addOrder, { error }] = useMutation(CREATE_ORDER);
-  // const savedProductIds = getSavedProductIds();
+ 
   let totalPrice=0;
 
-  //Quantity  and calculateCount helper method to count  same products in the cart
+
+  //Quantity  and calculateCount helper method to count same products in the cart
   let quantity = {};
   if (savedProducts.length !== 0) {
     quantity = calculateCount(savedProducts, quantity);
@@ -111,24 +107,36 @@ try{
   };
 
 
+  // Pass productId that will be deleted from local storage and state. 
 
   const deleteFromState = (productId) => {
+    // make a copy of savedProducts state variable
     const currentSavedProducts = [...savedProducts]
+    // validate whether or not there are saved products.
     if (savedProducts.length === 0) {
       return;
     }
-
+    // counter so that only one product matching the productId is deleted.
     let deleteCount = 0;
+    // this will be the updated savedProducts variable.
     const updatedSavedProductIds = [];
+    // iterate through current saved products. For the first match, we will not push it to the updatedSavedProducts, and instead will increment the deleteCount. Otherwise, we push to the updatedSavedProductId array.
     currentSavedProducts.forEach((pId) => {
       if (productId === pId && deleteCount === 0) {
         deleteCount++;
       } else {
         updatedSavedProductIds.push(pId);
       }
+      // update the state variable.
       setSavedProducts(updatedSavedProductIds);
     });
   };
+
+  // varify that the user is logged in and that the quantity is greater than 1. If it is, remove from state and local storage, then decrement the quantity[productId] by one. Otherwise, remove from state and local storage. Either way, we will then update the UI with renderCartBody().
+  const handleDeleteProduct = async (productId) => {
+    
+// get token
+
 
 
   //Delete Product Handler
@@ -146,24 +154,22 @@ try{
       deleteFromState(productId);
       renderCartBody();
       console.log(quantity[productId]);
-
-      // removeProductId(productId);
-
       return;
+
     } else {
+
       try {
-        // upon success, remove order's id from localStorage
-        // removeProductId(productId);
+
         deleteFromState(productId);
         renderCartBody();
-        console.log("removed from local storage");
+
       } catch (err) {
         console.error(err);
       }
     }
   };
 
-
+// Use this to update the UI after any deletions. We will map through all productIds in the database, then render the fields to the body of the 'off canvas' body. 
 
   const renderCartBody = () => {
    return (
@@ -204,7 +210,7 @@ try{
       <div>Cart is Empty</div>
     ) 
   }
-
+// The button and off canvas component. Will conditionally render with renderCartBody() if there are saved products, or else it will say 'Cart is Empty'. 
   return (
     <>
       <Button
