@@ -45,7 +45,7 @@ const Signup = () => {
       //     Password:"12F322DE9F3F58C7B02254666F8AE442F4DA",
       //     To:formState.email,
       //     From:"simmyvarghese5@gmail.com",
-      //     Subject:"Test Email with mailtrap",
+      //     Subject:"Sign Up Email from SteepDreams",
       //     Body:`
       //     <div">
       //     Hello ${formState.email.split('@')[0]},
