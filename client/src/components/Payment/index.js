@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import states from './states'
 
-export function PaymentForm() {
+export function PaymentForm({populateShipping}) {
     console.log(states);
   return (
     <Form>
@@ -68,7 +68,7 @@ export function PaymentForm() {
         </Form.Group>
       </Row>
 
-      <Button className="mb-4" variant="primary" type="submit">
+      <Button onSubmit={(e) => populateShipping(e)} className="mb-4" variant="primary" type="submit">
         Shipping to same address
       </Button>
 
@@ -76,7 +76,7 @@ export function PaymentForm() {
   );
 }
 
-export function ShippingForm() {
+export function ShippingForm({handleSubmit}) {
 
     return (
         <Form>
@@ -86,6 +86,18 @@ export function ShippingForm() {
           <Form.Control type="email" placeholder="For confirmation" />
         </Form.Group>
 
+      </Row>
+
+      <Row className="mb-3">
+        <Form.Group as={Col} controlId="formGridEmail">
+          <Form.Label>First</Form.Label>
+          <Form.Control type="text" placeholder="Enter name" />
+        </Form.Group>
+
+        <Form.Group as={Col} controlId="formGridPassword">
+          <Form.Label>Last</Form.Label>
+          <Form.Control type="text" placeholder="Enter name" />
+        </Form.Group>
       </Row>
 
       <Form.Group className="mb-3" controlId="formGridAddress1">
@@ -108,7 +120,12 @@ export function ShippingForm() {
           <Form.Label>State</Form.Label>
           <Form.Select defaultValue="Choose...">
             <option>Choose...</option>
-            <option>...</option>
+            <option>Choose...</option>
+           { states.map((state, index)=>
+                 (
+                    <option key={index}>{state}</option>
+                )
+            )}
           </Form.Select>
         </Form.Group>
 
@@ -122,7 +139,7 @@ export function ShippingForm() {
         <Form.Check type="checkbox" label="Click to recieve order updates" />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button className="mb-4" onSubmit={(e) => handleSubmit(e)} variant="primary" type="submit">
         Submit
       </Button>
     </Form>
