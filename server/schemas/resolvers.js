@@ -1,13 +1,13 @@
 const {User,Product,Order}=require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-
+// import models, apollo error helper, and signToken
 
 const resolvers={
 
 Query:{    
     
-//Get user data
+//Get the orders for the logged-in user, and also get the product details within each order.
     me:async(parent,args,context)=>{
         if(context.user){
 
@@ -19,7 +19,6 @@ Query:{
               populate:'productDetails'
              })
 
-        console.log(userData);
             return userData;
         }
 
@@ -27,13 +26,13 @@ Query:{
 
     },
 
-    //Get all Product data
+    //Get all Product data. Use this on the Product page.
     getProducts: async (parent, args) => {
       const productData = await Product.find({});
       return productData;
     },
 
-    //Get a specific Product Data using product id
+    //Get a specific Product Data using product id. We have not yet used this query the project. It would be used for a focused look at a specific product.
 
     getProduct: async (parent, { _id }) => {
       const params = _id ? { _id } : {};
@@ -42,7 +41,7 @@ Query:{
     },
   
   
-  //Get a Product with productName
+  //Get a Product with productName. We use the query in the search bar component. 
 
   getProductByName: async (parent, { name }) => {
     const params = name ? { name } : {};
@@ -56,10 +55,8 @@ Query:{
   ,
 
   Mutation: {
-    //Create a user and tokenize the userdata
-
+    //Create a user and tokenize the userdata. 
     addUser: async (parent, args) => {
-      console.log(args);
 
       const user = await User.create(args);
 
@@ -72,32 +69,21 @@ Query:{
     },
 
     //Validate the user credentials and if valid tokenize the data
-
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
-      console.log("user");
-      console.log(user);
 
       if (!user) {
         throw new AuthenticationError("Incorrect Credentials");
       }
 
       //User method defined in the model
-
       const correctPassword = user.isCorrectPassword(password);
-      console.log("--------");
-      console.log("Password passed from form", password);
-
-      console.log("Password match check");
-      console.log(!correctPassword);
 
       if (!correctPassword) {
         throw new AuthenticationError("Incorrect Credentials");
       }
 
       const token = signToken(user);
-
-      console.log("token", token);
 
       return { token, user };
     },
@@ -114,8 +100,6 @@ Query:{
         if (context.user) {
 
             const order=await Order.create({totalPrice,productDetails});
-            console.log(order);
-            console.log(order._id);
             const updatedUser = await User.findByIdAndUpdate(
               { _id: context.user._id },
               { $push: { orders: order }},
@@ -128,7 +112,6 @@ Query:{
                 }
                 );
 
-                console.log(updatedUser);
             return updatedUser;
 
         }
