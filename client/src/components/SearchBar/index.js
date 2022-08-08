@@ -29,9 +29,9 @@ const SearchBar=function(){
      console.log(products);
     
      return (
-     <div className="d-flex justify-content-start align-items-start">
-     <Search placeholder="Search Products" className="searchbar"/> 
-     <button className="searchBtn" onClick={searchProduct}>Search</button>
+     <div className="row justify-content-center align-items-center">
+     <Search placeholder="Search Products" className="searchbar col-6"/> 
+     <button className="searchBtn col-3" onClick={searchProduct}>Search</button>
      </div> 
      )
 

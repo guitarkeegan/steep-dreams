@@ -209,7 +209,7 @@ try{
     <>
       <Button
         onClick={handleShow}
-        className="btn btn-lg btn-light m-2"
+        className="btn  btn-light mx-3"
         to="/cart"
       >
         <Icon icon="entypo:shopping-cart"></Icon>
