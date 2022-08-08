@@ -14,7 +14,7 @@ body {
   font-size: 1rem;
   font-family: "Uchen", "Roboto", "Open Sans", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol" !important; 
+    "Segoe UI Emoji", "Segoe UI Symbol" !important;
   font-size: 16px;
   color: #1a1a1a;
 }
@@ -50,18 +50,26 @@ ul {
   background-color: white;
 }
 .home-card {
-  height: 500px;
-  width: 500px;
-
+  height: 300px;
+  width: 300px;
+  object-fit: scale-down;
 }
 
-.home-card-text{
-
+.homelist {
   list-style: none;
-
+  text-align: center;
 }
-.click{
-  cursor:pointer
+.homelist img:hover {
+  opacity: 0.8;
+}
+.home-card-text {
+  list-style: none;
+ 
+  z-index: 20;
+  background-color: white;
+}
+.click {
+  cursor: pointer;
 }
 
 .cardList {
@@ -89,10 +97,7 @@ ul {
   border-radius: 4px;
 }
 
-
 .disabledButton {
-
-
   position: absolute;
   background-color: gray !important;
   margin-right: 15px;
@@ -101,9 +106,6 @@ ul {
   border-radius: 4px;
 
   cursor: not-allowed;
-
-  
-
 }
 
 .cardImage {
@@ -119,8 +121,7 @@ ul {
   transform: scale(1.3);
 }
 
-
-.cardBody{
+.cardBody {
   height: 400px;
   width: 500px;
   text-align: center;
@@ -211,9 +212,7 @@ label {
   font-size: 1rem;
   font-style: italic;
   margin-left: 10px;
-
 }
-
 
 footer {
   background-color: rgba(0, 0, 0, 0);
@@ -235,7 +234,6 @@ button > .logout-icon {
   border: none;
 }
 
-
 .order-productlist img,
 .product-cart-image {
   width: 80px;
@@ -255,30 +253,20 @@ button > .logout-icon {
   padding: 1px 20px !important;
 }
 
-
-.searchBtn{
-
-
+.searchBtn {
   border-radius: 50px !important;
   padding: 1px 7px;
 }
 
-
-.ordersummary{
-
+.ordersummary {
   box-shadow: 0 1px 0px 1px var(--form-header-color);
-   background-color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
   opacity: 1;
   padding: 0.8rem !important;
-
 }
 
-
-@media screen  and (min-width: 360px) and (max-width: 768px){
-  
-  body{
-    font-size:0.8rem;
+@media screen and (min-width: 360px) and (max-width: 768px) {
+  body {
+    font-size: 0.8rem;
   }
-  
 }
-
