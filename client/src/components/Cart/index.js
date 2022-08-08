@@ -133,8 +133,11 @@ try{
   };
 
   // varify that the user is logged in and that the quantity is greater than 1. If it is, remove from state and local storage, then decrement the quantity[productId] by one. Otherwise, remove from state and local storage. Either way, we will then update the UI with renderCartBody().
+<<<<<<< HEAD
  
 
+=======
+>>>>>>> 57bb92beba5bf4106a8f6e64acd6711d5d372c17
 
 
   //Delete Product Handler
@@ -193,12 +196,13 @@ try{
                 >
                   Delete
                 </Button>
+                <hr />
               </div>
             );
           }
         })}
-        <hr/>
-        <p>Total Price: {totalPrice.toFixed(2)}</p>
+       
+        <p>Total Price: ${totalPrice.toFixed(2)}</p>
         <Button className="my-4 w-100" onClick={() => placeOrderHandler()}>
           Place Order
         </Button>
