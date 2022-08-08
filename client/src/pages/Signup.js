@@ -26,12 +26,12 @@ const Signup = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-
+    console.log("submitted form, before try");
     try {
       const { data } = await addUser({
         variables: { ...formState },
       });
-
+      console.log(data)
       /********Commenting the below code due to the limited quota of emails**** */
 
       //Send email using Elastic Email API and SMTP js Library
@@ -64,8 +64,9 @@ const Signup = () => {
       //   .then((res)=>console.log("Email Sent Successfully",res))
       //   .catch(err=>console.log(err));
       // }
-
+      console.log("right before Auth Login");
       Auth.login(data.addUser.token);
+      console.log("after auth.login");
     } catch (e) {
       console.error(e);
       
