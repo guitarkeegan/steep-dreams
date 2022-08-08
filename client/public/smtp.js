@@ -1,4 +1,6 @@
-﻿/* SmtpJS.com - v3.0.0 */
+﻿/* SmtpJS.com - v3.0.0
+ Library used for Email Notification
+*/
  
 
     var Email = { send: function (a) { 
