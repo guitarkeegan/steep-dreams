@@ -17,6 +17,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
+import Payment from "./pages/Payment";
 import {getSavedProductIds} from "./utils/localStorage";
 
 import "./App.css";
@@ -71,6 +72,7 @@ function App() {
               <Route path="/signup" element={<Signup />} />
               <Route path="/products" element={<Products savedProducts={savedProducts} setSavedProducts={setSavedProducts} />} />
               <Route path="/orders" element={<Orders />} />
+              <Route path="/payment" element={<Payment />} />
               {/* <Route path="/products/" element={<Orders />} /> */}
               {/* <Route path="/products/:name" element={<Products />} /> */}
             </Routes>

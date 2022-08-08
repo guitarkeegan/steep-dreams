@@ -109,14 +109,12 @@ Query:{
     //Once payment is completed,on submit order make createOrder mutation query with local storage value and clear the storage
 
     createOrder: async (parent, { totalPrice, productDetails }, context) => {
-      // if (context.user) {
-
-      const order = await Order.create({ totalPrice, productDetails });
-
+      
+      
         if (context.user) {
 
             const order=await Order.create({totalPrice,productDetails});
-
+            console.log(order);
             console.log(order._id);
             const updatedUser = await User.findByIdAndUpdate(
               { _id: context.user._id },
@@ -130,6 +128,7 @@ Query:{
                 }
                 );
 
+                console.log(updatedUser);
             return updatedUser;
 
         }

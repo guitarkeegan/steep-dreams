@@ -19,6 +19,7 @@ function calculateCount(productArray,count){
   
  for(let product of productArray){
 
+  console.log(product._id,count[product._id]);
 if(count[product._id])
 {
 
@@ -65,11 +66,10 @@ const Orders = () => {
         {
         orders.map((order,index)=>{
 
-          //Reset count and productId for each order
-          count={};
-          productIds=[];
+          
 
          //If order gets inserted with no products
+
           if(order.productDetails.length===0){
              return <p>No products Added to this Order</p>
           }
@@ -95,19 +95,29 @@ const Orders = () => {
                   {/* Loop  through each product per order,calculate quantity as count and display only unique products */}
                   { order.productDetails.map((product,index,array)=>
                   {
-                    calculateCount(array,count);
+                    
                        
                   if(productIds.indexOf(product._id)==-1){
-                    productIds.push(product._id)
+
+                    calculateCount(array,count);
+                    productIds.push(product._id);
                     
+                    console.log(count[product._id],product._id);
                     return( <li key={product._id} className="list-group-item order-productlist d-flex justify-content-between  align-items-center">
                             <img src={require( `../images/${product.image}`)}/>
                             <p className="product-name">{product.name}</p>
                             <p className="product-price">{product.price}</p>
                              <p className="product-quantity">{count[product._id]}</p>
                             </li>)
+                    
           }
-          })}
+
+          //Reset count and productId for each order
+          count={};
+          productIds=[];
+         
+         })}
+
           </ul>
     </div>)
 
