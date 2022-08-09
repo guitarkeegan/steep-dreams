@@ -12,15 +12,6 @@ const Home = () => {
         className="hero"
         src="https://images.pexels.com/photos/6713241/pexels-photo-6713241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       ></img>
-
-      {/* <div className="col-12 col-md-8 mb-3">
-        {loading ? (
-          <div>Loading...</div>
-        ) : (
-          <Products products={products} title="Steeping some teas for you..." />
-        )}
-       
-      </div> */}
       <div className="row m-5 justify-content-center align-item-center col-11">
        
           <ul className="row text-center ">

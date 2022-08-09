@@ -53,7 +53,7 @@ try{
   
     // const userData=data?.createOrder || [];
     const userData=data?.createOrder;
-    console.log(userData.email);
+  
 
     if(userData){
 
@@ -64,31 +64,31 @@ try{
       //Commenting the email notification 
 
       
-        // window.Email.send({
+        window.Email.send({
 
-        //   Host:"smtp.elasticemail.com",
-        //   Username:"simmyvarghese5@gmail.com",
-        //   Password:"12F322DE9F3F58C7B02254666F8AE442F4DA",
-        //   To:userData.email,
-        //   From:"simmyvarghese5@gmail.com",
-        //   Subject:"Order Notifcation from SteepDreams",
-        //   Body:`
-        //   <div">
-        //   Hello ${userData.email.split('@')[0]},
-        //   <br>
-        //   <br>
-        //   Thanks for shopping with us.
-        //   <br>
-        //   Please login to see Your <a href="http://localhost:3000/orders">Order Details </a>
-        //   <br>
-        //   <br>
-        //   Have a Steep  Dreams  !!
-        //   <br>
-        //   From Steep Dreams Team
-        //   </div>`
-        // })
-        // .then((res)=>console.log("Email Sent Successfully",res))
-        // .catch(err=>console.log(err));
+          Host:"smtp.elasticemail.com",
+          Username:"simmyvarghese5@gmail.com",
+          Password:"12F322DE9F3F58C7B02254666F8AE442F4DA",
+          To:userData.email,
+          From:"simmyvarghese5@gmail.com",
+          Subject:"Order Notifcation from SteepDreams",
+          Body:`
+          <div">
+          Hello ${userData.email.split('@')[0]},
+          <br>
+          <br>
+          Thanks for shopping with us.
+          <br>
+          Please login to see Your <a href="http://localhost:3000/orders">Order Details </a>
+          <br>
+          <br>
+          Have a Steep  Dreams  !!
+          <br>
+          From Steep Dreams Team
+          </div>`
+        })
+        .then((res)=>console.log("Email Sent Successfully",res))
+        .catch(err=>console.log(err));
       
         //Remove from Local Storage
         localStorage.removeItem("saved_products");

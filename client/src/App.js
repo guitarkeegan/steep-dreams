@@ -1,12 +1,12 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect } from "react";
 import {
   ApolloClient,
   InMemoryCache,
   ApolloProvider,
   createHttpLink,
-} from '@apollo/client';
-import { setContext } from '@apollo/client/link/context';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -18,7 +18,7 @@ import Footer from "./components/Footer";
 import Products from "./pages/Products";
 import Orders from "./pages/Orders";
 import Payment from "./pages/Payment";
-import {getSavedProductIds} from "./utils/localStorage";
+import { getSavedProductIds } from "./utils/localStorage";
 
 import "./App.css";
 
@@ -46,18 +46,13 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-
-
 function App() {
-
-  const savedProductIds=getSavedProductIds();
-  const [savedProducts, setSavedProducts] = useState(savedProductIds)
+  const savedProductIds = getSavedProductIds();
+  const [savedProducts, setSavedProducts] = useState(savedProductIds);
 
   useEffect(() => {
-   
-    localStorage.setItem('saved_products', JSON.stringify(savedProducts));
-
-  }, [savedProducts])
+    localStorage.setItem("saved_products", JSON.stringify(savedProducts));
+  }, [savedProducts]);
 
   return (
     <ApolloProvider client={client}>
@@ -71,11 +66,17 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/products" element={<Products savedProducts={savedProducts} setSavedProducts={setSavedProducts} />} />
+              <Route
+                path="/products"
+                element={
+                  <Products
+                    savedProducts={savedProducts}
+                    setSavedProducts={setSavedProducts}
+                  />
+                }
+              />
               <Route path="/orders" element={<Orders />} />
               <Route path="/payment" element={<Payment />} />
-              {/* <Route path="/products/" element={<Orders />} /> */}
-              {/* <Route path="/products/:name" element={<Products />} /> */}
             </Routes>
           </div>
           <Footer />
