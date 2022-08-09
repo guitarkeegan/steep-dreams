@@ -1,8 +1,7 @@
-
 import Auth from "../../utils/auth"
 
 
-
+// Card 
 function Card(props){
    
   return(
