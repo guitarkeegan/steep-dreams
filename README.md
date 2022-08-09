@@ -7,6 +7,10 @@
   - [Questions](#questions)
   - [License](#license)
 
+## Demo
+
+![Demo](./client/src/images/Steep_Dreams.gif)
+
   ## Description
  
   Steep Dreams is an e-commerce website that allows users to registar and purchase their favorite teas.
