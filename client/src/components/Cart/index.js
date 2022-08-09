@@ -66,9 +66,7 @@ try{
       
         window.Email.send({
 
-          Host:"smtp.elasticemail.com",
-          Username:"simmyvarghese5@gmail.com",
-          Password:"12F322DE9F3F58C7B02254666F8AE442F4DA",
+          SecureToken : "8466a82d-06a7-4a0a-96dc-067c65fb90c1",
           To:userData.email,
           From:"simmyvarghese5@gmail.com",
           Subject:"Order Notifcation from SteepDreams",
