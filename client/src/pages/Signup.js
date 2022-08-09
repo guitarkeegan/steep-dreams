@@ -39,9 +39,7 @@ const Signup = () => {
       if(data){
         window.Email.send({
 
-          Host:"smtp.elasticemail.com",
-          Username:"",
-          Password:"",
+          SecureToken : "8466a82d-06a7-4a0a-96dc-067c65fb90c1",
           To:formState.email,
           From:"simmyvarghese5@gmail.com",
           Subject:"Sign Up Email from SteepDreams",
