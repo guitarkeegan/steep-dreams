@@ -13,7 +13,7 @@ const About = () => {
               all of his subpar teas into the trash and start a business. Along
               with his fellow tea enthusiasts and cofounders, Keegan "Teabag"
               Anglim, David "The Kettle" Kanas, and Simmy "Seeds" Varghese,
-              James' continues to live his dream each day, by personally
+              James continues to live his dream each day, by personally
               selecting the most supurb, fragrent and delicious tea buds known
               to this universe.
             </p>
