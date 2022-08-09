@@ -31,39 +31,38 @@ const Signup = () => {
       const { data } = await addUser({
         variables: { ...formState },
       });
-      console.log(data)
-      /********Commenting the below code due to the limited quota of emails**** */
+     
 
       //Send email using Elastic Email API and SMTP js Library
       //Below code rely on the /public/smtp.js file
 
-      // if(data){
-      //   window.Email.send({
+      if(data){
+        window.Email.send({
 
-      //     Host:"smtp.elasticemail.com",
-      //     Username:"simmyvarghese5@gmail.com",
-      //     Password:"12F322DE9F3F58C7B02254666F8AE442F4DA",
-      //     To:formState.email,
-      //     From:"simmyvarghese5@gmail.com",
-      //     Subject:"Sign Up Email from SteepDreams",
-      //     Body:`
-      //     <div">
-      //     Hello ${formState.email.split('@')[0]},
-      //     <br>
-      //     <br>
-      //     Thanks for signing up with Steep Dreams.
-      //     <br>
-      //     Continue Shopping our<a href="http://localhost:3000/products"> Products</a>
-      //     <br>
-      //     <br>
-      //     Have a Steep  Dreams  !!
-      //     <br>
-      //     From Steep Dreams Team
-      //     </div>`
-      //   })
-      //   .then((res)=>console.log("Email Sent Successfully",res))
-      //   .catch(err=>console.log(err));
-      // }
+          Host:"smtp.elasticemail.com",
+          Username:"",
+          Password:"",
+          To:formState.email,
+          From:"simmyvarghese5@gmail.com",
+          Subject:"Sign Up Email from SteepDreams",
+          Body:`
+          <div">
+          Hello ${formState.email.split('@')[0]},
+          <br>
+          <br>
+          Thanks for signing up with Steep Dreams.
+          <br>
+          Continue Shopping our<a href="http://localhost:3000/products"> Products</a>
+          <br>
+          <br>
+          Have a Steep  Dreams  !!
+          <br>
+          From Steep Dreams Team
+          </div>`
+        })
+        .then((res)=>console.log("Email Sent Successfully",res))
+        .catch(err=>console.log(err));
+      }
       console.log("right before Auth Login");
       Auth.login(data.addUser.token);
       console.log("after auth.login");
