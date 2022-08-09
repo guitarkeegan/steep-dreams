@@ -16,6 +16,12 @@
   ## Description
  
   Steep Dreams is an e-commerce website that allows users to registar and purchase their favorite teas.
+  This web Application is built on a MERN stack and Styled using React Bootstrap and Semantic UI.
+  Currently application allows user to sign up ,add products to the cart ,place an order navigate to a Payment Page(placeholder) and on Submit navigate to Order summary page which will list all the orders along with recent one placed by the user.
+  Also the application sents out an email notification to the user while signing up and placing order
+
+  Search Bar is a placeholder for the future development on the app.
+
 
   ## Installation
 
@@ -51,8 +57,11 @@
   
  # Technologies/Packages Used
 
- - Semantic UI for Searchbar
- 
+ * Node JS
+ * Express JS
+ * React 
+ * Graph QL
+ * SMTP js Library for Notification
  *  semantic-ui-react 
  *  semantic-ui-css
 
