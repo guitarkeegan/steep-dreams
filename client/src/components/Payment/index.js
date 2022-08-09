@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import states from "./states";
 
 export function PaymentForm({ populateShipping }) {
-  console.log(states);
+  
 
   return (
     <Form>
@@ -150,7 +150,7 @@ export function ShippingForm({handleSubmit}) {
       </Row>
 
       <Form.Group className="mb-3">
-        <Form.Check type="checkbox" label="Click to recieve order updates" />
+        <Form.Check type="checkbox" label="Click to receive order updates" />
       </Form.Group>
 
 
