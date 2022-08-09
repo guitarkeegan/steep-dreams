@@ -1,11 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Icon } from '@iconify/react';
 
 
 const Footer = () => {
+  const year = new Date().getFullYear()
   const location = useLocation();
   const navigate = useNavigate();
+  const [currentYear, setCurrentYear] = useState(year)
+  
+
   return (
     <footer className="w-100 mt-auto bg-light">
       <div className="container">
@@ -49,7 +53,7 @@ const Footer = () => {
           
         </div>
         <div className='conainer w-100 justify-conent-center col-lg-12 text-center py-2'>
-          <small className='text-dark'>&copy; 2021 Steep Dreams Ltd All rights reserved</small>
+          <small className='text-dark'>&copy; {currentYear} Steep Dreams Ltd All rights reserved</small>
         </div>
 
       </div>
