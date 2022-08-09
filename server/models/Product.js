@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
-
+// Product model will define the information stored for each product. Stock quantity can later be used to track when inventory needs to be replenished.
 const productSchema = new Schema({
   name: {
     type: String,

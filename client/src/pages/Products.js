@@ -81,7 +81,7 @@ const Products = ({ savedProducts, setSavedProducts }) => {
 
     {addNotification ? renderProductsAdded() : <></>}
 
-      <ul>
+      <ul className="list-group ulCards">
         {products.map((product, index) => (
           <li key={index} className="cardList productList">
             <Card key={product._id} addToCart={addToCart} product={product} />

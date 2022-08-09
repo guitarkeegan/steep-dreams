@@ -4,7 +4,7 @@ const { Schema } = mongoose;
 const bcrypt = require("bcrypt");
 const Order = require("./Order");
 
-
+// The user model will be used to store the user's login information as well as their past orders. The orders will later be used to populate the Orders page on the front end.
 const userSchema = new Schema({
   email: {
     type: String,
