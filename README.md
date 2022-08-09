@@ -1,11 +1,17 @@
 # Steep Dreams  ![MIT](https://img.shields.io/badge/license-MIT-green)
 
+  - [Demo](#demo)
   - [Description](#description)
   - [Installation](#installation)
   - [Usage](#usage)
   - [Contributions](#contributions)
   - [Questions](#questions)
   - [License](#license)
+  - [Site](#site)
+
+  ## Demo
+
+  ![Demo](./client/src/images/Steep_Dreams.gif)
 
   ## Description
  
@@ -37,6 +43,11 @@
 
   ## License
   This project is licensed under the [MIT License](https://choosealicense.com/licenses/mit/) - click the link to read the license.
+
+  ## Site
+
+  Check out the deployed at the link below.
+  https://glacial-fortress-58935.herokuapp.com/
   
  # Technologies/Packages Used
 
