@@ -29,10 +29,15 @@ const SearchBar=function(){
      console.log(products);
     
      return (
-      <Form className="d-flex justify-content-center align-items-center">
-        <Search placeholder="Search Products" className="searchbar col-6"/> 
-        <Button className="searchBtn col-3" onClick={searchProduct}>Search</Button>
-      </Form>
+      
+        <div className="ui search searchbar">
+        <Form className="d-flex justify-content-center align-items-center">
+          <Search placeholder="Search Products" className="searchbar col-6"/> 
+          <button className="searchBtn col-3" onSubmit={searchProduct}>Search</button>
+        </Form>
+        </div>
+
+      
 
      )
 
