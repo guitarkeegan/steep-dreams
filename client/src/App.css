@@ -271,6 +271,13 @@ button > .logout-icon {
   height: 40px;
 }
 
+@media screen and (max-width: 500px){
+  .hero{
+    height: inherit;
+    
+  }
+}
+
 @media screen and (min-width: 360px) and (max-width: 768px) {
   body {
     font-size: 0.8rem;
