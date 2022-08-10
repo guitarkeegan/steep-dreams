@@ -22,7 +22,7 @@ body {
 .logo {
   font-family: "Dancing Script" !important;
 }
-header {
+.header {
   background-color: var(--bg-color) !important;
   color: var(white-color);
 }
