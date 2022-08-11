@@ -41,7 +41,7 @@ const Products = ({ savedProducts, setSavedProducts }) => {
       borderRadius: "4px",
       color: "#fff",
       fontFamily: "Robato 'Open Sans'",
-      
+      zIndex: 2
     }
   };
 
@@ -76,15 +76,15 @@ const Products = ({ savedProducts, setSavedProducts }) => {
 
   return (
 
-    <div className="wrapper ">
+    <div className="wrapper pt-4">
 
 
     {addNotification ? renderProductsAdded() : <></>}
 
      
         {products.map((product, index) => (
-          <div className="row text-center justify-content-center">
-          <div key={index} className="col-4">
+          <div className="row text-center justify-content-center mb-3">
+          <div key={index} className="col-lg-4 col-md-6 col-sm-8 col-xs-12">
             <Card key={product._id} addToCart={addToCart} product={product} />
           </div>
           </div>
