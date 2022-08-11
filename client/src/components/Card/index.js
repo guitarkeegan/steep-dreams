@@ -5,7 +5,7 @@ import Auth from "../../utils/auth"
 function Card(props){
    
   return(
-    <div className="card pb-2" >
+    <div className="card pb-2 px-2" >
       <div className="image-div">
         <img className="cardImage" src={require( `../../images/${props.product.image}`)} alt=""/>
       </div>
