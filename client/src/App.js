@@ -57,9 +57,9 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column  justify-flex-start min-100-vh">
+        <div className="flex-column justify-flex-start min-100-vh">
           <Header savedProductIds={savedProductIds} savedProducts={savedProducts} setSavedProducts={setSavedProducts}/>
-          <div className="container-fluid mx-0 px-0 ">
+          
 
             <Routes>
               <Route path="/" element={<Home />} />
@@ -80,7 +80,7 @@ function App() {
             </Routes>
           </div>
           <Footer />
-        </div>
+        
       </Router>
     </ApolloProvider>
   );
