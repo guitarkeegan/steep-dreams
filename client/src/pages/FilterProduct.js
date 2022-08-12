@@ -14,7 +14,7 @@ const FilterProduct = ({ savedProducts, setSavedProducts }) => {
   
     const {productName}=useParams();
 
-    console.log(productName);
+    
   
     const { loading, data } = useQuery(QUERY_PRODUCT_BY_NAME,{
 
@@ -59,7 +59,7 @@ const FilterProduct = ({ savedProducts, setSavedProducts }) => {
 
   //Adds the product id to the state array variable and to localstorage
   const addToCart = (id) => {
-   console.log(savedProducts);
+   
 
     setSavedProducts([...savedProducts, id]);
     localStorage.setItem("saved_products", JSON.stringify(savedProducts));
