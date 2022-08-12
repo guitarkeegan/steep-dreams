@@ -22,7 +22,7 @@ body {
 .logo {
   font-family: "Dancing Script" !important;
 }
-header {
+.header {
   background-color: var(--bg-color) !important;
   color: var(white-color);
 }
@@ -202,7 +202,7 @@ label {
 }
 
 .nav-icon {
-  font-size: 2rem !important;
+  font-size: 3.1rem !important;
   font-weight: 500 !important;
   color: var(--text-color) !important;
 }
@@ -255,7 +255,7 @@ button > .logout-icon {
 
 .searchBtn {
   border-radius: 50px !important;
-  padding: 1px 7px;
+  padding: 2px 7px;
 }
 
 .ordersummary {
@@ -265,13 +265,24 @@ button > .logout-icon {
   padding: 0.8rem !important;
 }
 
+.cartToggle{
+  width: 50px;
+  margin-left: 0;
+  height: 40px;
+}
+
+@media screen and (max-width: 500px){
+  .hero{
+    height: inherit;
+    
+  }
+}
+
 @media screen and (min-width: 360px) and (max-width: 768px) {
   body {
     font-size: 0.8rem;
   }
-  /* .cardImage{
-    max-width: 300px;
-  } */
+
   
 }
 

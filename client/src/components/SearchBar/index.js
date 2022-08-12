@@ -1,10 +1,10 @@
 
 import {QUERY_PRODUCT_BY_NAME} from "../../utils/queries"
 import { useQuery } from "@apollo/client";  
-
+import Form from 'react-bootstrap/Form';
 //Semantic UI Component
 import { Search } from 'semantic-ui-react'
-import { Button } from "bootstrap";
+import Button from 'react-bootstrap/Button';
 
 
 //Search Handler
@@ -29,10 +29,16 @@ const SearchBar=function(){
      console.log(products);
     
      return (
-     <div className="row justify-content-center align-items-center">
-     <Search placeholder="Search Products" className="searchbar col-6"/> 
-     <button className="searchBtn col-3" onClick={searchProduct}>Search</button>
-     </div> 
+      
+        <div className="ui search searchbar">
+        <Form className="d-flex justify-content-center align-items-center">
+          <Search placeholder="Search Products" className="searchbar col-6"/> 
+          <button className="searchBtn col-3" onSubmit={searchProduct}>Search</button>
+        </Form>
+        </div>
+
+      
+
      )
 
     
