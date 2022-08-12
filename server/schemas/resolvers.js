@@ -44,9 +44,11 @@ Query:{
   //Get a Product with productName. We use the query in the search bar component. 
 
   getProductByName: async (parent, { name }) => {
-    const params = name ? { name } : {};
-    const product = await Product.findOne({params});
-    return product;
+ 
+    console.log(name);
+    const product = await Product.find({name:name});
+    console.log(product[0]);
+    return product[0];
   }
 
   

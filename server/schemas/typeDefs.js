@@ -37,7 +37,7 @@ type Query{
     me:User
     getProducts:[Product]
     getProduct(_id:String!):Product  
-    getProductByName(name:String):Product
+    getProductByName(name:String!):Product
 }
 
 
