@@ -64,29 +64,29 @@ try{
       //Commenting the email notification 
 
       
-        window.Email.send({
+        // window.Email.send({
 
-          SecureToken : "8466a82d-06a7-4a0a-96dc-067c65fb90c1",
-          To:userData.email,
-          From:"simmyvarghese5@gmail.com",
-          Subject:"Order Notifcation from SteepDreams",
-          Body:`
-          <div">
-          Hello ${userData.email.split('@')[0]},
-          <br>
-          <br>
-          Thanks for shopping with us.
-          <br>
-          Please login to see Your <a href="http://localhost:3000/orders">Order Details </a>
-          <br>
-          <br>
-          Have a Steep  Dreams  !!
-          <br>
-          From Steep Dreams Team
-          </div>`
-        })
-        .then((res)=>console.log("Email Sent Successfully",res))
-        .catch(err=>console.log(err));
+        //   SecureToken : "8466a82d-06a7-4a0a-96dc-067c65fb90c1",
+        //   To:userData.email,
+        //   From:"simmyvarghese5@gmail.com",
+        //   Subject:"Order Notifcation from SteepDreams",
+        //   Body:`
+        //   <div">
+        //   Hello ${userData.email.split('@')[0]},
+        //   <br>
+        //   <br>
+        //   Thanks for shopping with us.
+        //   <br>
+        //   Please login to see Your <a href="http://localhost:3000/orders">Order Details </a>
+        //   <br>
+        //   <br>
+        //   Have a Steep  Dreams  !!
+        //   <br>
+        //   From Steep Dreams Team
+        //   </div>`
+        // })
+        // .then((res)=>console.log("Email Sent Successfully",res))
+        // .catch(err=>console.log(err));
       
         //Remove from Local Storage
         localStorage.removeItem("saved_products");

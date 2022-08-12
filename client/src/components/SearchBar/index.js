@@ -8,7 +8,8 @@ import Button from 'react-bootstrap/Button';
 
 
 //Search Handler
-function searchProduct(){
+function searchProduct(event){
+      event.preventDefault();
 
       const searchElement=document.querySelector('.searchbar input');
       console.log(searchElement.value);
@@ -22,18 +23,14 @@ function searchProduct(){
 
 
 const SearchBar=function(){
-      const { loading, data }=useQuery(QUERY_PRODUCT_BY_NAME);
-
-      const products = data?.getProductByName(this.value) || [];
-
-     console.log(products);
+      
     
      return (
       
         <div className="ui search searchbar">
         <Form className="d-flex justify-content-center align-items-center">
           <Search placeholder="Search Products" className="searchbar col-6"/> 
-          <button className="searchBtn col-3" onSubmit={searchProduct}>Search</button>
+          <button className="searchBtn col-3" onClick={searchProduct}>Search</button>
         </Form>
         </div>
 
