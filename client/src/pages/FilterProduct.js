@@ -14,7 +14,7 @@ const FilterProduct = ({ savedProducts, setSavedProducts }) => {
   
     const {productName}=useParams();
 
-    
+   
   
     const { loading, data } = useQuery(QUERY_PRODUCT_BY_NAME,{
 
@@ -25,7 +25,15 @@ const FilterProduct = ({ savedProducts, setSavedProducts }) => {
   });
   const searchProduct = data?.getProductByName || [];
 
-  const products=[searchProduct];
+  let products=[];
+  
+ 
+
+//To prevent any randome search doesnt work and only do an exact search match
+  if(productName===searchProduct.name){
+
+    products=[searchProduct];
+  }
 
 
   const [addNotification, setAddNotification] = useState(false)
