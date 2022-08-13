@@ -45,9 +45,7 @@ Query:{
 
   getProductByName: async (parent, { name }) => {
  
-    console.log(name);
     const product = await Product.find({name:name});
-    console.log(product[0]);
     return product[0];
   }
 
