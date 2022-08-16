@@ -54,7 +54,7 @@ const Login = () => {
   };
 
   return (
-    <main className="flex-row justify-center mb-4">
+    <div className="flex-row justify-center mb-4">
       <div className="col-12 col-lg-7">
         <div className="card p-4 form-card">
           <h4 className="card-header p-2">LOGIN</h4>
@@ -105,7 +105,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </main>
+    </div>
   );
 };
 

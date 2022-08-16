@@ -10,6 +10,7 @@ export function PaymentForm({ populateShipping }) {
 
   return (
     <Form>
+    <div className="container">
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>First</Form.Label>
@@ -31,7 +32,8 @@ export function PaymentForm({ populateShipping }) {
         <Form.Label>Address 2</Form.Label>
         <Form.Control placeholder="Apartment, studio, or floor" />
       </Form.Group>
-
+</div>
+<div className="container">
       <Row className="mb-3">
 
         <Form.Group as={Col} controlId="formGridCard" className="col-8">
@@ -46,8 +48,8 @@ export function PaymentForm({ populateShipping }) {
         </Form.Group>
 
       </Row>
-
-
+</div>
+<div className="container">
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridCity">
           <Form.Label>City</Form.Label>
@@ -71,7 +73,7 @@ export function PaymentForm({ populateShipping }) {
           <Form.Control type="text" placeholder="12345"/>
         </Form.Group>
       </Row>
-
+</div>
 
       <Button
         onSubmit={(e) => populateShipping(e)}
@@ -91,7 +93,7 @@ export function ShippingForm({handleSubmit}) {
 
     return (
         <Form>
-
+<div className="container">
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail" className="col-8">
           <Form.Label>Email</Form.Label>
@@ -99,7 +101,8 @@ export function ShippingForm({handleSubmit}) {
         </Form.Group>
 
       </Row>
-
+</div>
+<div className="container">
       <Row className="mb-3">
         <Form.Group as={Col} controlId="formGridEmail">
           <Form.Label>First</Form.Label>
@@ -111,7 +114,7 @@ export function ShippingForm({handleSubmit}) {
           <Form.Control type="text" placeholder="Enter name" />
         </Form.Group>
       </Row>
-
+</div>
       <Form.Group className="mb-3" controlId="formGridAddress1">
         <Form.Label>Address</Form.Label>
         <Form.Control placeholder="1234 Main St" />
