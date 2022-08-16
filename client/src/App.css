@@ -239,14 +239,14 @@ button > .logout-icon {
   width: 80px;
   border-radius: 100px;
 }
-/* .hero {
+.hero {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
   height: 500px;
   width: 100%;
-} */
+}
 
 .searchbar {
   font-size: 1rem !important;
