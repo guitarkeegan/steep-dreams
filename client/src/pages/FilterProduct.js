@@ -92,9 +92,11 @@ const FilterProduct = ({ savedProducts, setSavedProducts }) => {
 
      
         {products.map((product, index) => (
-          <div className="row text-center justify-content-center align-items-center m-5 py-5">
+            <div className="container-fluid">
+          <div className="row text-center justify-content-center mb-3">
           <div key={index} className="col-lg-4 col-md-6 col-sm-8 col-xs-12">
             <Card key={product._id} addToCart={addToCart} product={product} />
+          </div>
           </div>
           </div>
         ))}
