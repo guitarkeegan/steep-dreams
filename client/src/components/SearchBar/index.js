@@ -12,9 +12,9 @@ function searchProduct(event){
       event.preventDefault();
 
       const searchElement=document.querySelector('.searchbar input');
-      console.log(searchElement.value);
+      
      
-      console.log("Search Element",searchElement);
+      
       localStorage.setItem("search_value",JSON.stringify(searchElement.value));
       window.location.assign(`/products/${searchElement.value}`);
       
@@ -36,9 +36,9 @@ const SearchBar=function(){
 
       
 
-     )
+     
 
-    
+     )
 
 
 }

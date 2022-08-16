@@ -8,10 +8,13 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <main>
+    
       <img
-        className="hero"
+        className="hero img-fluid"
         src="https://images.pexels.com/photos/6713241/pexels-photo-6713241.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
       ></img>
+      
+      <div className="container-fluid">
       <div className="row text-center mt-3 mb-3">
        
             <Link className="col-12 col-md-6 mt-2 mb-2" to="/about">
@@ -36,7 +39,7 @@ const Home = () => {
 
           
         </div>
-      
+        </div>
     </main>
   );
 };
