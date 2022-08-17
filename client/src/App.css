@@ -276,13 +276,63 @@ button > .logout-icon {
     height: inherit;
     
   }
+
+  
 }
 
 @media screen and (min-width: 360px) and (max-width: 768px) {
   body {
     font-size: 0.8rem;
   }
+  footer, footer h6,.order-main{
 
-  
+    font-size: 0.8rem;
+  }
+  .order-main-row{
+    font-size: 0.5rem !important;
+    max-width: 80vw;
+   margin:1rem auto;
+    
+  }
 }
+  @media screen and (min-width: 280px) and (max-width: 359px) {
+    
+    body {
+      font-size: 0.5rem ;
+    }
+
+    footer, footer h6,.order-main{
+
+      font-size: 0.8rem !important;
+    }
+    .order-main-row{
+      font-size: 0.4rem !important;
+      max-width: 80vw !important;
+     margin:1rem auto;
+     justify-content: center;
+     text-align: center;
+      
+    }
+  }
+
+  @media screen and (min-width: 199px) and (max-width: 279px){
+    
+    body {
+      font-size: 0.2rem ;
+    }
+
+    footer, footer h6,.order-main{
+
+      font-size: 0.7rem !important;
+    }
+    .order-main-row{
+      font-size: 0.2rem !important;
+      max-width: 60vw !important;
+     margin:1rem 3rem !important;
+     justify-content: center;
+     text-align: center;
+      
+    }
+  }
+
 

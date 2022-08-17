@@ -12,11 +12,10 @@ const Footer = () => {
 
   return (
     <footer className="w-100 mt-auto bg-light">
+
       <div className="container">
         <div className='row py-1 justify-content-between align-items-center'>
-
-
-        <div className='col-lg-4'>
+        <div className='col-lg-4 col-12 text-center my-3'>
           <h6>ABOUT</h6>
           <div className='row'>
             <span className='py-0'>Our Story</span>
@@ -26,20 +25,18 @@ const Footer = () => {
 
           </div>
 
-          <div className='col-lg-4'>
+          <div className='col-lg-4 col-12 text-center my-3'>
           <h6>SUPPORT</h6>
           <div className='row'>
-            <span className='py-0'>Our Story</span>
             <span>Support Request</span>
             <span>Contact Us</span>
           </div>
 
           </div>
 
-          <div className='col-lg-4 d-flex justify-content-end align-items-center'>
+          <div className='col-lg-4 col-12 d-flex justify-content-center text-center my-2'>
           <h6>Follow Us On</h6>
-          <div className='px-4 d-flex justify-content-end'>
-          <div>
+          <div className='px-0 ml-5'>
             <Icon icon="icon-park-solid:twitter" className='footer-icon'></Icon>
           </div>
           <div>
@@ -47,7 +44,6 @@ const Footer = () => {
           </div>
           <div>
             <Icon icon="ant-design:instagram-filled" className='footer-icon'></Icon>
-          </div>
           </div>
           </div>
           
