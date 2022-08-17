@@ -2,6 +2,7 @@
 import {QUERY_PRODUCT_BY_NAME} from "../../utils/queries"
 import { useQuery } from "@apollo/client";  
 import Form from 'react-bootstrap/Form';
+
 //Semantic UI Component
 import { Search } from 'semantic-ui-react'
 import Button from 'react-bootstrap/Button';

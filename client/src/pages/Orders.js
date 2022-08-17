@@ -44,10 +44,10 @@ const Orders = () => {
   }
 
   return (
-    <main className=" container mt-5">
+    <main className="container mt-5">
 
       <h3>Order Summary</h3>
-      <div className="row my-4 align-items-center justify-content-center">
+      <div className="row my-4 align-items-center justify-content-center order-main-row">
         {orders.map((order, index) => {
           //If order gets inserted with no products(incase from backend)
 
@@ -63,13 +63,13 @@ const Orders = () => {
               <div className="card ordersummary">
                 <div className="row d-flex justify-content-between align-items-center p-2">
 
-                  <p className="col-lg-4 col-md-4 col-sm-4 col-4">
+                  <p className="col-lg-4 col-md-4 col-sm-4 col-12">
                     Order No {index + 1}
                   </p>
-                  <p className="col-lg-4 col-md-4 col-sm-4 col-4">
+                  <p className="col-lg-4 col-md-4 col-sm-4 col-12">
                     Total Price {order.totalPrice.toFixed(2)}
                   </p>
-                  <p className="col-lg-4 col-md-4 col-sm-4 col-4">
+                  <p className="col-lg-4 col-md-4 col-sm-4 col-12">
                     Created Date {order.createdAt}
                   </p>
 
@@ -77,10 +77,10 @@ const Orders = () => {
 
                 <ul className="list-group list-group-flush">
                   <div className="row d-flex justify-content-between align-items-center p-3">
-                    <p className="col-lg-3 col-md-3 col-sm-3 col-3">Image</p>
-                    <p className="col-lg-3 col-md-3 col-sm-3 col-3">Product</p>
-                    <p className="col-lg-3 col-md-3 col-sm-3 col-3">Price</p>
-                    <p className="col-lg-3 col-md-3 col-sm-3 col-3">Qty</p>
+                    <p className="col-lg-3 col-md-3 col-sm-3 col-12">Image</p>
+                    <p className="col-lg-3 col-md-3 col-sm-3 col-12">Product</p>
+                    <p className="col-lg-3 col-md-3 col-sm-3 col-12">Price</p>
+                    <p className="col-lg-3 col-md-3 col-sm-3 col-12">Qty</p>
                   </div>
                   <hr />
 
