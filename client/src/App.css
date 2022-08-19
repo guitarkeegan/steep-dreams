@@ -274,10 +274,10 @@ button > .logout-icon {
 @media screen and (max-width: 500px){
   .hero{
     height: inherit;
-    
   }
-
-  
+  .cardImage:hover {
+    transform:none;
+  }
 }
 
 @media screen and (min-width: 360px) and (max-width: 768px) {
@@ -292,8 +292,8 @@ button > .logout-icon {
     font-size: 0.5rem !important;
     max-width: 80vw;
    margin:1rem auto;
-    
   }
+
 }
   @media screen and (min-width: 280px) and (max-width: 359px) {
     
