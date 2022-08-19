@@ -3,7 +3,7 @@ import {QUERY_PRODUCT_BY_NAME} from "../../utils/queries"
 import { useQuery } from "@apollo/client";  
 import Form from 'react-bootstrap/Form';
 import React, {useState} from 'react';
-
+import productNames from './productNames';
 //Semantic UI Component
 import { Search } from 'semantic-ui-react'
 import Button from 'react-bootstrap/Button';
@@ -33,6 +33,13 @@ const SearchBar=function(){
       // TODO: create an array of item names, as the user types into the search bar, iterate throught the list with a regex to limit the dropdown results
       const updateSearch = (input) => {
         setSearchInput(input);
+        const re = new RegExp(`\\b${input}`, "ig")
+        console.log(re);
+        for (let prodName of productNames){
+          if (re.test(prodName)){
+            console.log(prodName);
+          }
+        }
       }
     
      return (
