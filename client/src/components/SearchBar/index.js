@@ -1,4 +1,3 @@
-
 import {QUERY_PRODUCT_BY_NAME} from "../../utils/queries"
 import { useQuery } from "@apollo/client";  
 import Form from 'react-bootstrap/Form';
@@ -32,12 +31,11 @@ const SearchBar=function(){
   const [searchInput, setSearchInput] = useState('');
       // TODO: create an array of item names, as the user types into the search bar, iterate throught the list with a regex to limit the dropdown results
       const updateSearch = (input) => {
-        setSearchInput(input);
         const re = new RegExp(`\\b${input}`, "ig")
         console.log(re);
         for (let prodName of productNames){
           if (re.test(prodName)){
-            console.log(prodName);
+            setSearchInput(prodName);
           }
         }
       }
