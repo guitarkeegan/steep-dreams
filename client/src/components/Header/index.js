@@ -17,7 +17,7 @@ const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
   };
   return (
 
-    <Navbar bg="light" expand="lg" className="header py-5">
+    <Navbar bg="light" expand="lg" className="header py-5 mb-3">
       <Container>
       <Link className="text-light" to="/">
             <h1 className="logo">Steep Dreams <Icon icon="icon-park-solid:tea-drink"></Icon></h1>
