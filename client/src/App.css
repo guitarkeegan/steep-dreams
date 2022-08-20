@@ -271,6 +271,12 @@ button > .logout-icon {
   height: 40px;
 }
 
+@media screen and (min-width: 1300px){
+  #card-14{
+    margin-bottom: 350px;
+  }
+}
+
 @media screen and (max-width: 500px){
   .hero{
     height: inherit;

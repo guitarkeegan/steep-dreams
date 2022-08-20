@@ -42,7 +42,7 @@ const Products = ({ savedProducts, setSavedProducts }) => {
       color: "#fff",
       fontFamily: "Robato 'Open Sans'",
       zIndex: 2
-    }
+    },
   };
 
   const renderProductsAdded = () => {
@@ -83,13 +83,15 @@ const Products = ({ savedProducts, setSavedProducts }) => {
 
      
         {products.map((product, index) => (
-          <div className="container-fluid">
+          
+          <div id={`card-${index}`} className="container-fluid">
           <div className="row text-center justify-content-center mb-3">
           <div key={index} className="col-lg-4 col-md-6 col-sm-8 col-xs-12">
             <Card key={product._id} addToCart={addToCart} product={product} />
           </div>
           </div>
           </div>
+
         ))}
       
     </div>
