@@ -25,6 +25,7 @@ body {
 .header {
   background-color: var(--bg-color) !important;
   color: var(white-color);
+
 }
 
 h1,
@@ -39,6 +40,7 @@ h4 {
 .wrapper {
   background-image: url("https://images.unsplash.com/photo-1567922045116-2a00fae2ed03?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80");
   box-shadow: 0 -2px 8px 8px black inset;
+ 
 }
 
 ul {
@@ -77,8 +79,8 @@ ul {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  height: 550px;
-  width: 500px;
+  /* height: 550px;
+  width: 500px; */
   justify-content: center;
   box-shadow: 5px 2px 10px 2px black;
   margin-left: auto;
@@ -219,6 +221,7 @@ footer {
   opacity: 1;
   padding: 0.8rem !important;
   border-top: 1px solid rgba(0, 0, 0, 0.1);
+ 
 }
 .footer-icon {
   font-size: 1.5rem;
@@ -335,4 +338,14 @@ button > .logout-icon {
     }
   }
 
+@media screen and (min-width:1190px) {
+    .product-wrapper{
 
+      height:600rem;
+    }
+
+    .filter-wrapper{
+
+      height:50rem;
+    }
+}

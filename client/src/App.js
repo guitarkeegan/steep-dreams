@@ -81,8 +81,9 @@ function App() {
               <Route path="/products/:productName" element={<FilterProduct  savedProducts={savedProducts}
                     setSavedProducts={setSavedProducts} />} />
             </Routes>
+            <Footer/>
           </div>
-          <Footer />
+ 
         
       </Router>
     </ApolloProvider>

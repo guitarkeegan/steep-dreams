@@ -85,7 +85,7 @@ const FilterProduct = ({ savedProducts, setSavedProducts }) => {
 
   return (
 
-    <div className="wrapper pt-4">
+    <div className="wrapper pt-4 filter-wrapper">
 
 
     {addNotification ? renderProductsAdded() : <></>}
