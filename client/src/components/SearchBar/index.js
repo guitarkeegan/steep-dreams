@@ -4,7 +4,7 @@ import { useQuery } from "@apollo/client";
 import Form from 'react-bootstrap/Form';
 import React, {useState, useEffect, useReducer, useRef, useCallback} from 'react'
 //Semantic UI Component
-import { Search } from 'semantic-ui-react'
+import { Search, Grid } from 'semantic-ui-react';
 import Button from 'react-bootstrap/Button';
 import _ from 'lodash';
 
@@ -59,11 +59,11 @@ const SearchBar=function(){
 
       timeoutRef.current = setTimeout(()=>{
         if (data.value.length === 0){
-          dispach({type: 'CLEARN_QUERY'});
+          dispach({type: 'CLEAN_QUERY'});
           return;
         }
 
-        const re = new RegExp(_.escapingRegExpression(data.value), 'i');
+        const re = new RegExp(_.escapeRegExp(data.value), 'i');
         const isMatch = (result) => re.test(result.name);
 
         dispach({
@@ -86,6 +86,8 @@ const SearchBar=function(){
       
         <div className="ui search searchbar">
         <Form className="d-flex justify-content-center align-items-center">
+        <Grid>
+        <Grid.Column width={10}>
           <Search
             loading={loading}
             results={results}
@@ -94,7 +96,10 @@ const SearchBar=function(){
             value={value}
             placeholder="Search Products"
             className="searchbar col-6"/> 
+          
+          </Grid.Column>
           <button className="searchBtn col-3" onClick={searchProduct}>Search</button>
+          </Grid>
         </Form>
         </div>
      )
