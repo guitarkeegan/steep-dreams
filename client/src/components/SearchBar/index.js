@@ -2,10 +2,11 @@
 import {QUERY_PRODUCTS, QUERY_PRODUCT_BY_NAME} from "../../utils/queries"
 import { useQuery } from "@apollo/client";  
 import Form from 'react-bootstrap/Form';
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useReducer, useRef, useCallback} from 'react'
 //Semantic UI Component
 import { Search } from 'semantic-ui-react'
 import Button from 'react-bootstrap/Button';
+import _ from 'lodash';
 
 
 //Search Handler
@@ -41,18 +42,43 @@ function searchReducer(state, action){
 
 const SearchBar=function(){
 
-    const [searchState, setSearchState] = useState('');
+    // const [searchState, setSearchState] = useState('');
+    const [state, dispach] = useReducer(searchReducer, initialState);
+    const { loading, results, value } = state;
+
+    const timeoutRef = useRef();
 
     const { error, data } = useQuery(QUERY_PRODUCTS);
     const products = data?.getProducts || [];
-    console.log(products);
+    
 
-    const handleChange = (e) => {
-      
-      setSearchState(e.target.value);
-      // console.log(searchState)
 
-    }
+    const handleSearchChange = useCallback((err, data) => {
+      clearTimeout(timeoutRef.current);
+      dispach({type: 'START_SEARCH', query: data.value});
+
+      timeoutRef.current = setTimeout(()=>{
+        if (data.value.length === 0){
+          dispach({type: 'CLEARN_QUERY'});
+          return;
+        }
+
+        const re = new RegExp(_.escapingRegExpression(data.value), 'i');
+        const isMatch = (result) => re.test(result.name);
+
+        dispach({
+          type: 'FINISH_SEARCH',
+          results: _.filter(products, isMatch)
+        });
+      }, 300);
+      // array of dependencies?
+    }, []);
+
+    useEffect(()=>{
+      return () => {
+        clearTimeout(timeoutRef.current);
+      }
+    }, []);
 
 
     
@@ -60,7 +86,14 @@ const SearchBar=function(){
       
         <div className="ui search searchbar">
         <Form className="d-flex justify-content-center align-items-center">
-          <Search results={products.name} onSearchChange={handleChange}  placeholder="Search Products" className="searchbar col-6"/> 
+          <Search
+            loading={loading}
+            results={results}
+            onSearchChange={handleSearchChange}
+            onResultSelect={(e, data)=> dispach({type: 'UPDATE_SELECTION', selection: data.result.name})}
+            value={value}
+            placeholder="Search Products"
+            className="searchbar col-6"/> 
           <button className="searchBtn col-3" onClick={searchProduct}>Search</button>
         </Form>
         </div>
