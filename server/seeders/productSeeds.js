@@ -1,10 +1,9 @@
 // create array of product objects
 const products = [
 {
-    
+    "name":"Vahdam Earl Grey Citrus Black Tea",
     "image":"VahdamEarlGreyCitrusBlackTea.png",
     "description":"Delightfully smooth Black tea with accentuated flavors of bergamot oil.",
-    "name":"Vahdam Earl Grey Citrus Black Tea",
     "price":23.99,
     "stockQuantity":10
 },

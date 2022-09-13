@@ -5,8 +5,8 @@ import Form from 'react-bootstrap/Form';
 import React, {useState, useEffect, useReducer, useRef, useCallback} from 'react'
 //Semantic UI Component
 import { Search, Grid } from 'semantic-ui-react';
-import Button from 'react-bootstrap/Button';
 import _ from 'lodash';
+import products from '../FakeProducts';
 
 
 //Search Handler
@@ -48,8 +48,8 @@ const SearchBar=function(){
 
     const timeoutRef = useRef();
 
-    const { error, data } = useQuery(QUERY_PRODUCTS);
-    const products = data?.getProducts || [];
+    // const { error, data } = useQuery(QUERY_PRODUCTS);
+    // const products = data?.getProducts || [];
     
 
 
@@ -62,6 +62,7 @@ const SearchBar=function(){
           dispach({type: 'CLEAN_QUERY'});
           return;
         }
+        
 
         const re = new RegExp(_.escapeRegExp(data.value), 'i');
         const isMatch = (result) => re.test(result.name);
