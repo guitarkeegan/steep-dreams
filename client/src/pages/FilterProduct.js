@@ -13,12 +13,8 @@ import { Container } from "react-bootstrap/";
 const FilterProduct = ({ savedProducts, setSavedProducts }) => {
   
     const {productName}=useParams();
-
-   
-  
     const { loading, data } = useQuery(QUERY_PRODUCT_BY_NAME,{
 
-  
     // pass URL parameter
     variables: { name: productName},
   
