@@ -49,9 +49,7 @@ const SearchBar=function(){
     const timeoutRef = useRef();
 
     // const { error, data } = useQuery(QUERY_PRODUCTS);
-    // const products = data?.getProducts || [];
-    
-
+    // const products = data?.getProducts || [];    
 
     const handleSearchChange = useCallback((err, data) => {
       clearTimeout(timeoutRef.current);
