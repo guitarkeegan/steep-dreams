@@ -65,7 +65,7 @@ const SearchBar=function(){
         
 
         const re = new RegExp(_.escapeRegExp(data.value), 'i');
-        const isMatch = (result) => re.test(result.name);
+        const isMatch = (result) => re.test(result.title);
 
         dispach({
           type: 'FINISH_SEARCH',
@@ -93,7 +93,7 @@ const SearchBar=function(){
             loading={loading}
             results={results}
             onSearchChange={handleSearchChange}
-            onResultSelect={(e, data)=> dispach({type: 'UPDATE_SELECTION', selection: data.result.name})}
+            onResultSelect={(e, data)=> dispach({type: 'UPDATE_SELECTION', selection: data.result.title})}
             value={value}
             placeholder="Search Products"
             className="searchbar col-6"/> 
