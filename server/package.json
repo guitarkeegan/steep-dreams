@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@mailchimp/mailchimp_marketing": "^3.0.78",
     "@sendgrid/mail": "^7.7.0",
     "apollo-server-express": "^3.6.2",
     "bcrypt": "^5.0.0",
