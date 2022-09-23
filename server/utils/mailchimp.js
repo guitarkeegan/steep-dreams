@@ -7,9 +7,17 @@ mailchimp.setConfig({
 
 async function run(email) {
 //   const response = await mailchimp.ping.get();
-  console.log(email);
-  const response = await mailchimp.lists.getListMembersInfo(process.env.LIST_ID);
+    // const response = await mailchimp.lists.getListMembersInfo(process.env.LIST_ID);
+    // console.log(response);
+    try {
+        const response = await mailchimp.lists.addListMember(process.env.LIST_ID,{
+        email_address: email,
+        status: "subscribed",
+    });
   console.log(response);
+} catch (err) {
+    console.log(err);
+}
 }
 
 module.exports = run;
