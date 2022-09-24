@@ -15,23 +15,57 @@ async function signUpEmail(email) {
         email_address: email,
         status: "subscribed",
     });
-        const newTagsResponse = await addNewUserTags(email);
         console.log(response);
-        console.log(newTagsResponse)
-
 } catch (err) {
     console.log(err);
 }
 }
 
 const addNewUserTags = async (email) => {
+    try {
     const response = await mailchimp.lists.updateListMemberTags(
       process.env.LIST_ID,
       md5(email.toLowerCase()),
       { tags: [{ name: "New Member", status: "active" }] }
     );
     console.log(response);
+    } catch (err) {
+        console.log(err)
+    }
+  };
+  
+//   const getNewMemberTags = async () => {
+//     try {
+//     const response = await mailchimp.lists.tagSearch(process.env.LIST_ID);
+//     console.log(response);
+//     } catch (err) {
+//         console.log(err);
+//     }
+//   };
+
+const getAllCampaigns = async () => {
+    const response = await mailchimp.campaigns.list();
+    console.log(response);
+  };
+
+const sendCampaignToNewMembers = async () => {
+    const response = await mailchimp.campaigns.send(process.env.CAMPAIGN_ID);
+    console.log(response);
+  };
+
+const updateCampaignSettings = async () => {
+    const response = await mailchimp.campaigns.update(process.env.CAMPAIGN_ID, {
+      settings: {
+        status: 'save'
+      },
+    });
+    console.log(response);
+  };
+  
+const resendCampaign = async () => {
+    const response = await mailchimp.campaigns.createResend(process.env.CAMPAIGN_ID);
+    console.log(response);
   };
 
 
-module.exports = signUpEmail;
+module.exports = {signUpEmail, addNewUserTags, sendCampaignToNewMembers, getAllCampaigns, updateCampaignSettings, resendCampaign}

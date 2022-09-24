@@ -1,7 +1,7 @@
 const {User,Product,Order}=require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
-const signUpEmail = require('../utils/mailchimp');
+const {signUpEmail, addNewUserTags, getAllCampaigns, sendCampaignToNewMembers, updateCampaignSettings, resendCampaign} = require('../utils/mailchimp');
 // import models, apollo error helper, and signToken
 
 const resolvers={
@@ -67,7 +67,11 @@ Query:{
       }
 
       await signUpEmail(args.email);
-      
+      // await addNewUserTags(args.email);
+      // await sendCampaignToNewMembers();
+      // await getAllCampaigns();
+      // await updateCampaignSettings();
+      // await resendCampaign();
 
       return { token, user };
     },
