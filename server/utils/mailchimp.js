@@ -1,11 +1,12 @@
 const mailchimp = require("@mailchimp/mailchimp_marketing");
+const md5 = require('md5');
 
 mailchimp.setConfig({
   apiKey: process.env.MAILCHIMP_API_KEY,
   server: "us14",
 });
 
-async function run(email) {
+async function signUpEmail(email) {
 //   const response = await mailchimp.ping.get();
     // const response = await mailchimp.lists.getListMembersInfo(process.env.LIST_ID);
     // console.log(response);
@@ -14,10 +15,23 @@ async function run(email) {
         email_address: email,
         status: "subscribed",
     });
-  console.log(response);
+        const newTagsResponse = await addNewUserTags(email);
+        console.log(response);
+        console.log(newTagsResponse)
+
 } catch (err) {
     console.log(err);
 }
 }
 
-module.exports = run;
+const addNewUserTags = async (email) => {
+    const response = await mailchimp.lists.updateListMemberTags(
+      process.env.LIST_ID,
+      md5(email.toLowerCase()),
+      { tags: [{ name: "New Member", status: "active" }] }
+    );
+    console.log(response);
+  };
+
+
+module.exports = signUpEmail;
