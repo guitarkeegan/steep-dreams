@@ -112,7 +112,17 @@ Query:{
 
         }
 
-    }
+    },
+
+    //Stripe Integration -Create Checkout session
+
+      // createCheckoutSession:async(parent,args)=>{
+
+      //   console.log(args);
+
+      // }
+
+
 
 
     },
