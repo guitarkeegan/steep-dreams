@@ -1,5 +1,5 @@
 const nodemailer = require("nodemailer");
-
+const welcomeHtml = require("../emailTemplates/welcome.html");
 
 
 // async..await is not allowed in global scope, must use a wrapper
@@ -19,8 +19,8 @@ async function sendWelcomeEmail(newMember) {
         from: `"Steep Dreams" <${process.env.YAHOO_EMAIL}>`, // sender address
         to: newMember, // list of receivers
         subject: "Welcome to Steep Dreams!", // Subject line
-        text: "Tea Delights", // plain text body
-        html: "<b>Tea Delights</b>", // html body
+        text: "Welcome, and thank you for signing up!\n\nYou may occasionally get an email from us if there is something new and exciting that we'd like to share. If you do not wish to share your inbox with us, no problem! Just hit the unsubscribe button in the email. It will not have any effect on your account with us.", // plain text body
+        html: `${welcomeHtml}`, // html body
     });
 
   console.log("Message sent: %s", info.messageId);
