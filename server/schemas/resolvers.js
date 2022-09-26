@@ -2,7 +2,7 @@ const {User,Product,Order}=require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
 const {signUpEmail, addNewUserTags} = require('../utils/mailchimp');
-const {sendWelcomeEmail} = require('../utils/nodemailer');
+const {sendWelcomeEmail, sendOrderConfirmation} = require('../utils/nodemailer');
 // import models, apollo error helper, and signToken
 
 const resolvers={
@@ -67,7 +67,7 @@ Query:{
         throw new AuthenticationError("Please type valid email and password");
       }
 
-      // signUpEmail(args.email);
+      signUpEmail(args.email);
       sendWelcomeEmail(args.email);
       // await addNewUserTags(args.email);
       // await sendCampaignToNewMembers();
@@ -117,6 +117,8 @@ Query:{
                 populate:'productDetails'
                 }
                 );
+
+            sendOrderConfirmation(context.user.email);
 
             return updatedUser;
 

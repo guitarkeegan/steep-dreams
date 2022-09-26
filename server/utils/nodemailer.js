@@ -1,5 +1,6 @@
 const nodemailer = require("nodemailer");
 const welcome = require("../emailTemplates/welcome.js");
+const orderConfirmation = require("../emailTemplates/orderConfirmation.js");
 
 
 // async..await is not allowed in global scope, must use a wrapper
@@ -32,17 +33,31 @@ async function sendWelcomeEmail(newMember) {
   
 }
 
-async function sendOrderConfirmation(orderData) {
+async function sendOrderConfirmation(purchaser) {
 
-    let info = await transporter.sendMail({
-        from: `"Steep Dreams" <${process.env.YAHOO_EMAIL}>`, // sender address
-        to: newMember, // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
-      });
-
+    try {
+        let transporter = nodemailer.createTransport({
+            host: "smtp.mail.yahoo.com",
+            port: 587,
+            secure: false, // true for 465, false for other ports
+            auth: {
+              user: process.env.YAHOO_EMAIL, // our email
+              pass: process.env.YAHOO_API_PASSWORD, // our password
+            },
+          });
+      // send mail with defined transport object
+        let info = await transporter.sendMail({
+            from: `"Steep Dreams" <${process.env.YAHOO_EMAIL}>`, // sender address
+            to: purchaser, // list of receivers
+            subject: "Order Confirmation", // Subject line
+            text: "We have started processing your order and will update you when it ships. If you have any questions on need to make changes, just reply to this email. Thanks again from all of us at Steep Dreams!", // plain text body
+            html: orderConfirmation, // html body
+        });
+    
       console.log("Message sent: %s", info.messageId);
+    } catch (err){
+        console.log("Error sending order confirmation email\n" + err);
+    }
 
     }
 

@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+const orderConfirmation = `<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Welcome to Steep Dreams</title>
+    <title>Order Confirmation</title>
     <style>
       body {
         margin: 0;
@@ -46,12 +46,14 @@
   </head>
   <body style="background-color:black">
     <div class="header" style="color:white"><h1>Steep Dreams</h1></div>
-    <div class="sub-heading" style="color:white"><h2>Welcome, and thank you for signing up!</h2></div>
+    <div class="sub-heading" style="color:white"><h2>Thank you for the order!</h2></div>
     <div class="outer-body">
         <div class="email-body" style="color:white;background-color:#6D9886;">
-            <p>Signing up for an account now gives you access to all of your <a style="color:black" href="https://glacial-fortress-58935.herokuapp.com/">products</a>. You may occasionally get an email from us if there is something new and exciting that we'd like to share. If you do not wish to share your inbox with us, no problem! Just hit the unsubscribe button in the email. It will not have any effect on your account with us.</p>
+            <p>We have started processing your order and will update you when it ships. If you have any questions on need to make changes, just reply to this email. Thanks again from all of us at Steep Dreams!</p>
         </div>
     </div>
     
   </body>
-</html>
+</html>`
+
+module.exports = orderConfirmation;

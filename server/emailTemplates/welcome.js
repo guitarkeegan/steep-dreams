@@ -44,12 +44,12 @@ const welcome = `<!DOCTYPE html>
       }
     </style>
   </head>
-  <body style="background-color:#c1d29e;padding: 40px 0;">
-    <div class="header" style="color:#3d0c02;"><h1>Steep Dreams</h1></div>
-    <div class="sub-heading" style="color:#3d0c02;"><h2>Welcome, and thank you for signing up!</h2></div>
+  <body style="background-color:black">
+    <div class="header" style="color:white"><h1>Steep Dreams</h1></div>
+    <div class="sub-heading" style="color:white"><h2>Welcome, and thank you for signing up!</h2></div>
     <div class="outer-body">
-        <div class="email-body" style="color:#3d0c02;">
-            <p>Signing up for an account now gives you access to all of your <a href="https://glacial-fortress-58935.herokuapp.com/">products</a>. You may occasionally get an email from us if there is something new and exciting that we'd like to share. If you do not wish to share your inbox with us, no problem! Just hit the unsubscribe button in the email. It will not have any effect on your account with us.</p>
+        <div class="email-body" style="color:white;background-color:#6D9886;">
+            <p>Signing up for an account now gives you access to all of your <a style="color:black" href="https://glacial-fortress-58935.herokuapp.com/">products</a>. You may occasionally get an email from us if there is something new and exciting that we'd like to share. If you do not wish to share your inbox with us, no problem! Just hit the unsubscribe button in the email. It will not have any effect on your account with us.</p>
         </div>
     </div>
     
