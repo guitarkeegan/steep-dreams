@@ -18,7 +18,7 @@ const About = () => {
               to this universe.
             </p>
           </div>
-          <div className="col-12 col-md-6 col-lg-6 my-5">
+          <div className="col-12 col-md-6 col-lg-6 my-5 about-image">
            <img src="https://images.unsplash.com/photo-1471440671318-55bdbb772f93?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1160&q=80" width="300px" height="300px"/>
           </div>
         </div>

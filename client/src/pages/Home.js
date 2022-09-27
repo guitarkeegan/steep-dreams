@@ -8,18 +8,16 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <main>
-      <div className="d-flex justify-content-around align-items-center mx-3 p-3">
-        <p className="hero-content my-5 py-5">
-          <h3>
-            “There’s something hypnotic about the word tea.” <br />  
-          </h3>
-          <span>– Dorothy Sayers</span>
-        </p>
+      <div className="d-flex justify-content-center align-items-top  quote-header my-5 p-5">
+        <blockquote className="my-5 py-5">
+          <p className="my-2 pb-3">“There’s something hypnotic about the word tea.”</p>
+          <small className="text-right mt-2">– Dorothy Sayers</small>
+        </blockquote>
+        <img src="https://images.unsplash.com/photo-1573784540576-21ddeff9479b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80" className="header-quote-image"/>
       </div>
 
-      <div className="container-fluid">
-        <div className="row text-center m-3 px-5 text-light">
-        
+      <div className="container-fluid my-5 py-5">
+        <div className="row text-center m-3 p-5 text-light">
           <div className=" col-12 col-md-6 px-0">
             <img
               className="home-card img-fluid "
@@ -27,13 +25,15 @@ const Home = () => {
             />
           </div>
 
-
           <div className="col-12 col-md-6 px-0 mx-0">
-            <h3><em>Accidental Discovery of Tea</em></h3>
+            <h3>
+              <em>Accidental Discovery of Tea</em>
+            </h3>
             <p className="my-5 home-content">
               In 2737 BC, legend has it that leaves from a tree dropped into
               Emperor Shen Nung's cup of boiling water. The servant had boiled
-              the water for hygienic reasons before the emperor was to drink it.<br/>
+              the water for hygienic reasons before the emperor was to drink it.
+              <br />
               But this time the water was turned brown by the wayward leaves.
               Being a scientist, the emperor was curious and decided to try some
               of this new liquid He found the liquid aromatic and refreshing.
@@ -43,22 +43,26 @@ const Home = () => {
           </div>
         </div>
         <div className="row d-flex text-center m-3">
-        <div className="col-12 col-md-6 text-light my-5 py-5">
- 
-            <h3><em>Why being A Tea Lover Is Good ?</em></h3>
+          <div className="col-12 col-md-6 text-light my-5 py-5">
+            <h3>
+              <em>Why being A Tea Lover Is Good ?</em>
+            </h3>
             <p className="my-5 home-content">
-            The benefits of drinking tea daily are endless, and Steep Dreams  is here to help you find the perfect tea to support your health goals. Please note that everyone’s wellness journey will differ, and diet, exercise, genetics, and more are all key components to consider when developing your personal regimen. We encourage you to find what works best for you and your body to promote inner and outer wellness. 
+              The benefits of drinking tea daily are endless, and Steep Dreams
+              is here to help you find the perfect tea to support your health
+              goals. Please note that everyone’s wellness journey will differ,
+              and diet, exercise, genetics, and more are all key components to
+              consider when developing your personal regimen. We encourage you
+              to find what works best for you and your body to promote inner and
+              outer wellness.
             </p>
           </div>
           <div className="col-12 col-md-6 my-5">
-          <img
+            <img
               className="home-card img-fluid"
               src="https://images.unsplash.com/photo-1612846213933-916a1f56d859?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80"
             />
-
           </div>
-           
-
         </div>
       </div>
     </main>

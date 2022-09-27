@@ -76,21 +76,27 @@ const Products = ({ savedProducts, setSavedProducts }) => {
 
   return (
 
-    <div className="wrapper pt-4 product-wrapper">
+    <div className="wrapper pt-4 product-wrapper container-fluid">
 
 
     {addNotification ? renderProductsAdded() : <></>}
-
-     
-        {products.map((product, index) => (
-          <div className="container-fluid">
-          <div className="row text-center justify-content-center mb-3">
+        
+          <div className="container-fluid">  
+          
+            <div className="row text-center justify-content-center align-items-center ">
+         { products.map((product, index) => (
+            
           <div key={index} className="col-lg-4 col-md-6 col-sm-8 col-xs-12">
             <Card key={product._id} addToCart={addToCart} product={product} />
           </div>
+          
+          ))
+             } </div>
+
+      
+         
           </div>
-          </div>
-        ))}
+        
       
     </div>
   );

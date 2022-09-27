@@ -25,11 +25,13 @@ const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
         <h1 className=" logo-header mx-5">Steep Dreams</h1>
       </Link>
        
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Toggle aria-controls="basic-navbar-nav" className="text-left"/>
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto d-flex justify-content-between align-items-center px-5">
-            <SearchBar />
-            <div className="d-flex  justify-content-center align-items-center">    
+
+            <SearchBar className="my-2"/>
+
+            <div className="d-flex justify-content-center align-items-center my-2 text-center">    
             <Link className="nav" to="/about">
                Our Story
             </Link>
@@ -37,19 +39,20 @@ const Header = ({savedProductIds, savedProducts, setSavedProducts}) => {
                Products
             </Link>
             </div>  
-            <div className="d-flex justify-content-end align-items-center">
+
+            <div className="d-flex justify-content-between align-items-center my-2 text-center">
             {Auth.loggedIn() ? (
             <>
             <Link className="nav" to="/orders">
                My Orders
             </Link>
-            <div>
+            <div className="d-flex justify-content-end align-items-center my-2">
               <Cart savedProductIds={savedProductIds} savedProducts={savedProducts} setSavedProducts={setSavedProducts}/>
               <Link to="" onClick={logout}>
               <Icon icon="clarity:logout-solid" className="nav-icon"></Icon>
               </Link>
               <span className="px-2 profile-name">
-                Welcome {Auth.getProfile().data.email.split('@')[0] }  !!
+                Welcome {Auth.getProfile().data.email.split('@')[0] }
               </span>  
               </div>
             </>

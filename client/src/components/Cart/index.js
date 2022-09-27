@@ -222,7 +222,7 @@ export default function Cart({
     <>
       <Button
         onClick={handleShow}
-        className="btn cartToggle"
+        className=" btn cartToggle btn-dark text-light"
         to="/cart"
       >
         <Icon icon="entypo:shopping-cart"></Icon>
@@ -233,7 +233,7 @@ export default function Cart({
         </Offcanvas.Header>
         <Offcanvas.Body>
           {savedProducts.length !== 0 ? renderCartBody(): (
-            <p className="">Cart is Empty</p>
+            <p>Cart is Empty</p>
           )}
         </Offcanvas.Body>
       </Offcanvas>
