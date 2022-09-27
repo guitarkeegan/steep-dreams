@@ -176,7 +176,7 @@ export default function Cart({
     
     productData ?
    
-      ( <>
+      ( <div>
         {
         
         productData.map((product) => {
@@ -209,8 +209,8 @@ export default function Cart({
         )}
        
         <p>Total Price: ${totalPrice.toFixed(2)}</p>
-        <PayButton lineItems={cartItems} totalPrice={totalPrice}/>
-        </>)
+        <PayButton lineItems={cartItems} totalPrice={totalPrice} savedProducts={savedProducts}/>
+        </div>)
       
       :
       <div>Cart is Empty</div>
@@ -227,7 +227,7 @@ export default function Cart({
       >
         <Icon icon="entypo:shopping-cart"></Icon>
       </Button>
-      <Offcanvas show={show} onHide={handleClose} placement="end">
+      <Offcanvas show={show} onHide={handleClose} placement="end" className="text-dark">
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>My Cart</Offcanvas.Title>
         </Offcanvas.Header>

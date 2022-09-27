@@ -19,7 +19,7 @@ import Products from "./pages/Products";
 import Orders from "./pages/Orders";
 import Payment from "./pages/Payment";
 import FilterProduct from "./pages/FilterProduct";
-import CheckoutSuccess from "./pages/CheckoutSuccess";
+// import CheckoutSuccess from "./pages/CheckoutSuccess";
 import { getSavedProductIds } from "./utils/localStorage";
 
 import "./App.css";
@@ -81,7 +81,7 @@ function App() {
               <Route path="/payment" element={<Payment />} />
               <Route path="/products/:productName" element={<FilterProduct  savedProducts={savedProducts}
                     setSavedProducts={setSavedProducts} />} />
-              <Route path="/checkout-success" element={<CheckoutSuccess />} />   
+              {/* <Route path="/checkout-success" element={<CheckoutSuccess />} />    */}
             </Routes>
             <Footer/>
           </div>
