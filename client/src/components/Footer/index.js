@@ -11,7 +11,7 @@ const Footer = () => {
   
 
   return (
-    <footer className="w-100 mt-auto bg-light">
+    <footer className="w-100 mt-auto">
 
       <div className="container">
         <div className='row py-1 justify-content-between align-items-center'>
@@ -49,7 +49,7 @@ const Footer = () => {
           
         </div>
         <div className='conainer w-100 justify-conent-center col-lg-12 text-center py-2'>
-          <small className='text-dark'>&copy; {currentYear} Steep Dreams Ltd All rights reserved</small>
+          <small className='text-light'>&copy; {currentYear} Steep Dreams Ltd All rights reserved</small>
         </div>
 
       </div>
