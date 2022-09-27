@@ -50,6 +50,9 @@ type Mutation{
         totalPrice:Float!,
         productDetails:[ID]
         ):User
+
+  
+
 }
 `;
 

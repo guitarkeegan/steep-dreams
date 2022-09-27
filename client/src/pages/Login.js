@@ -32,12 +32,6 @@ const Login = () => {
         variables: { ...formState },
       });
 
-      console.log("from login page");
-      console.log(data);
-      // console.log("Data after submit");
-      // console.log("email",data.login.user);
-      // console.log("email",data.login.token);
-
       Auth.login(data.login.token);
 
       
@@ -54,7 +48,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex-row justify-center mb-4 mt-3">
+    <div className="flex-row justify-center mb-4 mt-3 text-dark">
       <div className="col-12 col-lg-7">
         <div className="card p-4 form-card">
           <h4 className="card-header p-2">LOGIN</h4>
@@ -62,7 +56,7 @@ const Login = () => {
             {data ? (
                 <Link to="/"></Link>
             ) : (
-              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-2 px-3 signup-form">
+              <form onSubmit={handleFormSubmit} className="d-flex flex-column py-2 px-3 login-form">
                 <div className="form-group d-flex justify-content-between align-items-center">
                 <label>Email</label>
                 <input
