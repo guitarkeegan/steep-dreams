@@ -6,6 +6,7 @@ const cors = require('cors');
 const stripe=require("stripe")(process.env.STRIPE_KEY);
 const auth=require("./utils/auth");
 const {Order,User}=require("./models");
+const {sendOrderConfirmation} = require('./utils/nodemailer');
 
 
 
@@ -193,6 +194,8 @@ app.post('/webhook',  async(request, response) => {
               populate:'productDetails'
               }
               );
+
+          sendOrderConfirmation(email);
 
           return updatedUser;
 

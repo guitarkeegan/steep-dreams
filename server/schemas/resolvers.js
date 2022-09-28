@@ -118,7 +118,7 @@ Query:{
                 }
                 );
 
-            sendOrderConfirmation(context.user.email);
+            
 
             return updatedUser;
 
