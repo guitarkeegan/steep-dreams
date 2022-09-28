@@ -6,6 +6,8 @@ const cors = require('cors');
 const stripe=require("stripe")(process.env.STRIPE_KEY);
 const auth=require("./utils/auth");
 const {Order,User}=require("./models");
+const {sendOrderConfirmation} = require('./utils/nodemailer');
+
 
 
 const { authMiddleware } = require('./utils/auth');
@@ -193,6 +195,8 @@ app.post('/webhook',  async(request, response) => {
               }
               );
 
+          sendOrderConfirmation(email);
+
           return updatedUser;
 
       
@@ -249,10 +253,6 @@ app.post('/webhook',  async(request, response) => {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../client/build/index.html'));
 });
-
-
-
-
 
 // Create a new instance of an Apollo server with the GraphQL schema
 const startApolloServer = async (typeDefs, resolvers) => {

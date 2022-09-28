@@ -1,6 +1,8 @@
 const {User,Product,Order}=require('../models');
 const { AuthenticationError } = require('apollo-server-express');
 const { signToken } = require('../utils/auth');
+const {signUpEmail, addNewUserTags} = require('../utils/mailchimp');
+const {sendWelcomeEmail, sendOrderConfirmation} = require('../utils/nodemailer');
 // import models, apollo error helper, and signToken
 
 const resolvers={
@@ -17,7 +19,7 @@ Query:{
              .populate('orders').populate({
               path:'orders',
               populate:'productDetails'
-             })
+             });
 
             return userData;
         }
@@ -64,7 +66,15 @@ Query:{
       if ((user === null)) {
         throw new AuthenticationError("Please type valid email and password");
       }
-     
+
+      signUpEmail(args.email);
+      sendWelcomeEmail(args.email);
+      // await addNewUserTags(args.email);
+      // await sendCampaignToNewMembers();
+      // await getAllCampaigns();
+      // await updateCampaignSettings();
+      // await resendCampaign();
+
       return { token, user };
     },
 
@@ -107,6 +117,8 @@ Query:{
                 populate:'productDetails'
                 }
                 );
+
+            
 
             return updatedUser;
 

@@ -43,7 +43,7 @@ function searchReducer(state, action){
 const SearchBar=function(){
 
     // const [searchState, setSearchState] = useState('');
-    const [state, dispach] = useReducer(searchReducer, initialState);
+    const [state, dispatch] = useReducer(searchReducer, initialState);
     const { loading, results, value } = state;
 
     const timeoutRef = useRef();
@@ -53,11 +53,11 @@ const SearchBar=function(){
 
     const handleSearchChange = useCallback((err, data) => {
       clearTimeout(timeoutRef.current);
-      dispach({type: 'START_SEARCH', query: data.value});
+      dispatch({type: 'START_SEARCH', query: data.value});
 
       timeoutRef.current = setTimeout(()=>{
         if (data.value.length === 0){
-          dispach({type: 'CLEAN_QUERY'});
+          dispatch({type: 'CLEAN_QUERY'});
           return;
         }
         
@@ -65,7 +65,7 @@ const SearchBar=function(){
         const re = new RegExp(_.escapeRegExp(data.value), 'i');
         const isMatch = (result) => re.test(result.title);
 
-        dispach({
+        dispatch({
           type: 'FINISH_SEARCH',
           results: _.filter(products, isMatch)
         });
@@ -91,7 +91,7 @@ const SearchBar=function(){
             loading={loading}
             results={results}
             onSearchChange={handleSearchChange}
-            onResultSelect={(e, data)=> dispach({type: 'UPDATE_SELECTION', selection: data.result.title})}
+            onResultSelect={(e, data)=> dispatch({type: 'UPDATE_SELECTION', selection: data.result.title})}
             value={value}
             placeholder="Search Products"
             className="searchbar col-6"/> 

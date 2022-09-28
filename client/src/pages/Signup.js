@@ -30,45 +30,54 @@ const Signup = () => {
     try {
       const { data } = await addUser({
         variables: { ...formState },
-      });
+      })
+      console.log("passing here?");
+      if (data){
+        Auth.login(data.addUser.token);
+      }
+    } catch (err) {
+        console.log(err);
+      }
+    }
+    
      
 
       //Send email using Elastic Email API and SMTP js Library
       //Below code rely on the /public/smtp.js file
 
-      if(data){
-        window.Email.send({
+    //   if(data){
+    //     window.Email.send({
 
-          SecureToken : "8466a82d-06a7-4a0a-96dc-067c65fb90c1",
-          To:formState.email,
-          From:"simmyvarghese5@gmail.com",
-          Subject:"Sign Up Email from SteepDreams",
-          Body:`
-          <div">
-          Hello ${formState.email.split('@')[0]},
-          <br>
-          <br>
-          Thanks for signing up with Steep Dreams.
-          <br>
-          Continue Shopping our<a href="http://localhost:3000/products"> Products</a>
-          <br>
-          <br>
-          Have a Steep  Dreams  !!
-          <br>
-          From Steep Dreams Team
-          </div>`
-        })
-        .then((res)=>console.log("Email Sent Successfully",res))
-        .catch(err=>console.log(err));
-      }
-      console.log("right before Auth Login");
-      Auth.login(data.addUser.token);
-      console.log("after auth.login");
-    } catch (e) {
-      console.error(e);
+    //       SecureToken : "8466a82d-06a7-4a0a-96dc-067c65fb90c1",
+    //       To:formState.email,
+    //       From:"simmyvarghese5@gmail.com",
+    //       Subject:"Sign Up Email from SteepDreams",
+    //       Body:`
+    //       <div">
+    //       Hello ${formState.email.split('@')[0]},
+    //       <br>
+    //       <br>
+    //       Thanks for signing up with Steep Dreams.
+    //       <br>
+    //       Continue Shopping our<a href="http://localhost:3000/products"> Products</a>
+    //       <br>
+    //       <br>
+    //       Have a Steep  Dreams  !!
+    //       <br>
+    //       From Steep Dreams Team
+    //       </div>`
+    //     })
+    //     .then((res)=>console.log("Email Sent Successfully",res))
+    //     .catch(err=>console.log(err));
+    //   }
+    //   console.log("right before Auth Login");
+      // Auth.login(data.addUser.token);
+    //   console.log("after auth.login");
+    // } catch (e) {
+    //   console.error(e);
       
-    }
-  };
+    // }
+  
 
   return (
     <main className="flex-row justify-center signup-main mt-3 text-dark">
@@ -125,6 +134,6 @@ const Signup = () => {
       </div>
     </main>
   );
-};
+}
 
 export default Signup;
