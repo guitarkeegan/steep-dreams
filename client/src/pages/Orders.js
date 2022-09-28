@@ -34,7 +34,9 @@ const Orders = () => {
   let productIds = [];
 
   //Get the Orders from the result of QUERy_ME
-  const orders = data?.me.orders || [];
+  let orders = data?.me.orders || [];
+ 
+
   const products = orders.productDetails;
 
   //If Order array is empty return h3 element
@@ -47,8 +49,10 @@ const Orders = () => {
     <main className="container mt-5">
 
       <h3>Order Summary</h3>
-      <div className="row my-4 align-items-center justify-content-center order-main-row">
-        {orders.map((order, index) => {
+      <div className="row my-4 align-items-center justify-content-center order-main-row text-dark">
+        {
+        
+        orders.map((order, index) => {
           //If order gets inserted with no products(incase from backend)
 
           let productIds = [];
@@ -60,9 +64,8 @@ const Orders = () => {
             return <p>No products Added to this Order</p>;
           } else {
             return (
-              <div className="card ordersummary">
+              <div className="ordersummary" key={index}>
                 <div className="row d-flex justify-content-between align-items-center p-2">
-
                   <p className="col-lg-4 col-md-4 col-sm-4 col-12">
                     Order No {index + 1}
                   </p>

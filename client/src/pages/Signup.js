@@ -80,8 +80,8 @@ const Signup = () => {
   
 
   return (
-    <main className="flex-row justify-center signup-main mt-3">
-      <div className="col-12 col-lg-7">
+    <main className="flex-row justify-center signup-main mt-3 text-dark">
+      <div className="col-12 col-lg-7 col-md-7">
         <div className="card p-4 form-card">
           <h4 className="card-header p-2">SIGN UP</h4>
 
